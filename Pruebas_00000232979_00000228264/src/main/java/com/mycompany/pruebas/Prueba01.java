@@ -2,13 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.objetosservicio;
+package com.mycompany.pruebas;
+
+import com.objetosservicio.Fecha;
+import com.objetosservicio.Periodo;
+import java.util.Calendar;
+
 
 /**
  *
- * @author le0jx
+ * @author joser
  */
-public class Main {
+public class Prueba01 {
 
     public static void main(String[] args) {
         Fecha hoy = new Fecha();
@@ -99,5 +104,4 @@ public class Main {
                        
         }
     }
-
 }
