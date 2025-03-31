@@ -8,6 +8,6 @@ package objetosNegocio;
  *
  * @author le0jx
  */
-public class ProductoGranel {
+public class ProductoGranel extends Producto{
     
 }
