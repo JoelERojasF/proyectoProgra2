@@ -13,22 +13,37 @@ import java.util.Objects;
 public class Producto {
     protected String clave, nombre, unidad;
     protected char tipo;
+    static int contador;
 
+    //Cada clave se establece de forma XX000 donde XX es el tipo de producot y 000 un numero
+    
     /**
-     * Constructor por omisión
+     * Constructor que crea un objeto con todos los atributos inicializados pero sin conteido, solo recive clave
+     * @param clave 
      */
-    public Producto() {
+    public Producto(String clave) {
+        //Validación si la clave ya está creada
+        this.clave = clave;
+        this.nombre = "";
+        this.unidad = "";
+        this.tipo = 'X';
     }
-
+    
+    /**
+     * Constructor por omision, al llamarlo igualmente le asigna un valor de clave al ser creado.
+     */
+    public Producto(){
+        this.clave = "XX" + String.format("%03d",contador++);
+    }
+    
     /**
      *  Constructor con todos los atributos de clase
-     * @param clave Clave de producto tipo string
      * @param nombre Nombre de producto
      * @param unidad Cantidad de unidades del producto
      * @param tipo Char de el tipo de producto puedase ser "G" o "E"
      */
-    public Producto(String clave, String nombre, String unidad, char tipo) {
-        this.clave = clave;
+    public Producto(String nombre, String unidad, char tipo) {
+        this.clave = "XX" + String.format("%03d",contador++);
         this.nombre = nombre;
         this.unidad = unidad;
         this.tipo = tipo;
@@ -39,7 +54,7 @@ public class Producto {
      * @param producto 
      */
     public Producto(Producto producto) {
-        this.clave = producto.clave;
+        this.clave = "XX" + String.format("%03d",contador++);
         this.nombre = producto.nombre;
         this.unidad = producto.unidad;
         this.tipo = producto.tipo;
@@ -49,9 +64,20 @@ public class Producto {
         return clave;
     }
 
-    //Añadir validación 
+    //Añadir validación de clave existente y de formato de clave.
     public void setClave(String clave) {
-        this.clave = clave;
+        if(clave.length() != 5){
+            throw new IllegalArgumentException("La clave ingresada no es válida.");
+        }
+        
+        //Valida si la clave sigue el formato
+        if(Character.isLetter(clave.charAt(0)) && Character.isLetter(clave.charAt(1)) && Character.isDigit(clave.charAt(2)) && Character.isDigit(clave.charAt(3)) && Character.isDigit(clave.charAt(4)) ){
+           
+            //Cambiar los 2 valores iniciales de clave
+            this.clave = clave;
+        }
+        
+        
     }
 
     public String getNombre() {
@@ -102,7 +128,4 @@ public class Producto {
         final Producto other = (Producto) obj;
         return Objects.equals(this.clave, other.clave);
     }
-    
-    
-    
 }

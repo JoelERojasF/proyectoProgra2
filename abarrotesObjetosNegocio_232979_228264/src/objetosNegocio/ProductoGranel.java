@@ -10,7 +10,13 @@ package objetosNegocio;
  */
 public class ProductoGranel extends Producto{
     private float cantidad;
-
+    
+    /**
+     * Constructor por omision
+     */
+    public ProductoGranel() {
+    }
+    
     /**
      *  Constructor que recibe como parámetro otro objeto, creandolo con los parametros de el objeto indicado y la cantidad indicada.
      * @param cantidad

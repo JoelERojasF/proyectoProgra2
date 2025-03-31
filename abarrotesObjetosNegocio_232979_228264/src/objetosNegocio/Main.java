@@ -38,6 +38,33 @@ public class Main {
         Movimiento m4 = new Movimiento(s4);
         System.out.println(m4.toString());
         
+        System.out.println("Prueba");
+        
+        Producto producto1 = new Producto();
+        Producto producto2 = new Producto();
+        Producto producto3 = new Producto();
+        
+        Producto producto4 = new Producto("nombre", "unidad", 'C');
+        Producto producto5 = new Producto("nombre", "unidad", 'C');
+        
+        Producto producto6 = new Producto(producto1);
+        
+        ProductoGranel productoGranel1 = new ProductoGranel();
+        ProductoGranel productoGranel2 = new ProductoGranel();
+        
+        System.out.println(producto1.getClave());
+        System.out.println(producto2.getClave());
+        System.out.println(producto3.getClave());
+        System.out.println(producto4.getClave());
+        System.out.println(producto5.getClave());
+        System.out.println(producto6.getClave());
+        System.out.println(productoGranel1.getClave());
+        System.out.println(productoGranel2.getClave());
+        
+        
+        
+        System.out.println("Prueba");
+        
     }
     
 }

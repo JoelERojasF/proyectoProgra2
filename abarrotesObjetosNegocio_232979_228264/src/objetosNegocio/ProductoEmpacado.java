@@ -12,6 +12,12 @@ public class ProductoEmpacado extends Producto {
     private int cantidad;
 
     /**
+     * Constructor por omision
+     */
+    public ProductoEmpacado(){
+    }
+    
+    /**
      *  Constructor que recibe como parámetro otro objeto, creandolo con los parametros de el objeto indicado y la cantidad indicada.
      * @param cantidad
      * @param producto 
@@ -29,5 +35,5 @@ public class ProductoEmpacado extends Producto {
         super(producto);
         this.cantidad = 0;
     }
-       
+    
 }
