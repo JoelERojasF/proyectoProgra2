@@ -16,6 +16,7 @@ public class ProductoGranel extends Producto{
      */
     public ProductoGranel() {
         this.tipo = 'G';
+        this.clave = "GR" + clave.substring(2);
     }
     
     /**
@@ -27,6 +28,7 @@ public class ProductoGranel extends Producto{
         super(producto);
         this.cantidad = cantidad;
         this.tipo = 'G';
+        this.clave = "GR" + clave.substring(2);
     }
 
     /**
@@ -37,6 +39,7 @@ public class ProductoGranel extends Producto{
         super(producto);
         this.cantidad = 0.0f;
         this.tipo = 'G';
+        this.clave = "GR" + clave.substring(2);
     }
 
     /**

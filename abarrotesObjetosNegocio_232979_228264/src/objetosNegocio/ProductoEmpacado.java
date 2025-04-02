@@ -16,6 +16,7 @@ public class ProductoEmpacado extends Producto {
      */
     public ProductoEmpacado(){
         this.tipo = 'E';
+        this.clave = "EM" + clave.substring(2);
     }
     
     /**
@@ -27,6 +28,7 @@ public class ProductoEmpacado extends Producto {
         super(producto);
         this.cantidad = cantidad;
         this.tipo = 'E';
+        this.clave = "EM" + clave.substring(2);
     }
     
     /**
@@ -37,6 +39,7 @@ public class ProductoEmpacado extends Producto {
         super(producto);
         this.cantidad = 0;
         this.tipo = 'E';
+        this.clave = "EM" + clave.substring(2);
     }
 
     /**
@@ -63,6 +66,4 @@ public class ProductoEmpacado extends Producto {
     public String toString() {
         return clave + "," + nombre + "," + unidad + "," + tipo + "," + cantidad;
     }
-    
-    
 }

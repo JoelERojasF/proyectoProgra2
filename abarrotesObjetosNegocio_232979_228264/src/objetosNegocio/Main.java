@@ -16,7 +16,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-  
+        Producto producto1 = new Producto();
+        ProductoEmpacado prodEmp1 = new ProductoEmpacado();
+        ProductoGranel prodGra1 = new ProductoGranel();
+        
+        System.out.println(producto1.toString());
+        System.out.println(prodEmp1.toString());
+        System.out.println(prodGra1.toString());
     }
     
 }
