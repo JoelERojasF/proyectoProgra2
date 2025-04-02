@@ -79,7 +79,7 @@ public class Movimiento {
         this.procesado = procesado;
     }
     
-    private boolean validarCve(String cve){
+    public boolean validarCve(String cve){
         if(cve.length() != 5){
         return false;
         }
