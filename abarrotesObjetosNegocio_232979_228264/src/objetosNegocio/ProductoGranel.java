@@ -15,6 +15,7 @@ public class ProductoGranel extends Producto{
      * Constructor por omision
      */
     public ProductoGranel() {
+        this.tipo = 'G';
     }
     
     /**
@@ -25,6 +26,7 @@ public class ProductoGranel extends Producto{
     public ProductoGranel(float cantidad, Producto producto) {
         super(producto);
         this.cantidad = cantidad;
+        this.tipo = 'G';
     }
 
     /**
@@ -34,8 +36,7 @@ public class ProductoGranel extends Producto{
     public ProductoGranel(Producto producto) {
         super(producto);
         this.cantidad = 0.0f;
+        this.tipo = 'G';
     }
-    
-    
     
 }

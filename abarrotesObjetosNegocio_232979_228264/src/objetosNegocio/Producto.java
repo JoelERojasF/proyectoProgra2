@@ -34,12 +34,13 @@ public class Producto {
      */
     public Producto(){
         this.clave = "XX" + String.format("%03d",contador++);
+        this.tipo = 'X';
     }
     
     /**
      *  Constructor con todos los atributos de clase
      * @param nombre Nombre de producto
-     * @param unidad Cantidad de unidades del producto
+     * @param unidad unidad de medida del producto
      * @param tipo Char de el tipo de producto puedase ser "G" o "E"
      */
     public Producto(String nombre, String unidad, char tipo) {
@@ -67,13 +68,17 @@ public class Producto {
     //Añadir validación de clave existente y de formato de clave.
     public void setClave(String clave) {
         if(clave.length() != 5){
-            throw new IllegalArgumentException("La clave ingresada no es válida.");
+            throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
         }
         
         //Valida si la clave sigue el formato
         if(Character.isLetter(clave.charAt(0)) && Character.isLetter(clave.charAt(1)) && Character.isDigit(clave.charAt(2)) && Character.isDigit(clave.charAt(3)) && Character.isDigit(clave.charAt(4)) ){
            
-            //Cambiar los 2 valores iniciales de clave
+            //validamos si la clave no cambió, refiriendose a la parte numérica, solo puede modificarse los primeros 2 digitos de la clave.
+            if(clave.substring(2) != this.clave.substring(2)){
+                throw new IllegalArgumentException("Error: no puedes cambiar el valor numérico de una clave.");
+            }
+            
             this.clave = clave;
         }
         

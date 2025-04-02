@@ -52,14 +52,14 @@ public class Main {
         ProductoGranel productoGranel1 = new ProductoGranel();
         ProductoGranel productoGranel2 = new ProductoGranel();
         
-        System.out.println(producto1.getClave());
-        System.out.println(producto2.getClave());
-        System.out.println(producto3.getClave());
-        System.out.println(producto4.getClave());
-        System.out.println(producto5.getClave());
-        System.out.println(producto6.getClave());
-        System.out.println(productoGranel1.getClave());
-        System.out.println(productoGranel2.getClave());
+        System.out.println(producto1.getTipo());
+        System.out.println(producto2.getTipo());
+        System.out.println(producto3.getTipo());
+        System.out.println(producto4.getTipo());
+        System.out.println(producto5.getTipo());
+        System.out.println(producto6.getTipo());
+        System.out.println(productoGranel1.getTipo());
+        System.out.println(productoGranel2.getTipo());
         
         
         

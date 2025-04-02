@@ -15,6 +15,7 @@ public class ProductoEmpacado extends Producto {
      * Constructor por omision
      */
     public ProductoEmpacado(){
+        this.tipo = 'E';
     }
     
     /**
@@ -25,6 +26,7 @@ public class ProductoEmpacado extends Producto {
     public ProductoEmpacado(int cantidad, Producto producto) {
         super(producto);
         this.cantidad = cantidad;
+        this.tipo = 'E';
     }
     
     /**
@@ -34,6 +36,7 @@ public class ProductoEmpacado extends Producto {
     public ProductoEmpacado(Producto producto) {
         super(producto);
         this.cantidad = 0;
+        this.tipo = 'E';
     }
     
 }
