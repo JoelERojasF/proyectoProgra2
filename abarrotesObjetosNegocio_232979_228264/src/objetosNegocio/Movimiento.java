@@ -9,10 +9,10 @@ import objetosServicio.Fecha;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Ruben Gaxiola
  */
 public class Movimiento {
-    private String cveMovimient;
+    private String cveMovimiento;
     private Fecha fecha;
     private Boolean procesado;
     
@@ -25,35 +25,38 @@ public class Movimiento {
     public Movimiento(Fecha fecha, Boolean procesado) {
         Fecha fechaActual = new Fecha();
         if(fechaActual.after(fecha)){
-        this.cveMovimient = String.format("mv%03d", n);
+        this.cveMovimiento = String.format("mv%03d", n);
         this.fecha = fecha;
         this.procesado = procesado;
         n++;
         }else{
-            System.out.println("error: fecha futura, imposible de registrar");
+            throw new IndexOutOfBoundsException("Error: fecha futura, imposible de registrar.");
         }       
     }
 
     public Movimiento(String cveMovimient) {
         if(validarCve(cveMovimient)){
-        this.cveMovimient = cveMovimient;
+        this.cveMovimiento = cveMovimient;
         this.fecha = null;
         this.procesado = false;
         }else{
-            System.out.println("la clave no cumple con el formato");
+            throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
         }  
         
     }
 
     public String getCveMovimient() {
-        return cveMovimient;
+        return cveMovimiento;
     }
 
-    public void setCveMovimient(String cveMovimient) {
-        if(validarCve(cveMovimient)){
-            this.cveMovimient = cveMovimient;
+    public void setCveMovimient(String cveMovimiento) {
+        if(validarCve(cveMovimiento)){
+            if(cveMovimiento.substring(2) != this.cveMovimiento.substring(2)){
+                throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+            }
+            this.cveMovimiento = cveMovimiento;
         }else{
-            System.out.println("la clave no cumple con el formato");
+            throw new IllegalArgumentException("Error: no puedes cambiar el valor numérico de una clave.");
         } 
     }
 
@@ -67,7 +70,7 @@ public class Movimiento {
         if(fechaActual.after(fecha)){
             this.fecha = fecha;
         }else{
-            throw new IndexOutOfBoundsException("error: fecha futura, imposible de registrar");
+            throw new IndexOutOfBoundsException("Error: fecha futura, imposible de registrar.");
         }   
     }
 
@@ -79,11 +82,11 @@ public class Movimiento {
         this.procesado = procesado;
     }
     
-    public boolean validarCve(String cve){
-        if(cve.length() != 5){
+    public boolean validarCve(String clave){
+        if(clave.length() != 5){
         return false;
         }
-        if(Character.isLetter(cve.charAt(0)) && Character.isLetter(cve.charAt(1)) && Character.isDigit(cve.charAt(2)) && Character.isDigit(cve.charAt(3)) && Character.isDigit(cve.charAt(4)) ){
+        if(Character.isLetter(clave.charAt(0)) && Character.isLetter(clave.charAt(1)) && Character.isDigit(clave.charAt(2)) && Character.isDigit(clave.charAt(3)) && Character.isDigit(clave.charAt(4)) ){
         return true;
         }
         return false;
@@ -100,7 +103,7 @@ public class Movimiento {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 37 * hash + Objects.hashCode(this.cveMovimient);
+        hash = 37 * hash + Objects.hashCode(this.cveMovimiento);
         hash = 37 * hash + Objects.hashCode(this.fecha);
         hash = 37 * hash + Objects.hashCode(this.procesado);
         return hash;
@@ -108,7 +111,7 @@ public class Movimiento {
 
     @Override
     public String toString() {
-        return cveMovimient + "," + fecha + "," + procesado;
+        return cveMovimiento + "," + fecha + "," + procesado;
     }
     
 

@@ -6,7 +6,7 @@ package objetosNegocio;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Ruben Gaxiola
  */
 public class MovimientoEmpacado extends Movimiento{
     
@@ -46,3 +46,4 @@ public class MovimientoEmpacado extends Movimiento{
     
     
 }
+ 

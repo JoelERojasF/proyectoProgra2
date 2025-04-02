@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Ruben Gaxiola
  */
 public class Producto {
     protected String clave, nombre, unidad;
@@ -91,7 +91,12 @@ public class Producto {
 
     //Añadir validación 
     public void setNombre(String nombre) {
+        if(nombre == "" || nombre == null){
         this.nombre = nombre;
+        }else{
+            throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+        }
+        
     }
 
     public String getUnidad() {
@@ -100,7 +105,12 @@ public class Producto {
 
     //Añadir validación 
     public void setUnidad(String unidad) {
+        if(unidad == "KG" || unidad == "g" || unidad == "L" || unidad == "PZ"){
         this.unidad = unidad;
+        }else{
+            throw new IllegalArgumentException("Error: el tipo de unidad ingresado no es válido.");
+        }
+        
     }
     
     public char getTipo() {
@@ -109,7 +119,12 @@ public class Producto {
     
     //Añadir validación 
     public void setTipo(char tipo) {
+        if(tipo == 'E' || tipo == 'G'){
         this.tipo = tipo;
+        }else{
+            throw new IllegalArgumentException("Error: el tipo de producto ingresado no es válido.");
+        }
+        
     }
 
     @Override

@@ -8,7 +8,7 @@ import objetosServicio.Fecha;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Ruben Gaxiola
  */
 public class MovimientoGranel extends Movimiento{
     
