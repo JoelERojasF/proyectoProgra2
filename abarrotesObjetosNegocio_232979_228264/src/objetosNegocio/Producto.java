@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Producto {
     protected String clave, nombre, unidad;
     protected char tipo;
-    static int contador;
+    static int contador =1;
 
     //Cada clave se establece de forma XX000 donde XX es el tipo de producot y 000 un numero
     
@@ -64,11 +64,47 @@ public class Producto {
     }
     
     /**
+     *  Constructor con todos los atributos de clase
+     * @param clave los primeros dos digitos de la clave a añadir
+     * @param nombre Nombre de producto
+     * @param unidad unidad de medida del producto
+     * @param tipo Char de el tipo de producto puedase ser "G" o "E"
+     */
+    public Producto(String clave, String nombre, String unidad, char tipo) {
+        if(nombre != "" || nombre != null){
+            if(unidad == "KG" || unidad == "g" || unidad == "L" || unidad == "PZ"){
+                if(tipo == 'E' || tipo == 'G'){
+                    clave = clave + String.format("%03d",contador++);
+                    if(clave.length() != 5){
+                        throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+                    }
+                    if(Character.isLetter(clave.charAt(0)) && Character.isLetter(clave.charAt(1)) && Character.isDigit(clave.charAt(2)) && Character.isDigit(clave.charAt(3)) && Character.isDigit(clave.charAt(4)) ){
+                    this.clave = clave;
+                    this.nombre = nombre;
+                    this.unidad = unidad;
+                    this.tipo = tipo;
+                     }else{
+                    throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+                    }
+                    
+                }else{
+                    throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+                }
+                }else{
+                    throw new IllegalArgumentException("Error: el tipo de unidad ingresado no es válido.");
+            }
+        }else{
+            throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+        }
+        
+    }
+    
+    /**
      * Constructor copia que crea un nuevo objeto producto con los mismos parametros que el atributo que recibe
      * @param producto 
      */
     public Producto(Producto producto) {
-        this.clave = String.format("XX%03d",contador++);
+        this.clave = producto.clave;
         this.nombre = producto.nombre;
         this.unidad = producto.unidad;
         this.tipo = producto.tipo;
@@ -96,7 +132,7 @@ public class Producto {
         if(Character.isLetter(clave.charAt(0)) && Character.isLetter(clave.charAt(1)) && Character.isDigit(clave.charAt(2)) && Character.isDigit(clave.charAt(3)) && Character.isDigit(clave.charAt(4)) ){
            
             //validamos si la clave no cambió, refiriendose a la parte numérica, solo puede modificarse los primeros 2 digitos de la clave.
-            if(clave.substring(2) != this.clave.substring(2)){
+            if(!clave.substring(2).equals(this.clave.substring(2))){
                 throw new IllegalArgumentException("Error: no puedes cambiar el valor numérico de una clave.");
             }
             

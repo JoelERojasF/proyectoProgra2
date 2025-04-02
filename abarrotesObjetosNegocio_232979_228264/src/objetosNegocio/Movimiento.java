@@ -12,9 +12,9 @@ import objetosServicio.Fecha;
  * @author Joel Rojas y Ruben Gaxiola
  */
 public class Movimiento {
-    private String cveMovimiento;
-    private Fecha fecha;
-    private Boolean procesado;
+    String cveMovimiento;
+    Fecha fecha;
+    Boolean procesado;
     
     
     private static  int contador = 1;

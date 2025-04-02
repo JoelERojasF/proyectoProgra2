@@ -4,6 +4,8 @@
  */
 package objetosNegocio;
 
+import objetosServicio.Fecha;
+
 /**
  *
  * @author Joel Rojas y Ruben Gaxiola
@@ -12,33 +14,59 @@ public class MovimientoEmpacado extends Movimiento{
     
     private ProductoEmpacado productoEmpacado;
 
+    /**
+     * constructor por defecto
+     */
     public MovimientoEmpacado() {
     }
 
-    public MovimientoEmpacado(ProductoEmpacado productoEmpacado) {
+    /**
+     * constructor en base a parametros
+     * @param fecha fecha del movimiento
+     * @param procesado estado de prosesado del movimiento
+     * @param productoEmpacado producto del movimiento
+     */
+    public MovimientoEmpacado(Fecha fecha, Boolean procesado, ProductoEmpacado productoEmpacado) {
+        super(fecha,procesado);
         if(productoEmpacado != null){
-        this.productoEmpacado = productoEmpacado;
+            this.productoEmpacado = productoEmpacado;
         }else{
-            System.out.println("error producto nulo");
+            throw new NullPointerException("error producto no existe");
         }
     }
 
+    /**
+     * constructor solo con la clave del movimiento
+     * @param cve clave del movimiento
+     */
     public MovimientoEmpacado(String cve) {
-        Movimiento m = new Movimiento(cve);
+        super(cve);
         this.productoEmpacado = null;
     }
     
+    /**
+     * get del producto del movimiento
+     * @return el producto del movimiento
+     */
     public ProductoEmpacado getProductoEmpacado() {
         return productoEmpacado;
     }
 
+    /**
+     * set del producto del movimiento
+     * @param productoEmpacado el producto del movimiento
+     */
     public void setProductoEmpacado(ProductoEmpacado productoEmpacado) {
         this.productoEmpacado = productoEmpacado;
     }
 
+    /**
+     * metodo para obtener el toString con el formato deseado
+     * @return el toString con el formato deseado
+     */
     @Override
     public String toString() {
-        return this.getCveMovimient() + "," + this.getFecha() + "," + this.getProcesado()  + "," + productoEmpacado.getClave() +"," +productoEmpacado.getNombre() +"," + productoEmpacado.getUnidad() +"," + productoEmpacado.getTipo();
+        return cveMovimiento + "," + fecha + "," + procesado + "," + productoEmpacado.getClave() +"," +productoEmpacado.getNombre() +"," + productoEmpacado.getUnidad() +"," + productoEmpacado.getTipo();
     }
 
     
