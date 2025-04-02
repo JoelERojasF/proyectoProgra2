@@ -38,5 +38,31 @@ public class ProductoGranel extends Producto{
         this.cantidad = 0.0f;
         this.tipo = 'G';
     }
+
+    /**
+     * get de la cantidad de producto
+     * @return cantidad de producto
+     */
+    public float getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * set de la cantidad de producto
+     * @param cantidad 
+     */
+    public void setCantidad(float cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    /**
+     * metodo para obtener el toString con el formato deseado
+     * @return el toString con el formato deseado
+     */
+    @Override
+    public String toString() {
+        return clave + "," + nombre + "," + unidad + "," + tipo + "," + cantidad;
+    }
+    
     
 }

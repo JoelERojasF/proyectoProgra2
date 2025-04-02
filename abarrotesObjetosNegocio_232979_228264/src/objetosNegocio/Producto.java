@@ -22,7 +22,7 @@ public class Producto {
      * @param clave 
      */
     public Producto(String clave) {
-        //Validación si la clave ya está creada
+        
         this.clave = clave;
         this.nombre = "";
         this.unidad = "";
@@ -33,7 +33,7 @@ public class Producto {
      * Constructor por omision, al llamarlo igualmente le asigna un valor de clave al ser creado.
      */
     public Producto(){
-        this.clave = "XX" + String.format("%03d",contador++);
+        this.clave = String.format("XX%03d",contador++);
         this.tipo = 'X';
     }
     
@@ -44,10 +44,23 @@ public class Producto {
      * @param tipo Char de el tipo de producto puedase ser "G" o "E"
      */
     public Producto(String nombre, String unidad, char tipo) {
-        this.clave = "XX" + String.format("%03d",contador++);
-        this.nombre = nombre;
-        this.unidad = unidad;
-        this.tipo = tipo;
+        if(nombre != "" || nombre != null){
+            if(unidad == "KG" || unidad == "g" || unidad == "L" || unidad == "PZ"){
+                if(tipo == 'E' || tipo == 'G'){
+                    this.clave = String.format("XX%03d",contador++);
+                    this.nombre = nombre;
+                    this.unidad = unidad;
+                    this.tipo = tipo;
+                }else{
+                    throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+                }
+                }else{
+                    throw new IllegalArgumentException("Error: el tipo de unidad ingresado no es válido.");
+            }
+        }else{
+            throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+        }
+        
     }
     
     /**
@@ -55,17 +68,25 @@ public class Producto {
      * @param producto 
      */
     public Producto(Producto producto) {
-        this.clave = "XX" + String.format("%03d",contador++);
+        this.clave = String.format("XX%03d",contador++);
         this.nombre = producto.nombre;
         this.unidad = producto.unidad;
         this.tipo = producto.tipo;
     }
 
+    /**
+     * get de la clave del producto
+     * @return la clave del producto
+     */
     public String getClave() {
         return clave;
     }
 
-    //Añadir validación de clave existente y de formato de clave.
+    /**
+     * set de la clave del producto
+     * @param clave la clave del producto
+     */
+    //Añadir validación de clave existente
     public void setClave(String clave) {
         if(clave.length() != 5){
             throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
@@ -80,18 +101,23 @@ public class Producto {
             }
             
             this.clave = clave;
-        }
-        
-        
+        } 
     }
 
+    /**
+     * get del nombre del producto
+     * @return el nombre del producto
+     */
     public String getNombre() {
         return nombre;
     }
 
-    //Añadir validación 
+    /**
+     * set del nombre del producto
+     * @param nombre el nombre del producto
+     */
     public void setNombre(String nombre) {
-        if(nombre == "" || nombre == null){
+        if(nombre != "" || nombre != null){
         this.nombre = nombre;
         }else{
             throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
@@ -99,11 +125,18 @@ public class Producto {
         
     }
 
+    /**
+     * get del tipo de unidad del producto
+     * @return el tipo de unidad
+     */
     public String getUnidad() {
         return unidad;
     }
 
-    //Añadir validación 
+    /**
+     * set del tipo de unidad del producto
+     * @param unidad el tipo de unidad
+     */
     public void setUnidad(String unidad) {
         if(unidad == "KG" || unidad == "g" || unidad == "L" || unidad == "PZ"){
         this.unidad = unidad;
@@ -113,11 +146,18 @@ public class Producto {
         
     }
     
+    /**
+     * get del tipo del producto
+     * @return el tipo del producto
+     */
     public char getTipo() {
         return tipo;
     }
     
-    //Añadir validación 
+    /**
+     * set del tipo del producto
+     * @param tipo el tipo del producto
+     */
     public void setTipo(char tipo) {
         if(tipo == 'E' || tipo == 'G'){
         this.tipo = tipo;
@@ -127,6 +167,10 @@ public class Producto {
         
     }
 
+    /**
+     * metodo para obtener el hashcode
+     * @return el hashcode
+     */
     @Override
     public int hashCode() {
         int hash = 5;
@@ -137,6 +181,11 @@ public class Producto {
         return hash;
     }
 
+    /**
+     * metodo  que compara este producto con el objeto del parámetro
+     * @param obj objeto a comparar
+     * @return  regresa true si el objeto del parámetro es de la clase Producto y ambos tienen la misma clave, false en caso contrario
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -148,4 +197,15 @@ public class Producto {
         final Producto other = (Producto) obj;
         return Objects.equals(this.clave, other.clave);
     }
+
+    /**
+     * metodo para obtener el toString con el formato deseado
+     * @return el toString con el formato deseado
+     */
+    @Override
+    public String toString() {
+        return  clave + "," + nombre + "," + unidad + "," + tipo;
+    }
+    
+    
 }
