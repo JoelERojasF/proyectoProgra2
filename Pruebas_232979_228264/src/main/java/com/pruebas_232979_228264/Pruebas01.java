@@ -7,6 +7,10 @@ package com.pruebas_232979_228264;
 import com.objetosservicio.Fecha;
 import com.objetosservicio.Periodo;
 
+/**
+ *
+ * @author Joel Rojas y Rubén Valdez
+ */
 public class Pruebas01 {
 
     public static void main(String[] args) {

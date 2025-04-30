@@ -13,7 +13,7 @@ import com.objetosservicio.Fecha;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Rubén Valdez
  */
 public class Pruebas02 {
 

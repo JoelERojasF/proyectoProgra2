@@ -6,7 +6,7 @@ package com.objetosservicio;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Rubén Valdez
  */
 public class Main {
 

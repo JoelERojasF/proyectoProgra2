@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Joel Rojas y Ruben Gaxiola
+ * @author Joel Rojas y Rubén Valdez
  */
 public class Movimiento {
     String cveMovimiento;

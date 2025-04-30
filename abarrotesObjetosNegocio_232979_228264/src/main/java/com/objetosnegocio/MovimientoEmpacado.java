@@ -5,10 +5,9 @@
 package com.objetosnegocio;
 
 import com.objetosservicio.Fecha;
-
 /**
  *
- * @author Joel Rojas y Ruben Gaxiola
+ * @author Joel Rojas y Rubén Valdez
  */
 public class MovimientoEmpacado extends Movimiento{
     

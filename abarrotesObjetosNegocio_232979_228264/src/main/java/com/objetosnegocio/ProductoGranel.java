@@ -6,7 +6,7 @@ package com.objetosnegocio;
 
 /**
  *
- * @author Joel Rojas y Ruben Gaxiola
+ * @author Joel Rojas y Rubén Valdez
  */
 public class ProductoGranel extends Producto{
     private float cantidad;

@@ -16,7 +16,7 @@ import java.util.GregorianCalendar;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Rubén Valdez
  */
 public class Fecha extends GregorianCalendar{
     
