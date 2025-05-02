@@ -4,6 +4,7 @@
  */
 package com.objetosnegocio;
 
+import Excepciones.ElementoNoEncontradoException;
 import com.objetosservicio.Fecha;
 /**
  *
@@ -30,7 +31,7 @@ public class MovimientoEmpacado extends Movimiento{
         if(productoEmpacado != null){
             this.productoEmpacado = productoEmpacado;
         }else{
-            throw new NullPointerException("error producto no existe");
+            throw new ElementoNoEncontradoException("error producto no existe");
         }
     }
 

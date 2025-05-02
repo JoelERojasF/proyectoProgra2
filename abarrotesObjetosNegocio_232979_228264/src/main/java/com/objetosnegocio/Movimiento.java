@@ -4,6 +4,7 @@
  */
 package com.objetosnegocio;
 
+import Excepciones.DatoInvalidoException;
 import com.objetosservicio.Fecha;
 import java.util.Objects;
 
@@ -40,7 +41,7 @@ public class Movimiento {
         this.procesado = procesado;
         contador++;
         }else{
-            throw new IndexOutOfBoundsException("Error: fecha futura, imposible de registrar.");
+            throw new DatoInvalidoException("Error: fecha futura, imposible de registrar.");
         }       
     }
 
@@ -53,7 +54,7 @@ public class Movimiento {
             cveMovimiento = String.format(cveMovimiento + "%03d", contador);
             contador++;
         }else{
-            throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+            throw new DatoInvalidoException("Error: la clave ingresada no es válida.");
         }
  
         if(validarCve(cveMovimiento)){
@@ -61,7 +62,7 @@ public class Movimiento {
         this.fecha = null;
         this.procesado = false;
         }else{
-            throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+            throw new DatoInvalidoException("Error: la clave ingresada no es válida.");
         }  
         
     }
@@ -81,11 +82,11 @@ public class Movimiento {
     public void setCveMovimient(String cveMovimiento) {
         if(validarCve(cveMovimiento)){
             if(cveMovimiento.substring(2) != this.cveMovimiento.substring(2)){
-                throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+                throw new DatoInvalidoException("Error: la clave ingresada no es válida.");
             }
             this.cveMovimiento = cveMovimiento;
         }else{
-            throw new IllegalArgumentException("Error: no puedes cambiar el valor numérico de una clave.");
+            throw new DatoInvalidoException("Error: no puedes cambiar el valor numérico de una clave.");
         } 
     }
 
@@ -107,7 +108,7 @@ public class Movimiento {
         if(fechaActual.after(fecha)){
             this.fecha = fecha;
         }else{
-            throw new IndexOutOfBoundsException("Error: fecha futura, imposible de registrar.");
+            throw new DatoInvalidoException("Error: fecha futura, imposible de registrar.");
         }   
     }
 
@@ -149,9 +150,9 @@ public class Movimiento {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Movimiento){
-            if(((Movimiento) obj).getCveMovimient() == this.getCveMovimient()){
-            return true;
+        if(obj instanceof Movimiento){
+            if(((Movimiento) obj).getCveMovimient().equalsIgnoreCase(this.getCveMovimient())){
+                return true;
             }
         } 
         return false;

@@ -4,6 +4,7 @@
  */
 package com.objetosnegocio;
 
+import Excepciones.DatoInvalidoException;
 import java.util.Objects;
 
 /**
@@ -22,7 +23,10 @@ public class Producto {
      * @param clave 
      */
     public Producto(String clave) {
-        
+        clave = clave + String.format("%03d",contador++);
+        if(clave.length() != 5){
+            throw new DatoInvalidoException("Error: la clave ingresada no es válida.");
+        }
         this.clave = clave;
         this.nombre = "";
         this.unidad = "";
@@ -44,21 +48,21 @@ public class Producto {
      * @param tipo Char de el tipo de producto puedase ser "G" o "E"
      */
     public Producto(String nombre, String unidad, char tipo) {
-        if(nombre != "" || nombre != null){
-            if(unidad == "KG" || unidad == "g" || unidad == "L" || unidad == "PZ"){
+        if(!"".equals(nombre) || nombre != null){
+            if("KG".equalsIgnoreCase(unidad) || "g".equalsIgnoreCase(unidad) || "L".equalsIgnoreCase(unidad) || "PZ".equalsIgnoreCase(unidad)){
                 if(tipo == 'E' || tipo == 'G'){
                     this.clave = String.format("XX%03d",contador++);
                     this.nombre = nombre;
                     this.unidad = unidad;
                     this.tipo = tipo;
                 }else{
-                    throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+                    throw new DatoInvalidoException("Error: el tipo ingresado no es válido.");
                 }
                 }else{
-                    throw new IllegalArgumentException("Error: el tipo de unidad ingresado no es válido.");
+                    throw new DatoInvalidoException("Error: la unidad ingresado no es válido.");
             }
         }else{
-            throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+            throw new DatoInvalidoException("Error: el nombre ingresado no es válido.");
         }
         
     }
@@ -71,8 +75,8 @@ public class Producto {
      * @param tipo Char de el tipo de producto puedase ser "G" o "E"
      */
     public Producto(String clave, String nombre, String unidad, char tipo) {
-        if(nombre != "" || nombre != null){
-            if(unidad == "KG" || unidad == "g" || unidad == "L" || unidad == "PZ"){
+        if(!"".equals(nombre) || nombre != null){
+            if("KG".equalsIgnoreCase(unidad) || "g".equalsIgnoreCase(unidad) || "L".equalsIgnoreCase(unidad) || "PZ".equalsIgnoreCase(unidad)){
                 if(tipo == 'E' || tipo == 'G'){
                     clave = clave + String.format("%03d",contador++);
                     if(clave.length() != 5){
@@ -84,17 +88,17 @@ public class Producto {
                     this.unidad = unidad;
                     this.tipo = tipo;
                      }else{
-                    throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+                    throw new DatoInvalidoException("Error: la clave ingresada no es válida.");
                     }
                     
                 }else{
-                    throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+                    throw new DatoInvalidoException("Error: el tipo ingresado no es válido.");
                 }
                 }else{
-                    throw new IllegalArgumentException("Error: el tipo de unidad ingresado no es válido.");
+                    throw new DatoInvalidoException("Error: la unidad ingresado no es válido.");
             }
         }else{
-            throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+            throw new DatoInvalidoException("Error: el nombre ingresado no es válido.");
         }
         
     }
@@ -125,7 +129,7 @@ public class Producto {
     //Añadir validación de clave existente
     public void setClave(String clave) {
         if(clave.length() != 5){
-            throw new IllegalArgumentException("Error: la clave ingresada no es válida.");
+            throw new DatoInvalidoException("Error: la clave ingresada no es válida.");
         }
         
         //Valida si la clave sigue el formato
@@ -133,7 +137,7 @@ public class Producto {
            
             //validamos si la clave no cambió, refiriendose a la parte numérica, solo puede modificarse los primeros 2 digitos de la clave.
             if(!clave.substring(2).equals(this.clave.substring(2))){
-                throw new IllegalArgumentException("Error: no puedes cambiar el valor numérico de una clave.");
+                throw new DatoInvalidoException("Error: no puedes cambiar el valor numérico de una clave.");
             }
             
             this.clave = clave;
@@ -153,10 +157,10 @@ public class Producto {
      * @param nombre el nombre del producto
      */
     public void setNombre(String nombre) {
-        if(nombre != "" || nombre != null){
+        if(!"".equals(nombre) || nombre != null){
         this.nombre = nombre;
         }else{
-            throw new IllegalArgumentException("Error: el nombre ingresado no es válido.");
+            throw new DatoInvalidoException("Error: el nombre ingresado no es válido.");
         }
         
     }
@@ -174,10 +178,10 @@ public class Producto {
      * @param unidad el tipo de unidad
      */
     public void setUnidad(String unidad) {
-        if(unidad == "KG" || unidad == "g" || unidad == "L" || unidad == "PZ"){
+        if("KG".equalsIgnoreCase(unidad) || "g".equalsIgnoreCase(unidad) || "L".equalsIgnoreCase(unidad) || "PZ".equalsIgnoreCase(unidad)){
         this.unidad = unidad;
         }else{
-            throw new IllegalArgumentException("Error: el tipo de unidad ingresado no es válido.");
+            throw new DatoInvalidoException("Error: la unidad ingresado no es válido.");
         }
         
     }
@@ -198,7 +202,7 @@ public class Producto {
         if(tipo == 'E' || tipo == 'G'){
         this.tipo = tipo;
         }else{
-            throw new IllegalArgumentException("Error: el tipo de producto ingresado no es válido.");
+            throw new DatoInvalidoException("Error: el tipo ingresado no es válido.");
         }
         
     }

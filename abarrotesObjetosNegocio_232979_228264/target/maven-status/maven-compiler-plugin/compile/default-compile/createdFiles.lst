@@ -2,6 +2,11 @@ com\objetosnegocio\Main.class
 com\objetosnegocio\MovimientoEmpacado.class
 com\objetosnegocio\MovimientoGranel.class
 com\objetosnegocio\ProductoGranel.class
+DAOs\Movimientos.class
 com\objetosnegocio\Producto.class
 com\objetosnegocio\Movimiento.class
+DAOs\Productos.class
 com\objetosnegocio\ProductoEmpacado.class
+DAOs\Main.class
+DAOs\MovimientosGranel.class
+DAOs\ProductosGranel.class
