@@ -6,7 +6,9 @@ C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio
 C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\com\objetosnegocio\ProductoEmpacado.java
 C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\com\objetosnegocio\ProductoGranel.java
 C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\DAOs\Main.java
-C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\DAOs\Movimientos.java
 C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\DAOs\MovimientosGranel.java
 C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\DAOs\Productos.java
 C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\DAOs\ProductosGranel.java
+C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\Excepciones\DatoInvalidoException.java
+C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\Excepciones\ElementoDuplicadoException.java
+C:\Users\le0jx\OneDrive\Documents\GitHub\proyectoProgra2\abarrotesObjetosNegocio_232979_228264\src\main\java\Excepciones\ElementoNoEncontradoException.java

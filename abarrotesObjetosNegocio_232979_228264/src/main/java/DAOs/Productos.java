@@ -41,7 +41,7 @@ public class Productos {
             }
             
         } else{
-        throw new ElementoDuplicadoException("Error: el producto ya esta en la lista.");
+        throw new ElementoDuplicadoException("Error: el producto ya esta registrado");
         }
         
     }
