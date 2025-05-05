@@ -4,3 +4,21 @@
 /Pruebas_232979_228264/nbproject/private/
 /Pruebas_232979_228264/build/
 /abarrotesObjetosNegocio_232979_228264/nbproject/
+abarrotesObjetosNegocio_232979_228264/target/test-classes/DAOs/MovimientosGranelTest.class
+
+# Archivos compilados
+*.class
+
+# Directorios de compilación
+/target/
+
+# Configuración de IDEs
+*.iml
+.idea/
+*.ipr
+*.iws
+*.log
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
