@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author le0jx
  */
-public class ProductosGranel {
+public class ProductosGranel extends Productos {
     public static ArrayList<ProductoGranel> inventarioGranel = new ArrayList<>();
     
     public void agregarAlInventatio(ProductoGranel producto){
