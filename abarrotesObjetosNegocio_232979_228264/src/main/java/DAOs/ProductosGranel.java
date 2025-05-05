@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ProductosGranel extends Productos {
     public static ArrayList<ProductoGranel> inventarioGranel = new ArrayList<>();
     
-    public void agregarAlInventatio(ProductoGranel producto){
+    public static void agregarAlInventatio(ProductoGranel producto){
         if(!inventarioGranel.contains(producto)){
             if(producto.getCantidad() > 0){
                 inventarioGranel.add(producto);
@@ -29,7 +29,7 @@ public class ProductosGranel extends Productos {
         }
     }
     
-    public void eliminarDelInventario(ProductoGranel producto){
+    public static void eliminarDelInventario(ProductoGranel producto){
         if(inventarioGranel.contains(producto)){
             inventarioGranel.remove(producto);
         }else{
@@ -37,7 +37,7 @@ public class ProductosGranel extends Productos {
         }
     }
     
-    public void actualizarInventario(ProductoGranel producto,float cantidad){
+    public static void actualizarInventario(ProductoGranel producto,float cantidad){
         if(inventarioGranel.contains(producto)){
             if(cantidad > 0){
                 for (int i = 0; i < inventarioGranel.size(); i++) {
@@ -55,10 +55,11 @@ public class ProductosGranel extends Productos {
         }
     }
     
-    public void consultarInventario(){
-        for (int i = 0; i < inventarioGranel.size(); i++) {
-            System.out.println(inventarioGranel.get(i).toString());
-        } 
+    public static ArrayList<ProductoGranel> consultarInventario(){
+        if(inventarioGranel.isEmpty()){
+            throw new DatoInvalidoException("Error: el inventario se encuentra vacio.");
+        }
+        return inventarioGranel;
     }
     
 }
