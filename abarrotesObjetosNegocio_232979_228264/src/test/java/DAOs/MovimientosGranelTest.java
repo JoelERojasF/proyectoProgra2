@@ -4,8 +4,19 @@
  */
 package DAOs;
 
+//imports necesarios para crear los objetos que necesitaremos para la prueba
 import com.objetosnegocio.MovimientoGranel;
+import com.objetosnegocio.Movimiento;
 import com.objetosservicio.Periodo;
+import com.objetosnegocio.ProductoGranel;
+import com.objetosservicio.Fecha;
+import DAOs.MovimientosGranel;
+import Excepciones.DatoInvalidoException;
+import Excepciones.ElementoDuplicadoException;
+import Excepciones.ElementoNoEncontradoException;
+import java.util.ArrayList;
+
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,13 +26,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Rubén Valdezas
  */
 public class MovimientosGranelTest {
     
-    public MovimientosGranelTest() {
-    }
-    
+
     @BeforeAll
     public static void setUpClass() {
     }
@@ -43,37 +52,101 @@ public class MovimientosGranelTest {
      */
     @Test
     public void testComprarGranel() {
-        System.out.println("comprarGranel");
-        MovimientoGranel movimiento = null;
-        MovimientosGranel instance = new MovimientosGranel();
-        instance.comprarGranel(movimiento);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Fecha fecha = new Fecha(03, 05, 2025);
+        ProductoGranel producto = new ProductoGranel();
+        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
+        
+        MovimientosGranel.comprarGranel(mov);
+        MovimientoGranel movPrueba = MovimientosGranel.registroComprasGranel.getFirst();
+        
+        assertEquals(mov, movPrueba);
     }
+    
+    
+    
+    /**
+     * Test of ElementoDuplicadoException en compraGranel 
+     */
+    @Test
+    public void testCompraGranelElementoDuplicado(){
+        Fecha fecha = new Fecha(03, 05, 2025);
+        ProductoGranel producto = new ProductoGranel();
+        
+        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
+        MovimientoGranel mov2 =  new MovimientoGranel(fecha, true, producto);
+        
+        MovimientosGranel.comprarGranel(mov);
+        Exception exception = assertThrows(ElementoDuplicadoException.class , () ->{
+            MovimientosGranel.comprarGranel(mov2);
+        });
+        assertEquals("Error: el producto ya fue movido hoy.", exception.getMessage());
+    }
+    
+    
 
     /**
      * Test of venderGranel method, of class MovimientosGranel.
      */
     @Test
     public void testVenderGranel() {
-        System.out.println("venderGranel");
-        MovimientoGranel movimiento = null;
-        MovimientosGranel instance = new MovimientosGranel();
-        instance.venderGranel(movimiento);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Fecha fecha = new Fecha(03, 05, 2025);
+        ProductoGranel producto = new ProductoGranel();
+        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
+        
+        MovimientosGranel.venderGranel(mov);
+        MovimientoGranel movPrueba = MovimientosGranel.registroVentasGranel.getFirst();
+        
+        assertEquals(mov, movPrueba);
     }
 
+    //Test de excepcion en venderGranel
+    /**
+     * Test of ElementoDuplicadoException en compraGranel 
+     */
+    @Test
+    public void testVenderGranelElementoDuplicado(){
+        Fecha fecha = new Fecha(03, 05, 2025);
+        ProductoGranel producto = new ProductoGranel();
+        
+        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
+        MovimientoGranel mov2 =  new MovimientoGranel(fecha, true, producto);
+        
+        MovimientosGranel.venderGranel(mov);
+        Exception exception = assertThrows(ElementoDuplicadoException.class , () ->{
+            MovimientosGranel.venderGranel(mov2);
+        });
+        assertEquals("Error: el producto ya fue movido hoy.", exception.getMessage());
+    }
+    
+    
     /**
      * Test of consultarCompras method, of class MovimientosGranel.
      */
     @Test
     public void testConsultarCompras_0args() {
-        System.out.println("consultarCompras");
-        MovimientosGranel instance = new MovimientosGranel();
-        instance.consultarCompras();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
+        ArrayList<MovimientoGranel> prueba = new ArrayList();
+        
+        Fecha fechaPrueba1 = new Fecha();
+        
+        
+        ProductoGranel prod1 =  new ProductoGranel();
+        ProductoGranel prod2 =  new ProductoGranel();
+        ProductoGranel prod3 =  new ProductoGranel();
+        
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        
+        prueba.add(mov1);
+        prueba.add(mov2);
+        prueba.add(mov3);
+        
+        MovimientosGranel.comprarGranel(mov1);
+        MovimientosGranel.comprarGranel(mov2);
+        MovimientosGranel.comprarGranel(mov3);
+        
+        assertEquals(prueba, MovimientosGranel.consultarCompras());
     }
 
     /**
@@ -81,12 +154,34 @@ public class MovimientosGranelTest {
      */
     @Test
     public void testConsultarCompras_Periodo() {
-        System.out.println("consultarCompras");
-        Periodo periodo = null;
-        MovimientosGranel instance = new MovimientosGranel();
-        instance.consultarCompras(periodo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        Fecha fecha = new Fecha(01, 01, 2001);
+        Fecha fecha2 =  new Fecha(03, 03, 2026);
+        
+        ArrayList<MovimientoGranel> prueba = new ArrayList();
+        
+        Fecha fechaPrueba1 = new Fecha();
+        
+        
+        ProductoGranel prod1 =  new ProductoGranel();
+        ProductoGranel prod2 =  new ProductoGranel();
+        ProductoGranel prod3 =  new ProductoGranel();
+        
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        
+        prueba.add(mov1);
+        prueba.add(mov2);
+        prueba.add(mov3);
+        
+        MovimientosGranel.comprarGranel(mov1);
+        MovimientosGranel.comprarGranel(mov2);
+        MovimientosGranel.comprarGranel(mov3);
+        
+        Periodo periodo = new Periodo(fecha, fecha2);
+        
+        assertEquals(prueba, MovimientosGranel.consultarCompras(periodo));
     }
 
     /**
@@ -94,11 +189,28 @@ public class MovimientosGranelTest {
      */
     @Test
     public void testConsultarVentas_0args() {
-        System.out.println("consultarVentas");
-        MovimientosGranel instance = new MovimientosGranel();
-        instance.consultarVentas();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<MovimientoGranel> prueba = new ArrayList();
+        
+        Fecha fechaPrueba1 = new Fecha();
+        
+        
+        ProductoGranel prod1 =  new ProductoGranel();
+        ProductoGranel prod2 =  new ProductoGranel();
+        ProductoGranel prod3 =  new ProductoGranel();
+        
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        
+        prueba.add(mov1);
+        prueba.add(mov2);
+        prueba.add(mov3);
+        
+        MovimientosGranel.venderGranel(mov1);
+        MovimientosGranel.venderGranel(mov2);
+        MovimientosGranel.venderGranel(mov3);
+        
+        assertEquals(prueba, MovimientosGranel.consultarVentas());
     }
 
     /**
@@ -106,12 +218,33 @@ public class MovimientosGranelTest {
      */
     @Test
     public void testConsultarVentas_Periodo() {
-        System.out.println("consultarVentas");
-        Periodo periodo = null;
-        MovimientosGranel instance = new MovimientosGranel();
-        instance.consultarVentas(periodo);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Fecha fecha = new Fecha(01, 01, 2001);
+        Fecha fecha2 =  new Fecha(03, 03, 2026);
+        
+        ArrayList<MovimientoGranel> prueba = new ArrayList();
+        
+        Fecha fechaPrueba1 = new Fecha();
+        
+        
+        ProductoGranel prod1 =  new ProductoGranel();
+        ProductoGranel prod2 =  new ProductoGranel();
+        ProductoGranel prod3 =  new ProductoGranel();
+        
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        
+        prueba.add(mov1);
+        prueba.add(mov2);
+        prueba.add(mov3);
+        
+        MovimientosGranel.venderGranel(mov1);
+        MovimientosGranel.venderGranel(mov2);
+        MovimientosGranel.venderGranel(mov3);
+        
+        Periodo periodo = new Periodo(fecha, fecha2);
+        
+        assertEquals(prueba, MovimientosGranel.consultarVentas(periodo));
     }
     
 }
