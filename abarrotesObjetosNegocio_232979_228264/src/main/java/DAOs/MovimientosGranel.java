@@ -24,7 +24,10 @@ public class MovimientosGranel {
     static Fecha hoy = new Fecha();
     static Fecha fechaMovimiento;
     
-    
+    /**
+     * metodo para añadir un movimiento al registro de compras
+     * @param movimiento movimiento a añadir
+     */
     public static void comprarGranel(MovimientoGranel movimiento){
         if(!registroComprasGranel.contains(movimiento)){
             if(verificarMovimientoDia(movimiento)){
@@ -46,6 +49,10 @@ public class MovimientosGranel {
         }
     }
     
+    /**
+     * metodo para añadir un movimiento al registro de ventas
+     * @param movimiento movimiento a añadir
+     */
     public static void venderGranel(MovimientoGranel movimiento){
         if(!registroVentasGranel.contains(movimiento)){
             if(verificarMovimientoDia(movimiento)){
@@ -68,7 +75,10 @@ public class MovimientosGranel {
         
     }
     
-    
+    /**
+     * metodo para consultar el registro de compras
+     * @return regresa todo el registro de compras
+     */
     public static ArrayList<MovimientoGranel> consultarCompras(){
         if(registroComprasGranel.size() == 0){
             throw new DatoInvalidoException("Error: No hay ningun elemento en compras");
@@ -77,7 +87,11 @@ public class MovimientosGranel {
         
     }
     
-    
+    /**
+     * metodo para consultar el registro de compras dentro de un periodo de tiempo
+     * @param periodo periodo de tiempo que en que se va a buscar
+     * @return regresa una lista con las compras en el periodo de tiempo establecido
+     */
     public static ArrayList<MovimientoGranel> consultarCompras(Periodo periodo){
         if(registroComprasGranel.size() == 0){
             throw new DatoInvalidoException("Error: No hay ningun elemento en compras");
@@ -91,6 +105,10 @@ public class MovimientosGranel {
         return comprasDentroPeriodo;
     }
     
+    /**
+     * metodo para consultar el registro de ventas
+     * @return regresa todo el registro de ventas
+     */
     public static ArrayList<MovimientoGranel> consultarVentas(){
         if(registroVentasGranel.size() == 0){
             throw new DatoInvalidoException("Error: No hay ningun elemento en ventas");
@@ -98,6 +116,11 @@ public class MovimientosGranel {
         return registroVentasGranel;
     }
     
+    /**
+     * metodo para consultar el registro de compras dentro de un periodo de tiempo
+     * @param periodo periodo de tiempo que en que se va a buscar
+     * @return regresa una lista con las compras en el periodo de tiempo establecido
+     */
     public static ArrayList<MovimientoGranel> consultarVentas(Periodo periodo){
         if(registroVentasGranel.size() == 0){
             throw new DatoInvalidoException("Error: No hay ningun elemento en ventas");
@@ -111,6 +134,11 @@ public class MovimientosGranel {
         return ventasDentroPeriodo;
     }
     
+    /**
+     * metodo para verificar que el producto no se haya movido en el mismo dia
+     * @param movimiento movimiento a verificar
+     * @return true en caso de que no se haya movido y false si ya se movio
+     */
     private static boolean verificarMovimientoDia(MovimientoGranel movimiento){
         if(fechaMovimiento != hoy || fechaMovimiento == null){
             movimientosDelDia.clear();
