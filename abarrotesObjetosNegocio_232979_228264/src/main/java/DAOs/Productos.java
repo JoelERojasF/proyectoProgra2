@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class Productos {
     public static ArrayList<Producto> catalogoProductos = new ArrayList<>();
     
-    public void agregarProducto(Producto producto){
+    public static void agregarProducto(Producto producto){
         if(!catalogoProductos.contains(producto)){
             for (int i = 0; i < catalogoProductos.size(); i++) {
                 if(catalogoProductos.get(i).getClave().equalsIgnoreCase(producto.getClave())){
@@ -46,7 +46,7 @@ public class Productos {
         
     }
     
-    public Producto buscarProductoPorClave(String cve){
+    public static Producto buscarProductoPorClave(String cve){
         for (int i = 0; i < catalogoProductos.size(); i++) {
             if(catalogoProductos.get(i).getClave().equalsIgnoreCase(cve)){
             return catalogoProductos.get(i);
@@ -55,7 +55,7 @@ public class Productos {
         return null;
     }
     
-    public void eliminarProducto(String cve){
+    public static void eliminarProducto(String cve){
         boolean eliminado = false;
          for (int i = 0; i < catalogoProductos.size(); i++) {
             if(catalogoProductos.get(i).getClave().equalsIgnoreCase(cve)){
@@ -68,7 +68,7 @@ public class Productos {
         }
     }
     
-    public void actualizarProducto(Producto producto, String nuevoNombre, String nuevaUnidad, char NuevoTipo){
+    public static void actualizarProducto(Producto producto, String nuevoNombre, String nuevaUnidad, char NuevoTipo){
         if(catalogoProductos.contains(producto)){
             if(!"".equals(nuevoNombre) || nuevoNombre != null){
                 if("KG".equalsIgnoreCase(nuevaUnidad) || "g".equalsIgnoreCase(nuevaUnidad) || "L".equalsIgnoreCase(nuevaUnidad) || "PZ".equalsIgnoreCase(nuevaUnidad)){
@@ -77,7 +77,6 @@ public class Productos {
                         producto.setUnidad(nuevaUnidad);
                         producto.setTipo(NuevoTipo);
                         for (int i = 0; i < catalogoProductos.size(); i++) {
-                            System.out.println(catalogoProductos.get(i));
                             if(catalogoProductos.get(i) == producto){
                                 catalogoProductos.set(i, producto);
                             }
@@ -101,33 +100,66 @@ public class Productos {
     
 
     
-    public void catalogoProductos(){
-        for (int i = 0; i < catalogoProductos.size(); i++) {
-            System.out.println(catalogoProductos.get(i).toString());
+    public static ArrayList<Producto> catalogoProductos(){
+        if(catalogoProductos.isEmpty()){
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto.");
         }
+        return catalogoProductos;
     }
     
-    public void catalogoProductos(char tipo){
+    //Producto por tipo del mismo char
+    public static ArrayList<Producto> catalogoProductos(char tipo){
+        ArrayList<Producto> resultado = new ArrayList();
+        if(catalogoProductos.isEmpty()){
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto.");
+        }
         for (int i = 0; i < catalogoProductos.size(); i++) {
             if(catalogoProductos.get(i).getTipo() == tipo){
-                System.out.println(catalogoProductos.get(i).toString());
+                resultado.add(catalogoProductos.get(i));
             }
         }
+        if(resultado.isEmpty()){
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto de este tipo.");
+        }
+        return resultado;
     }
     
-    public void catalogoProductos(String unidad){
+    //Por mismo tipo de unidad
+    public static ArrayList<Producto> catalogoProductos(String unidad){
+        
+        ArrayList<Producto> resultado = new ArrayList();
+        if(catalogoProductos.isEmpty()){
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto.");
+        }
         for (int i = 0; i < catalogoProductos.size(); i++) {
             if(catalogoProductos.get(i).getUnidad().equalsIgnoreCase(unidad)){
-                System.out.println(catalogoProductos.get(i).toString());
+                resultado.add(catalogoProductos.get(i));
             }
         }
+        if(resultado.isEmpty()){
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto de este tipo.");
+        }
+        return resultado;
+        
+        
     }
     
-    public void catalogoProductos(String unidad, char tipo){
+    //Productos del mismo char y unidad
+    public static ArrayList<Producto> catalogoProductos(String unidad, char tipo){
+        
+        ArrayList<Producto> resultado = new ArrayList();
+        if(catalogoProductos.isEmpty()){
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto.");
+        }
         for (int i = 0; i < catalogoProductos.size(); i++) {
             if(catalogoProductos.get(i).getTipo() == tipo && catalogoProductos.get(i).getUnidad().equalsIgnoreCase(unidad)){
-                System.out.println(catalogoProductos.get(i).toString());
+                resultado.add(catalogoProductos.get(i));
             }
         }
+        if(resultado.isEmpty()){
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto de este tipo.");
+        }
+        return resultado;
+        
     }
 }
