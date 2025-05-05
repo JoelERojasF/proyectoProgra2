@@ -14,18 +14,18 @@ import java.util.Calendar;
 
 /**
  *
- * @author le0jx
+ * @author Joel Rojas y Rubén Valdez
  */
 public class MovimientosGranel {
     public static ArrayList<MovimientoGranel> registroComprasGranel = new ArrayList<>();
     public static ArrayList<MovimientoGranel> registroVentasGranel = new ArrayList<>();
     public static ArrayList<MovimientoGranel> movimientosDelDia = new ArrayList<>();
     
-    Fecha hoy = new Fecha();
-    Fecha fechaMovimiento;
+    static Fecha hoy = new Fecha();
+    static Fecha fechaMovimiento;
     
     
-    public void comprarGranel(MovimientoGranel movimiento){
+    public static void comprarGranel(MovimientoGranel movimiento){
         if(!registroComprasGranel.contains(movimiento)){
             if(verificarMovimientoDia(movimiento)){
                 if((hoy.getMes() == movimiento.getFecha().getMes()) && hoy.getAnio() == movimiento.getFecha().getAnio() && !movimiento.getFecha().after(hoy) ){
@@ -46,7 +46,7 @@ public class MovimientosGranel {
         }
     }
     
-    public void venderGranel(MovimientoGranel movimiento){
+    public static void venderGranel(MovimientoGranel movimiento){
         if(!registroVentasGranel.contains(movimiento)){
             if(verificarMovimientoDia(movimiento)){
                 if((hoy.getMes() == movimiento.getFecha().getMes()) && hoy.getAnio() == movimiento.getFecha().getAnio() && !movimiento.getFecha().after(hoy) ){
@@ -68,36 +68,50 @@ public class MovimientosGranel {
         
     }
     
-    public void consultarCompras(){
-        for (int i = 0; i < registroComprasGranel.size(); i++) {
-            System.out.println(registroComprasGranel.get(i).toString());
+    
+    public static ArrayList<MovimientoGranel> consultarCompras(){
+        if(registroComprasGranel.size() == 0){
+            throw new DatoInvalidoException("Error: No hay ningun elemento en compras");
         }
+        return registroComprasGranel;
         
     }
     
-    public void consultarCompras(Periodo periodo){
+    
+    public static ArrayList<MovimientoGranel> consultarCompras(Periodo periodo){
+        if(registroComprasGranel.size() == 0){
+            throw new DatoInvalidoException("Error: No hay ningun elemento en compras");
+        }
+        ArrayList<MovimientoGranel> comprasDentroPeriodo = new ArrayList();
         for (int i = 0; i < registroComprasGranel.size(); i++) {
             if(periodo.contiene(registroComprasGranel.get(i).getFecha())){
-                System.out.println(registroComprasGranel.get(i).toString());
+                comprasDentroPeriodo.add(registroComprasGranel.get(i));
             }
         }
+        return comprasDentroPeriodo;
     }
     
-    public void consultarVentas(){
-        for (int i = 0; i < registroVentasGranel.size(); i++) {
-            System.out.println(registroVentasGranel.get(i).toString());
+    public static ArrayList<MovimientoGranel> consultarVentas(){
+        if(registroVentasGranel.size() == 0){
+            throw new DatoInvalidoException("Error: No hay ningun elemento en ventas");
         }
+        return registroVentasGranel;
     }
     
-    public void consultarVentas(Periodo periodo){
+    public static ArrayList<MovimientoGranel> consultarVentas(Periodo periodo){
+        if(registroVentasGranel.size() == 0){
+            throw new DatoInvalidoException("Error: No hay ningun elemento en ventas");
+        }
+        ArrayList<MovimientoGranel> ventasDentroPeriodo = new ArrayList();
         for (int i = 0; i < registroVentasGranel.size(); i++) {
             if(periodo.contiene(registroVentasGranel.get(i).getFecha())){
-                System.out.println(registroVentasGranel.get(i).toString());
+                ventasDentroPeriodo.add(registroVentasGranel.get(i));
             }
         }
+        return ventasDentroPeriodo;
     }
     
-    private boolean verificarMovimientoDia(MovimientoGranel movimiento){
+    private static boolean verificarMovimientoDia(MovimientoGranel movimiento){
         if(fechaMovimiento != hoy || fechaMovimiento == null){
             movimientosDelDia.clear();
             return true;
@@ -109,9 +123,5 @@ public class MovimientosGranel {
         }
         return true;
     }
-    
-
-    
-                
     
 }
