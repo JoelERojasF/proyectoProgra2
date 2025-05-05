@@ -5,6 +5,8 @@
 package DAOs;
 
 import com.objetosnegocio.ProductoGranel;
+import com.objetosnegocio.Producto;
+import java.util.ArrayList;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,12 +44,10 @@ public class ProductosGranelTest {
      */
     @Test
     public void testAgregarAlInventatio() {
-        System.out.println("agregarAlInventatio");
-        ProductoGranel producto = null;
-        ProductosGranel instance = new ProductosGranel();
-        instance.agregarAlInventatio(producto);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Producto producto = new Producto();
+        ProductoGranel productoEsperado= new ProductoGranel(15.0f, producto);
+        ProductosGranel.agregarAlInventatio(productoEsperado);
+        assertTrue(ProductosGranel.inventarioGranel.contains(productoEsperado));
     }
 
     /**
@@ -55,12 +55,12 @@ public class ProductosGranelTest {
      */
     @Test
     public void testEliminarDelInventario() {
-        System.out.println("eliminarDelInventario");
-        ProductoGranel producto = null;
-        ProductosGranel instance = new ProductosGranel();
-        instance.eliminarDelInventario(producto);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Producto producto = new Producto();
+        ProductoGranel productoEsperado= new ProductoGranel(15.0f, producto);
+        ProductosGranel.agregarAlInventatio(productoEsperado);
+        
+        ProductosGranel.eliminarDelInventario(productoEsperado);
+        assertFalse(ProductosGranel.inventarioGranel.contains(productoEsperado));
     }
 
     /**
@@ -68,13 +68,16 @@ public class ProductosGranelTest {
      */
     @Test
     public void testActualizarInventario() {
-        System.out.println("actualizarInventario");
-        ProductoGranel producto = null;
-        float cantidad = 0.0F;
-        ProductosGranel instance = new ProductosGranel();
-        instance.actualizarInventario(producto, cantidad);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Producto producto = new Producto("Papas Kiwi", "g", 'G');
+        ProductoGranel productoEsperado= new ProductoGranel(15.0f, producto);
+        ProductosGranel.agregarAlInventatio(productoEsperado);
+        
+        ProductosGranel.actualizarInventario(productoEsperado, 12.0f);
+        
+        float cantidadEsperada = 12.0f;
+        
+        
+        assertEquals(cantidadEsperada, ProductosGranel.inventarioGranel.getFirst().getCantidad());
     }
 
     /**
@@ -82,11 +85,26 @@ public class ProductosGranelTest {
      */
     @Test
     public void testConsultarInventario() {
-        System.out.println("consultarInventario");
-        ProductosGranel instance = new ProductosGranel();
-        instance.consultarInventario();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<ProductoGranel> listaEsperada = new ArrayList();
+        
+        Producto producto1 = new Producto("Papas Kiwi", "g", 'G');
+        ProductoGranel productoGranel1 = new ProductoGranel(10.0f,producto1);
+        listaEsperada.add(productoGranel1);
+        ProductosGranel.agregarAlInventatio(productoGranel1);
+        
+        Producto producto2 = new Producto("Galletas", "KG", 'G');
+        ProductoGranel productoGranel2 = new ProductoGranel(10.0f,producto2);
+        listaEsperada.add(productoGranel2);
+        ProductosGranel.agregarAlInventatio(productoGranel2);
+        
+        Producto producto3 = new Producto("Agua", "L", 'G');
+        ProductoGranel productoGranel3 = new ProductoGranel(10.0f,producto3);
+        listaEsperada.add(productoGranel3);
+        ProductosGranel.agregarAlInventatio(productoGranel3);
+        
+        assertEquals(listaEsperada, ProductosGranel.consultarInventario());
+        
+        
     }
     
 }
