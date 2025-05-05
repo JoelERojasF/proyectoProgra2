@@ -33,6 +33,7 @@ public class ProductosGranelTest {
     
     @BeforeEach
     public void setUp() {
+        ProductosGranel.clear();
     }
     
     @AfterEach

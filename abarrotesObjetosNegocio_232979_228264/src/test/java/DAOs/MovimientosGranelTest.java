@@ -41,6 +41,7 @@ public class MovimientosGranelTest {
     
     @BeforeEach
     public void setUp() {
+        MovimientosGranel.clear();
     }
     
     @AfterEach
@@ -127,7 +128,7 @@ public class MovimientosGranelTest {
 
         ArrayList<MovimientoGranel> prueba = new ArrayList();
         
-        Fecha fechaPrueba1 = new Fecha();
+        Fecha fechaPrueba1 = new Fecha(04, 05, 2025);
         
         
         ProductoGranel prod1 =  new ProductoGranel();
@@ -160,7 +161,7 @@ public class MovimientosGranelTest {
         
         ArrayList<MovimientoGranel> prueba = new ArrayList();
         
-        Fecha fechaPrueba1 = new Fecha();
+        Fecha fechaPrueba1 = new Fecha(04, 05, 2025);
         
         
         ProductoGranel prod1 =  new ProductoGranel();
@@ -191,7 +192,7 @@ public class MovimientosGranelTest {
     public void testConsultarVentas_0args() {
         ArrayList<MovimientoGranel> prueba = new ArrayList();
         
-        Fecha fechaPrueba1 = new Fecha();
+        Fecha fechaPrueba1 = new Fecha(04, 05, 2025);
         
         
         ProductoGranel prod1 =  new ProductoGranel();
@@ -223,7 +224,7 @@ public class MovimientosGranelTest {
         
         ArrayList<MovimientoGranel> prueba = new ArrayList();
         
-        Fecha fechaPrueba1 = new Fecha();
+        Fecha fechaPrueba1 = new Fecha(04, 05, 2025);
         
         
         ProductoGranel prod1 =  new ProductoGranel();

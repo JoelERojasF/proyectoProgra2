@@ -162,4 +162,11 @@ public class Productos {
         return resultado;
         
     }
+    
+    /**
+     * Metodo de depuración, limplia toda la lista, NO USAR!
+     */
+    public static void clear(){
+        catalogoProductos.clear();
+    }
 }

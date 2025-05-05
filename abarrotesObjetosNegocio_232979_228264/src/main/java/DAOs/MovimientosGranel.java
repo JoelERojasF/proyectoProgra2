@@ -124,4 +124,13 @@ public class MovimientosGranel {
         return true;
     }
     
+    /**
+     * Metodo de depuración, limplia todas la lista, NO USAR!
+     */
+    public static void clear(){
+        registroComprasGranel.clear();
+        registroVentasGranel.clear();
+        movimientosDelDia.clear();
+    }
+    
 }

@@ -62,4 +62,11 @@ public class ProductosGranel extends Productos {
         return inventarioGranel;
     }
     
+    /**
+     * Metodo de depuración, limplia toda la lista, NO USAR!
+     */
+    public static void clear(){
+        inventarioGranel.clear();
+    }
+    
 }
