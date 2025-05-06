@@ -18,23 +18,25 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author le0jx
  */
 public class ProductosTest {
+    private Productos listaDePrueba;
     
     public ProductosTest() {
     }
 
-    @org.junit.jupiter.api.BeforeAll
+    @BeforeAll
     public static void setUpClass() throws Exception {
     }
 
-    @org.junit.jupiter.api.AfterAll
+    @AfterAll
     public static void tearDownClass() throws Exception {
     }
 
-    @org.junit.jupiter.api.BeforeEach
+    @BeforeEach
     public void setUp() throws Exception {
+        Productos.clear();
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     public void tearDown() throws Exception {
     }
     

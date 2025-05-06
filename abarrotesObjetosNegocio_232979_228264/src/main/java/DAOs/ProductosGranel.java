@@ -18,6 +18,20 @@ public class ProductosGranel extends Productos {
     public static ArrayList<ProductoGranel> inventarioGranel = new ArrayList<>();
     
     public static void agregarAlInventatio(ProductoGranel producto){
+        
+        for(ProductoGranel prod : inventarioGranel ){
+            if(prod.equals(producto)){
+                throw new ElementoDuplicadoException("Error: ");
+            }
+        }
+        
+        if(producto.getCantidad() > 0){
+                inventarioGranel.add(producto);
+            }else{
+                throw new DatoInvalidoException("Error: Cantidad menor que 0");
+        }
+        
+        /*
         if(!inventarioGranel.contains(producto)){
             if(producto.getCantidad() > 0){
                 inventarioGranel.add(producto);
@@ -27,17 +41,43 @@ public class ProductosGranel extends Productos {
         }else{
             throw new ElementoDuplicadoException("Error: el producto ya existe");
         }
+        */
     }
     
     public static void eliminarDelInventario(ProductoGranel producto){
-        if(inventarioGranel.contains(producto)){
-            inventarioGranel.remove(producto);
-        }else{
-            throw new ElementoNoEncontradoException("Error: el producto no existe");
+        if(!inventarioGranel.contains(producto)){
+            throw new ElementoNoEncontradoException("Error:");
         }
+        
+        int indiceEliminar = -1;
+        for(int i = 0; i <inventarioGranel.size(); i ++){
+            if(inventarioGranel.get(i).equals(producto)){
+                indiceEliminar = i;
+            }
+        }
+        if(indiceEliminar != -1){
+            inventarioGranel.remove(indiceEliminar);
+        }
+        
+        
+        
+        
     }
     
+    //
     public static void actualizarInventario(ProductoGranel producto,float cantidad){
+        if(!inventarioGranel.contains(producto)){
+            throw new ElementoNoEncontradoException("Error:");
+        }
+        
+        for(ProductoGranel prod : inventarioGranel){
+            if(prod.equals(producto)){
+                producto.setCantidad(cantidad);
+            }
+        }
+        
+        
+        /*
         if(inventarioGranel.contains(producto)){
             if(cantidad > 0){
                 for (int i = 0; i < inventarioGranel.size(); i++) {
@@ -53,6 +93,7 @@ public class ProductosGranel extends Productos {
         }else{
             throw new ElementoNoEncontradoException("Error: el producto no existe");
         }
+        */
     }
     
     public static ArrayList<ProductoGranel> consultarInventario(){
