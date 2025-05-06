@@ -45,7 +45,7 @@ public class ProductosGranelTest {
      */
     @Test
     public void testAgregarAlInventatio() {
-        Producto producto = new Producto();
+        Producto producto = new Producto("Papas Kiwi", "g", 'G');
         ProductoGranel productoEsperado= new ProductoGranel(15.0f, producto);
         ProductosGranel.agregarAlInventatio(productoEsperado);
         assertTrue(ProductosGranel.inventarioGranel.contains(productoEsperado));
@@ -56,7 +56,7 @@ public class ProductosGranelTest {
      */
     @Test
     public void testEliminarDelInventario() {
-        Producto producto = new Producto();
+        Producto producto = new Producto("Papas Kiwi", "g", 'G');
         ProductoGranel productoEsperado= new ProductoGranel(15.0f, producto);
         ProductosGranel.agregarAlInventatio(productoEsperado);
         

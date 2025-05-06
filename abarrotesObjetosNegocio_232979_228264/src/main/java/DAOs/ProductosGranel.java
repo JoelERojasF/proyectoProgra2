@@ -25,27 +25,16 @@ public class ProductosGranel extends Productos {
         
         for(ProductoGranel prod : inventarioGranel ){
             if(prod.equals(producto)){
-                throw new ElementoDuplicadoException("Error: ");
+                throw new ElementoDuplicadoException("Error: el producto ya existe en el inventario");
             }
         }
         
         if(producto.getCantidad() > 0){
                 inventarioGranel.add(producto);
             }else{
-                throw new DatoInvalidoException("Error: Cantidad menor que 0");
+                throw new DatoInvalidoException("Error: Cantidad menor o igual que 0");
         }
         
-        /*
-        if(!inventarioGranel.contains(producto)){
-            if(producto.getCantidad() > 0){
-                inventarioGranel.add(producto);
-            }else{
-                throw new DatoInvalidoException("Error: Cantidad menor que 0");
-            }
-        }else{
-            throw new ElementoDuplicadoException("Error: el producto ya existe");
-        }
-        */
     }
     
     /**
@@ -53,10 +42,6 @@ public class ProductosGranel extends Productos {
      * @param producto producto a eliminar
      */
     public static void eliminarDelInventario(ProductoGranel producto){
-        if(!inventarioGranel.contains(producto)){
-            throw new ElementoNoEncontradoException("Error:");
-        }
-        
         int indiceEliminar = -1;
         for(int i = 0; i <inventarioGranel.size(); i ++){
             if(inventarioGranel.get(i).equals(producto)){
@@ -65,51 +50,37 @@ public class ProductosGranel extends Productos {
         }
         if(indiceEliminar != -1){
             inventarioGranel.remove(indiceEliminar);
+        } else{
+            throw new ElementoNoEncontradoException("Error: el producto no existe en el inventario");
         }
-        
-        
-        
-        
     }
     
-<<<<<<< HEAD
     //
-=======
+
     /**
      * matodo para actualizar un producto del inventario
      * @param producto producto a actualizar
      * @param cantidad cantidad actualizada
      */
->>>>>>> e7c906ca025dbe3092b0b4caf02483f97ed3b790
     public static void actualizarInventario(ProductoGranel producto,float cantidad){
-        if(!inventarioGranel.contains(producto)){
-            throw new ElementoNoEncontradoException("Error:");
-        }
-        
-        for(ProductoGranel prod : inventarioGranel){
-            if(prod.equals(producto)){
-                producto.setCantidad(cantidad);
+
+        int indiceActualizar = -1;
+
+        for(int i = 0; i <inventarioGranel.size(); i ++){
+            if(inventarioGranel.get(i).equals(producto)){
+                indiceActualizar = i;
             }
         }
-        
-        
-        /*
-        if(inventarioGranel.contains(producto)){
+        if(indiceActualizar != -1){
             if(cantidad > 0){
-                for (int i = 0; i < inventarioGranel.size(); i++) {
-                    if(inventarioGranel.get(i).getClave().equalsIgnoreCase(producto.getClave())){
-                        producto.setCantidad(cantidad);
-                        inventarioGranel.set(i, producto);
-                    }
-                }
+                producto.setCantidad(cantidad);
+                inventarioGranel.set(indiceActualizar, producto);
             }else{
-                throw new DatoInvalidoException("Error: Cantidad menor que 0");
-            }
-        
-        }else{
-            throw new ElementoNoEncontradoException("Error: el producto no existe");
+                throw new DatoInvalidoException("Error: Cantidad menor o igual que 0");
+            } 
+        } else{
+            throw new ElementoNoEncontradoException("Error: el producto no existe en el inventario");
         }
-        */
     }
     
     /**

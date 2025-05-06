@@ -30,6 +30,9 @@ public class MovimientosGranel {
      */
     public static void comprarGranel(MovimientoGranel movimiento){
         if(!registroComprasGranel.contains(movimiento)){
+            if(movimiento.getProcesado() == true){
+                throw new DatoInvalidoException("Error: el estado del movimiento no es valido.");
+            }
             if(verificarMovimientoDia(movimiento)){
                 if((hoy.getMes() == movimiento.getFecha().getMes()) && hoy.getAnio() == movimiento.getFecha().getAnio() && !movimiento.getFecha().after(hoy) ){
                     registroComprasGranel.add(movimiento);
@@ -55,6 +58,9 @@ public class MovimientosGranel {
      */
     public static void venderGranel(MovimientoGranel movimiento){
         if(!registroVentasGranel.contains(movimiento)){
+            if(movimiento.getProcesado() == true){
+                throw new DatoInvalidoException("Error: el estado del movimiento no es valido.");
+            }
             if(verificarMovimientoDia(movimiento)){
                 if((hoy.getMes() == movimiento.getFecha().getMes()) && hoy.getAnio() == movimiento.getFecha().getAnio() && !movimiento.getFecha().after(hoy) ){
                     registroVentasGranel.add(movimiento);

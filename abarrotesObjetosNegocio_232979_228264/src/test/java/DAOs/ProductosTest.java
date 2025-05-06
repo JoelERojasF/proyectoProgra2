@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author le0jx
  */
 public class ProductosTest {
-    private Productos listaDePrueba;
     
     public ProductosTest() {
     }

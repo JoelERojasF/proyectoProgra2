@@ -28,7 +28,10 @@ public class Productos {
                     throw new ElementoDuplicadoException("Error: la clave del producto ya esta registrada.");
                 }
             }
-            if(!"".equals(producto.getNombre()) || producto.getNombre() != null){
+            if("".equals(producto.getNombre()) || producto.getNombre() == null){
+                throw new DatoInvalidoException("Error: el nombre ingresado no es válido.");
+            }
+            
                 if("KG".equalsIgnoreCase(producto.getUnidad()) || "g".equalsIgnoreCase(producto.getUnidad()) || "L".equalsIgnoreCase(producto.getUnidad()) || "PZ".equalsIgnoreCase(producto.getUnidad())){
                     if(producto.getTipo() == 'E' || producto.getTipo() == 'G'){
                         catalogoProductos.add(producto);
@@ -39,11 +42,7 @@ public class Productos {
                 } else{
                     throw new DatoInvalidoException("Error: la unidad ingresado no es válido.");
                 }
-                
-            } else{
-                throw new DatoInvalidoException("Error: el nombre ingresado no es válido.");
-            }
-            
+    
         } else{
         throw new ElementoDuplicadoException("Error: el producto ya esta registrado");
         }
@@ -90,14 +89,17 @@ public class Productos {
      */
     public static void actualizarProducto(Producto producto, String nuevoNombre, String nuevaUnidad, char NuevoTipo){
         if(catalogoProductos.contains(producto)){
-            if(!"".equals(nuevoNombre) || nuevoNombre != null){
+            if("".equals(nuevoNombre) || nuevoNombre == null){
+                throw new DatoInvalidoException("Error: el nombre ingresado no es válido.");
+            }
+                
                 if("KG".equalsIgnoreCase(nuevaUnidad) || "g".equalsIgnoreCase(nuevaUnidad) || "L".equalsIgnoreCase(nuevaUnidad) || "PZ".equalsIgnoreCase(nuevaUnidad)){
                     if(NuevoTipo == 'E' || NuevoTipo == 'G'){
                         producto.setNombre(nuevoNombre);
                         producto.setUnidad(nuevaUnidad);
                         producto.setTipo(NuevoTipo);
                         for (int i = 0; i < catalogoProductos.size(); i++) {
-                            if(catalogoProductos.get(i) == producto){
+                            if(catalogoProductos.get(i).getClave().equals(producto.getClave())){
                                 catalogoProductos.set(i, producto);
                             }
                         }
@@ -109,9 +111,7 @@ public class Productos {
                     throw new DatoInvalidoException("Error: la unidad ingresado no es válido.");
                 }
                
-            } else{
-                throw new DatoInvalidoException("Error: el nombre ingresado no es válido.");
-            }
+            
             
         } else{
             throw new ElementoNoEncontradoException("Error: el producto no existe");

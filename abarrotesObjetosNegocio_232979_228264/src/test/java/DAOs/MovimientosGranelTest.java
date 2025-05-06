@@ -6,14 +6,11 @@ package DAOs;
 
 //imports necesarios para crear los objetos que necesitaremos para la prueba
 import com.objetosnegocio.MovimientoGranel;
-import com.objetosnegocio.Movimiento;
 import com.objetosservicio.Periodo;
 import com.objetosnegocio.ProductoGranel;
 import com.objetosservicio.Fecha;
 import DAOs.MovimientosGranel;
-import Excepciones.DatoInvalidoException;
 import Excepciones.ElementoDuplicadoException;
-import Excepciones.ElementoNoEncontradoException;
 import java.util.ArrayList;
 
 
@@ -55,7 +52,7 @@ public class MovimientosGranelTest {
     public void testComprarGranel() {
         Fecha fecha = new Fecha(03, 05, 2025);
         ProductoGranel producto = new ProductoGranel();
-        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
+        MovimientoGranel mov =  new MovimientoGranel(fecha, false, producto);
         
         MovimientosGranel.comprarGranel(mov);
         MovimientoGranel movPrueba = MovimientosGranel.registroComprasGranel.getFirst();
@@ -73,8 +70,8 @@ public class MovimientosGranelTest {
         Fecha fecha = new Fecha(03, 05, 2025);
         ProductoGranel producto = new ProductoGranel();
         
-        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
-        MovimientoGranel mov2 =  new MovimientoGranel(fecha, true, producto);
+        MovimientoGranel mov =  new MovimientoGranel(fecha, false, producto);
+        MovimientoGranel mov2 =  new MovimientoGranel(fecha, false, producto);
         
         MovimientosGranel.comprarGranel(mov);
         Exception exception = assertThrows(ElementoDuplicadoException.class , () ->{
@@ -92,7 +89,7 @@ public class MovimientosGranelTest {
     public void testVenderGranel() {
         Fecha fecha = new Fecha(03, 05, 2025);
         ProductoGranel producto = new ProductoGranel();
-        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
+        MovimientoGranel mov =  new MovimientoGranel(fecha, false, producto);
         
         MovimientosGranel.venderGranel(mov);
         MovimientoGranel movPrueba = MovimientosGranel.registroVentasGranel.getFirst();
@@ -109,8 +106,8 @@ public class MovimientosGranelTest {
         Fecha fecha = new Fecha(03, 05, 2025);
         ProductoGranel producto = new ProductoGranel();
         
-        MovimientoGranel mov =  new MovimientoGranel(fecha, true, producto);
-        MovimientoGranel mov2 =  new MovimientoGranel(fecha, true, producto);
+        MovimientoGranel mov =  new MovimientoGranel(fecha, false, producto);
+        MovimientoGranel mov2 =  new MovimientoGranel(fecha, false, producto);
         
         MovimientosGranel.venderGranel(mov);
         Exception exception = assertThrows(ElementoDuplicadoException.class , () ->{
@@ -135,9 +132,9 @@ public class MovimientosGranelTest {
         ProductoGranel prod2 =  new ProductoGranel();
         ProductoGranel prod3 =  new ProductoGranel();
         
-        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
-        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
-        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, false, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, false, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, false, prod3);
         
         prueba.add(mov1);
         prueba.add(mov2);
@@ -168,9 +165,9 @@ public class MovimientosGranelTest {
         ProductoGranel prod2 =  new ProductoGranel();
         ProductoGranel prod3 =  new ProductoGranel();
         
-        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
-        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
-        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, false, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, false, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, false, prod3);
         
         prueba.add(mov1);
         prueba.add(mov2);
@@ -199,9 +196,9 @@ public class MovimientosGranelTest {
         ProductoGranel prod2 =  new ProductoGranel();
         ProductoGranel prod3 =  new ProductoGranel();
         
-        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
-        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
-        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, false, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, false, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, false, prod3);
         
         prueba.add(mov1);
         prueba.add(mov2);
@@ -231,9 +228,9 @@ public class MovimientosGranelTest {
         ProductoGranel prod2 =  new ProductoGranel();
         ProductoGranel prod3 =  new ProductoGranel();
         
-        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, true, prod1);
-        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, true, prod2);
-        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, true, prod3);
+        MovimientoGranel mov1 = new MovimientoGranel(fechaPrueba1, false, prod1);
+        MovimientoGranel mov2 = new MovimientoGranel(fechaPrueba1, false, prod2);
+        MovimientoGranel mov3 = new MovimientoGranel(fechaPrueba1, false, prod3);
         
         prueba.add(mov1);
         prueba.add(mov2);
