@@ -95,7 +95,7 @@ public class ProductosTest {
      */
     @Test
     public void testActualizarProducto() {
-        Producto producto = new Producto("Papas Kiwi", "g", 'E');
+        Producto producto = new Producto("pk","Papas Kiwi", "g", 'E');
         String nombreEsperado = "Agua";
         String unidadEsperada = "L";
         char charEsperado = 'E';
@@ -174,13 +174,14 @@ public class ProductosTest {
     public void testCatalogoProductos_String_char() {
         Producto producto1 = new Producto("Papas Kiwi", "KG", 'E');
         Productos.agregarProducto(producto1);
-        Producto producto2 = new Producto("Galletas", "KG", 'G');
+        Producto producto2 = new Producto("Galletas", "KG", 'E');
         Productos.agregarProducto(producto2);
         Producto producto3 = new Producto("Agua", "KG", 'E');
         Productos.agregarProducto(producto3);
         
         ArrayList<Producto> resultadoEsperado = new ArrayList();
         resultadoEsperado.add(producto1);
+        resultadoEsperado.add(producto2);
         resultadoEsperado.add(producto3);
         
         assertEquals(resultadoEsperado, Productos.catalogoProductos("KG", 'E'));

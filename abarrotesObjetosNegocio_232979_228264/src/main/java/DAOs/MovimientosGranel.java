@@ -151,7 +151,7 @@ public class MovimientosGranel {
             return true;
         }
         for (int i = 0; i < movimientosDelDia.size(); i++) {
-            if(movimientosDelDia.get(i).getProductoGranel() == movimiento.getProductoGranel()){
+            if(movimientosDelDia.get(i).getProductoGranel().equals(movimiento.getProductoGranel()) ){
             return false;
             }
         }
