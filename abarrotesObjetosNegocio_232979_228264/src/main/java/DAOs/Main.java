@@ -57,7 +57,7 @@ public class Main {
         
         //imprimir catalogo productos
         try{
-            System.out.println(ProductosGranel.catalogoProductos());
+            System.out.println(ProductosGranel.consultarInventario());
             
         }catch(Exception e){
         e.getMessage();
@@ -65,8 +65,8 @@ public class Main {
         
         //eliminar producto inexistente
         try{
-            ProductosGranel.eliminarProducto("AM002");
-            System.out.println(ProductosGranel.catalogoProductos());
+            ProductosGranel.eliminarDelInventario(ProductosGranel.buscarProductoPorClave("AM002"));
+            System.out.println(ProductosGranel.consultarInventario());
         }catch(Exception e){
             System.out.println(e.getMessage());
 
@@ -76,7 +76,7 @@ public class Main {
         try{
            Producto ProductoB = Productos.buscarProductoPorClave("xx001");
         Productos.actualizarProducto(ProductoB, ProductoB.getNombre(), ProductoB.getUnidad(), 'A');
-        System.out.println(ProductosGranel.catalogoProductos());
+        System.out.println(ProductosGranel.consultarInventario());
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

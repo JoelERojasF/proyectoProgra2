@@ -84,6 +84,20 @@ public class ProductosGranel{
     }
     
     /**
+     * metodo para buscar un producto del catalogo mediante el cve
+     * @param cve cve del producto a buscar
+     * @return el producto encontrado o null si no lo encuentra
+     */
+    public static ProductoGranel buscarProductoPorClave(String cve){
+        for (int i = 0; i < inventarioGranel.size(); i++) {
+            if(inventarioGranel.get(i).getClave().equalsIgnoreCase(cve)){
+            return inventarioGranel.get(i);
+            }
+        }
+        return null;
+    }
+    
+    /**
      * metodo para obtener el inventario
      * @return una lista con el inventario
      */

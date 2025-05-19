@@ -141,6 +141,34 @@ public class MovimientosGranel {
     }
     
     /**
+     * metodo para buscar una compra del registro mediante el cve del producto
+     * @param cve cve del producto a buscar
+     * @return la compra encontrada o null si no lo encuentra
+     */
+    public static MovimientoGranel buscarCompraPorClave(String cve){
+        for (int i = 0; i < registroComprasGranel.size(); i++) {
+            if(registroComprasGranel.get(i).getProductoGranel().getClave().equalsIgnoreCase(cve)){
+            return registroComprasGranel.get(i);
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * metodo para buscar una venta del registro mediante el cve del producto
+     * @param cve cve del producto a buscar
+     * @return la venta encontrada o null si no lo encuentra
+     */
+    public static MovimientoGranel buscarVentaPorClave(String cve){
+        for (int i = 0; i < registroVentasGranel.size(); i++) {
+            if(registroVentasGranel.get(i).getProductoGranel().getClave().equalsIgnoreCase(cve)){
+            return registroVentasGranel.get(i);
+            }
+        }
+        return null;
+    }
+    
+    /**
      * metodo para verificar que el producto no se haya movido en el mismo dia
      * @param movimiento movimiento a verificar
      * @return true en caso de que no se haya movido y false si ya se movio
