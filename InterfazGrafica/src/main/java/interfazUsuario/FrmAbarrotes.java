@@ -17,7 +17,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
      */
     public FrmAbarrotes() {
         initComponents();
-        
+        JPanelPrincipal.removeAll();
     }
 
     /**
@@ -31,13 +31,13 @@ public class FrmAbarrotes extends javax.swing.JFrame {
 
         JPanelPrincipal = new javax.swing.JPanel();
         AgregarProductoPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        AgregarProductoNombre = new javax.swing.JTextField();
+        AgregarProductoUnidad = new javax.swing.JTextField();
+        AgregarProductoTipo = new javax.swing.JTextField();
         ConsultarProductoPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         ActualizarProductoPanel = new javax.swing.JPanel();
@@ -102,57 +102,68 @@ public class FrmAbarrotes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Agregar Producto");
-
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel16.setText("Nombre:");
+        jLabel16.setPreferredSize(new java.awt.Dimension(140, 60));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel20.setText("Unidad de medida:");
+        jLabel20.setPreferredSize(new java.awt.Dimension(301, 60));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel1.setText("Agregar Producto");
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel21.setText("Tipo:");
+        jLabel21.setPreferredSize(new java.awt.Dimension(78, 60));
 
-        jTextField2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField2.setText("Nombre");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        AgregarProductoNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        AgregarProductoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                AgregarProductoNombreActionPerformed(evt);
             }
         });
 
-        jTextField3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField3.setText("jTextField2");
+        AgregarProductoUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoUnidad.setMinimumSize(new java.awt.Dimension(64, 60));
+        AgregarProductoUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarProductoUnidadActionPerformed(evt);
+            }
+        });
 
-        jTextField4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jTextField4.setText("jTextField2");
+        AgregarProductoTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoTipo.setMinimumSize(new java.awt.Dimension(64, 60));
+        AgregarProductoTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarProductoTipoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AgregarProductoPanelLayout = new javax.swing.GroupLayout(AgregarProductoPanel);
         AgregarProductoPanel.setLayout(AgregarProductoPanelLayout);
         AgregarProductoPanelLayout.setHorizontalGroup(
             AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AgregarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarProductoPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarProductoPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)))
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 349, Short.MAX_VALUE)
+                        .addComponent(AgregarProductoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AgregarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(84, 84, 84))
+            .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
         );
         AgregarProductoPanelLayout.setVerticalGroup(
@@ -163,16 +174,16 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AgregarProductoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AgregarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(190, Short.MAX_VALUE))
+                    .addComponent(AgregarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -192,7 +203,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -815,6 +826,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private void AgregarProductoGranelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoGranelActionPerformed
         // TODO add your handling code here:
         cambiarVista(AgregarProductoPanel);
+        
     }//GEN-LAST:event_AgregarProductoGranelActionPerformed
 
     private void EliminarProductoGranelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoGranelActionPerformed
@@ -906,16 +918,25 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         cambiarVista(RegistroComprasPeriodoPanel);
     }//GEN-LAST:event_InventarioComprasPeriodoActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void AgregarProductoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_AgregarProductoNombreActionPerformed
+
+    private void AgregarProductoTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarProductoTipoActionPerformed
+
+    private void AgregarProductoUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarProductoUnidadActionPerformed
 
     private void cambiarVista(JPanel jPanel){
         jPanel.setSize(JPanelPrincipal.getWidth(), JPanelPrincipal.getHeight());
         JPanelPrincipal.removeAll();
+        JPanelPrincipal.repaint();
         JPanelPrincipal.add(jPanel);
         JPanelPrincipal.repaint();
-        
+
         
         
     }
@@ -980,61 +1001,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         
     }
     
-    public void ocultarTodo(){
-        AgregarProductoPanel.setEnabled(false);
-        AgregarProductoPanel.setVisible(false);
-        
-        ConsultarProductoPanel.setEnabled(false);
-        ConsultarProductoPanel.setVisible(false);
-        
-        ActualizarProductoPanel.setEnabled(false);
-        ActualizarProductoPanel.setVisible(false);
-        
-        EliminarProductoPanel.setEnabled(false);
-        EliminarProductoPanel.setVisible(false);
-        
-        MovimientosCompraPanel.setEnabled(false);
-        MovimientosCompraPanel.setVisible(false);
-        
-        MovimientosVentaPanel.setEnabled(false);
-        MovimientosVentaPanel.setVisible(false);
-        
-        AgregarInventarioPanel.setEnabled(false);
-        AgregarInventarioPanel.setVisible(false);
-        
-        EliminarInventarioPanel.setEnabled(false);
-        EliminarInventarioPanel.setVisible(false);
-        
-        ActualizarInventarioPanel.setEnabled(false);
-        ActualizarInventarioPanel.setVisible(false);
-        
-        ListadoCompletoPanel.setEnabled(false);
-        ListadoCompletoPanel.setVisible(false);
-        
-        ListadoClavePanel.setEnabled(false);
-        ListadoClavePanel.setVisible(false);
-        
-        ListadoTipoPanel.setEnabled(false);
-        ListadoTipoPanel.setVisible(false);
-        
-        InventarioTodosPanel.setEnabled(false);
-        InventarioTodosPanel.setVisible(false);
-        
-        InventarioProductosGranelPanel.setEnabled(false);
-        InventarioProductosGranelPanel.setVisible(false);
-        
-        InventarioRegistroVentasPanel.setEnabled(false);
-        InventarioRegistroVentasPanel.setVisible(false);
-        
-        InventarioRegistroComprasPanel.setEnabled(false);
-        InventarioRegistroComprasPanel.setVisible(false);
-        
-        RegistroVentasPeriodoPanel.setEnabled(false);
-        RegistroVentasPeriodoPanel.setVisible(false);
-        
-        RegistroComprasPeriodoPanel.setEnabled(false);
-        RegistroComprasPeriodoPanel.setVisible(false);
-    }
+   
     
     /**
      * @param args the command line arguments
@@ -1079,7 +1046,10 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JMenuItem AgregarInventario;
     private javax.swing.JPanel AgregarInventarioPanel;
     private javax.swing.JMenuItem AgregarProductoGranel;
+    private javax.swing.JTextField AgregarProductoNombre;
     private javax.swing.JPanel AgregarProductoPanel;
+    private javax.swing.JTextField AgregarProductoTipo;
+    private javax.swing.JTextField AgregarProductoUnidad;
     private javax.swing.JMenu CatalogosMenu;
     private javax.swing.JMenuItem ConsultarProductoGranel;
     private javax.swing.JPanel ConsultarProductoPanel;
@@ -1137,12 +1107,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 
