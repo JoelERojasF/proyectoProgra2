@@ -38,12 +38,28 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         AgregarProductoNombre = new javax.swing.JTextField();
         AgregarProductoUnidad = new javax.swing.JTextField();
         AgregarProductoTipo = new javax.swing.JTextField();
+        BotonAgregarProducto = new javax.swing.JButton();
         ConsultarProductoPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        ConsultarProductoId = new javax.swing.JTextField();
+        BotonConsultarProducto = new javax.swing.JButton();
         ActualizarProductoPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        ConsultarProductoId1 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        ConsultarProductoId2 = new javax.swing.JTextField();
+        ConsultarProductoId3 = new javax.swing.JTextField();
+        ConsultarProductoId4 = new javax.swing.JTextField();
+        BotonActualizarProducto = new javax.swing.JButton();
         EliminarProductoPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        ConsultarProductoId5 = new javax.swing.JTextField();
+        BotonEliminarProducto = new javax.swing.JButton();
         MovimientosCompraPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         MovimientosVentaPanel = new javax.swing.JPanel();
@@ -141,6 +157,14 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             }
         });
 
+        BotonAgregarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BotonAgregarProducto.setText("Enviar");
+        BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout AgregarProductoPanelLayout = new javax.swing.GroupLayout(AgregarProductoPanel);
         AgregarProductoPanel.setLayout(AgregarProductoPanelLayout);
         AgregarProductoPanelLayout.setHorizontalGroup(
@@ -162,9 +186,14 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                         .addComponent(AgregarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(84, 84, 84))
             .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
+                        .addGap(359, 359, 359)
+                        .addComponent(BotonAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AgregarProductoPanelLayout.setVerticalGroup(
             AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,67 +212,244 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AgregarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(BotonAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel2.setText("Consultar Producto");
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel22.setText("ID producto");
+        jLabel22.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoId.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoId.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoIdActionPerformed(evt);
+            }
+        });
+
+        BotonConsultarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BotonConsultarProducto.setText("Enviar");
+        BotonConsultarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonConsultarProductoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ConsultarProductoPanelLayout = new javax.swing.GroupLayout(ConsultarProductoPanel);
         ConsultarProductoPanel.setLayout(ConsultarProductoPanelLayout);
         ConsultarProductoPanelLayout.setHorizontalGroup(
             ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(442, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
+                .addComponent(ConsultarProductoId, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(96, 96, 96))
+            .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
+                .addGroup(ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
+                        .addGap(364, 364, 364)
+                        .addComponent(BotonConsultarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ConsultarProductoPanelLayout.setVerticalGroup(
             ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel2)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addGroup(ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoId, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                .addComponent(BotonConsultarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(85, 85, 85))
         );
+
+        ActualizarProductoPanel.setPreferredSize(new java.awt.Dimension(900, 500));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setText("Actualizar Producto");
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel23.setText("ID producto");
+        jLabel23.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoId1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoId1.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoId1ActionPerformed(evt);
+            }
+        });
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel24.setText("Nuevo nombre");
+        jLabel24.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel25.setText("Nueva unidad");
+        jLabel25.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel26.setText("Nuevo tipo");
+        jLabel26.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoId2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoId2.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoId2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoId2ActionPerformed(evt);
+            }
+        });
+
+        ConsultarProductoId3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoId3.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoId3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoId3ActionPerformed(evt);
+            }
+        });
+
+        ConsultarProductoId4.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoId4.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoId4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoId4ActionPerformed(evt);
+            }
+        });
+
+        BotonActualizarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BotonActualizarProducto.setText("Enviar");
+        BotonActualizarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarProductoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ActualizarProductoPanelLayout = new javax.swing.GroupLayout(ActualizarProductoPanel);
         ActualizarProductoPanel.setLayout(ActualizarProductoPanelLayout);
         ActualizarProductoPanelLayout.setHorizontalGroup(
             ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                        .addComponent(ConsultarProductoId4, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ConsultarProductoId3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ConsultarProductoId2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ConsultarProductoId1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(86, 86, 86))
+            .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addGap(359, 359, 359)
+                        .addComponent(BotonActualizarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ActualizarProductoPanelLayout.setVerticalGroup(
             ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
-                .addContainerGap(318, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoId1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoId2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoId3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoId4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(BotonActualizarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel4.setText("Eliminar Producto");
 
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel27.setText("ID producto");
+        jLabel27.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoId5.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoId5.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoId5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoId5ActionPerformed(evt);
+            }
+        });
+
+        BotonEliminarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BotonEliminarProducto.setText("Enviar");
+        BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EliminarProductoPanelLayout = new javax.swing.GroupLayout(EliminarProductoPanel);
         EliminarProductoPanel.setLayout(EliminarProductoPanelLayout);
         EliminarProductoPanelLayout.setHorizontalGroup(
             EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarProductoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(327, 327, 327))
             .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ConsultarProductoId5, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 376, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         EliminarProductoPanelLayout.setVerticalGroup(
             EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel4)
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoId5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addGap(139, 139, 139)
+                .addComponent(BotonEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -930,6 +1136,46 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AgregarProductoUnidadActionPerformed
 
+    private void ConsultarProductoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoIdActionPerformed
+
+    private void ConsultarProductoId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoId1ActionPerformed
+
+    private void ConsultarProductoId2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoId2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoId2ActionPerformed
+
+    private void ConsultarProductoId3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoId3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoId3ActionPerformed
+
+    private void ConsultarProductoId4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoId4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoId4ActionPerformed
+
+    private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonAgregarProductoActionPerformed
+
+    private void BotonConsultarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonConsultarProductoActionPerformed
+
+    private void BotonActualizarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonActualizarProductoActionPerformed
+
+    private void ConsultarProductoId5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoId5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoId5ActionPerformed
+
+    private void BotonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonEliminarProductoActionPerformed
+
     private void cambiarVista(JPanel jPanel){
         jPanel.setSize(JPanelPrincipal.getWidth(), JPanelPrincipal.getHeight());
         JPanelPrincipal.removeAll();
@@ -1050,8 +1296,18 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JPanel AgregarProductoPanel;
     private javax.swing.JTextField AgregarProductoTipo;
     private javax.swing.JTextField AgregarProductoUnidad;
+    private javax.swing.JButton BotonActualizarProducto;
+    private javax.swing.JButton BotonAgregarProducto;
+    private javax.swing.JButton BotonConsultarProducto;
+    private javax.swing.JButton BotonEliminarProducto;
     private javax.swing.JMenu CatalogosMenu;
     private javax.swing.JMenuItem ConsultarProductoGranel;
+    private javax.swing.JTextField ConsultarProductoId;
+    private javax.swing.JTextField ConsultarProductoId1;
+    private javax.swing.JTextField ConsultarProductoId2;
+    private javax.swing.JTextField ConsultarProductoId3;
+    private javax.swing.JTextField ConsultarProductoId4;
+    private javax.swing.JTextField ConsultarProductoId5;
     private javax.swing.JPanel ConsultarProductoPanel;
     private javax.swing.JMenu ConsultasInventarioMenu;
     private javax.swing.JMenu ConsultasMenu;
@@ -1100,6 +1356,12 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
