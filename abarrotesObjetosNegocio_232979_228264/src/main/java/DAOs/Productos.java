@@ -169,7 +169,7 @@ public class Productos {
             }
         }
         if(resultado.isEmpty()){
-            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto de este tipo.");
+            throw new DatoInvalidoException("Error: el catálogo no contiene ningun producto con esta unidad.");
         }
         return resultado;
         

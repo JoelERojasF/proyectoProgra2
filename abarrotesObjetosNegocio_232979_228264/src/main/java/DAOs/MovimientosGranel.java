@@ -6,6 +6,7 @@ package DAOs;
 
 import Excepciones.DatoInvalidoException;
 import Excepciones.ElementoDuplicadoException;
+import Excepciones.ElementoNoEncontradoException;
 import com.objetosnegocio.MovimientoGranel;
 import com.objetosservicio.Fecha;
 import com.objetosservicio.Periodo;
@@ -145,13 +146,17 @@ public class MovimientosGranel {
      * @param cve cve del producto a buscar
      * @return la compra encontrada o null si no lo encuentra
      */
-    public static MovimientoGranel buscarCompraPorClave(String cve){
+    public static ArrayList<MovimientoGranel> buscarComprasPorClaveProducto(String cve){
+        ArrayList<MovimientoGranel> comprasProducto = new ArrayList();
         for (int i = 0; i < registroComprasGranel.size(); i++) {
             if(registroComprasGranel.get(i).getProductoGranel().getClave().equalsIgnoreCase(cve)){
-            return registroComprasGranel.get(i);
+            comprasProducto.add(registroComprasGranel.get(i));
             }
         }
-        return null;
+        if(comprasProducto.isEmpty()){
+        throw new ElementoNoEncontradoException("Error: No hay compras de ese producto");
+        }
+        return comprasProducto;
     }
     
     /**
@@ -159,13 +164,36 @@ public class MovimientosGranel {
      * @param cve cve del producto a buscar
      * @return la venta encontrada o null si no lo encuentra
      */
-    public static MovimientoGranel buscarVentaPorClave(String cve){
+    public static ArrayList<MovimientoGranel> buscarVentasPorClaveProducto(String cve){
+        ArrayList<MovimientoGranel> ventasProducto = new ArrayList();
         for (int i = 0; i < registroVentasGranel.size(); i++) {
             if(registroVentasGranel.get(i).getProductoGranel().getClave().equalsIgnoreCase(cve)){
+            ventasProducto.add(registroVentasGranel.get(i));
+            }
+        }
+        if(ventasProducto.isEmpty()){
+        throw new ElementoNoEncontradoException("Error: No hay ventas de ese producto");
+        }
+        return ventasProducto;
+    }
+    
+    /**
+     * metodo para buscar un movimiento por su clave
+     * @param cve clave del movimiento
+     * @return el movimiento
+     */
+    public static MovimientoGranel buscarMovimiento(String cve){
+         for (int i = 0; i < registroComprasGranel.size(); i++) {
+            if(registroComprasGranel.get(i).getCveMovimient().equalsIgnoreCase(cve)){
+            return registroComprasGranel.get(i);
+            }
+        }
+         for (int i = 0; i < registroVentasGranel.size(); i++) {
+            if(registroVentasGranel.get(i).getCveMovimient().equalsIgnoreCase(cve)){
             return registroVentasGranel.get(i);
             }
         }
-        return null;
+        throw new ElementoNoEncontradoException("Error: No se encontro el movimiento");
     }
     
     /**

@@ -19,9 +19,9 @@ public interface IPersistenciaFachada {
     
     public Producto obtenerProducto(String clave);
     
-    public void actualizar(Producto producto, String nuevoNombre, String nuevaUnidad, char NuevoTipo);
+    public void actualizarProducto(Producto producto, String nuevoNombre, String nuevaUnidad, char NuevoTipo);
 
-    public void eliminar(Producto producto);
+    public void eliminarProducto(Producto producto);
 
     public ArrayList<Producto> obtenerCatalogoProductos(String unidad, char tipo);
     
@@ -32,9 +32,11 @@ public interface IPersistenciaFachada {
     
     public void agregarVenta(MovimientoGranel venta);
     
-    public MovimientoGranel obtenerVenta(String clave);
+    public ArrayList<MovimientoGranel> obtenerVentasProducto(String clave);
 
-    public MovimientoGranel obtenerCompra(String clave);
+    public ArrayList<MovimientoGranel> obtenerComprasProducto(String clave);
+    
+    public MovimientoGranel obtenerMovimiento(String clave);
         
     public ArrayList<MovimientoGranel> actualizarInventarioVentas();
     

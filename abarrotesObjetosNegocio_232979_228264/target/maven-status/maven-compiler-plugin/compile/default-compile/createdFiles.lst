@@ -1,1 +1,14 @@
+com\objetosnegocio\MovimientoEmpacado.class
+com\objetosnegocio\MovimientoGranel.class
+com\objetosnegocio\ProductoGranel.class
+DAOs\Productos.class
+com\objetosnegocio\ProductoEmpacado.class
 DAOs\Main.class
+com\objetosnegocio\Main.class
+Excepciones\DatoInvalidoException.class
+Excepciones\ElementoDuplicadoException.class
+com\objetosnegocio\Producto.class
+com\objetosnegocio\Movimiento.class
+DAOs\MovimientosGranel.class
+Excepciones\ElementoNoEncontradoException.class
+DAOs\ProductosGranel.class

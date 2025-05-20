@@ -22,194 +22,132 @@ public class PersistenciaFachada implements IPersistenciaFachada {
     
 
     public void agregarProductoGranel(ProductoGranel producto){
-        try{
             if(Productos.buscarProductoPorClave(producto.getClave()) == null){
                 Productos.agregarProducto(producto);
             }
             ProductosGranel.agregarAlInventatio(producto);
-        }catch(Exception e){
-        e.getMessage();
-        }
+       
     }
     
     public ProductoGranel obtenerProductoGranel(String cve){
-        try{
             return ProductosGranel.buscarProductoPorClave(cve);
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }  
     }
     
     public void actualizarProductoGranel(ProductoGranel producto, float cantidad){
-        try{
             ProductosGranel.actualizarInventario(producto, cantidad);
-        }catch(Exception e){
-        e.getMessage();
-        }
     }
     
     public void eliminarProductoGranel(ProductoGranel producto){
-        try{
             ProductosGranel.eliminarDelInventario(producto);
-        }catch(Exception e){
-        e.getMessage();
-        }
     }
+    
+    public ArrayList<ProductoGranel> obtenerInventarioGranel(){
+        return ProductosGranel.consultarInventario();
+    }
+    
 
     
     @Override
     public void agregarProducto(Producto producto) {
-        try{
         Productos.agregarProducto(producto);
-        }catch(Exception e){
-        e.getMessage();
-        }
     }
 
     @Override
     public Producto obtenerProducto(String clave) {
-        try{
         return Productos.buscarProductoPorClave(clave);
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
     }
 
     @Override
-    public void actualizar(Producto producto, String nuevoNombre, String nuevaUnidad, char NuevoTipo) {
-        try{
+    public void actualizarProducto(Producto producto, String nuevoNombre, String nuevaUnidad, char NuevoTipo) {
         Productos.actualizarProducto(producto, nuevoNombre, nuevaUnidad, NuevoTipo);
-        }catch(Exception e){
-        e.getMessage();
-        }
     }
 
     @Override
-    public void eliminar(Producto producto) {
-        try{
+    public void eliminarProducto(Producto producto) {
         Productos.eliminarProducto(producto.getClave());
-        }catch(Exception e){
-        e.getMessage();
-        }
     }
 
     @Override
     public ArrayList<Producto> obtenerCatalogoProductos(String unidad, char tipo) {
-        try{
-            if((unidad != null || !"".equals(unidad)) && (tipo != '\0') ){
+            if((!"".equals(unidad)) && (tipo != '\0') ){
+                System.out.println("busqueda con unidad y tipo");
                 return Productos.catalogoProductos(unidad, tipo);
             }else{
-            if((unidad == null || "".equals(unidad)) && (tipo != '\0')){
+            if(("".equals(unidad)) && (tipo != '\0')){
+                System.out.println("busqueda con tipo");
                 return Productos.catalogoProductos(tipo);
             }else{
-            if((unidad != null || !"".equals(unidad)) && (tipo == '\0')){
+            if((!"".equals(unidad)) && (tipo == '\0')){
+                System.out.println("busqueda con unidad");
                 return Productos.catalogoProductos(unidad);
             }else{
+                System.out.println("busqueda sin parametros");
                 return Productos.catalogoProductos();
             }
             }
             }
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
     }
     
     
 
     @Override
     public void agregarCompra(MovimientoGranel compra) {
-        try{
             if(Productos.buscarProductoPorClave(compra.getProductoGranel().getClave()) != null){
                 MovimientosGranel.comprarGranel(compra);
             }else{
-                throw new ElementoNoEncontradoException();
+                throw new ElementoNoEncontradoException("Error: el producto no esta registrado");
             }    
-        }catch(Exception e){
-        e.getMessage();
-        }
     }
 
     @Override
     public void agregarVenta(MovimientoGranel venta) {
-        try{
             if(Productos.buscarProductoPorClave(venta.getProductoGranel().getClave()) != null){
                 MovimientosGranel.venderGranel(venta);
             }else{
                 throw new ElementoNoEncontradoException();
             }   
-        }catch(Exception e){
-        e.getMessage();
-        }
     }
 
     @Override
-    public MovimientoGranel obtenerVenta(String clave) {
-        try{
-            return MovimientosGranel.buscarVentaPorClave(clave);
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
+    public ArrayList<MovimientoGranel> obtenerVentasProducto(String clave) {
+            return MovimientosGranel.buscarVentasPorClaveProducto(clave);
     }
 
     @Override
-    public MovimientoGranel obtenerCompra(String clave) {
-        try{
-            return MovimientosGranel.buscarCompraPorClave(clave);
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
+    public ArrayList<MovimientoGranel> obtenerComprasProducto(String clave) {
+            return MovimientosGranel.buscarComprasPorClaveProducto(clave);
     }
+    
+    @Override
+    public MovimientoGranel obtenerMovimiento(String clave){
+            return MovimientosGranel.buscarMovimiento(clave);
+    }
+
 
     @Override
     public ArrayList<MovimientoGranel> mostrarRegistroCompras() {
-        try{
             return MovimientosGranel.consultarCompras();
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
     }
 
     @Override
     public ArrayList<MovimientoGranel> mostrarRegistroComprasPorPeriodo(Periodo periodo) {
-        try{
             return MovimientosGranel.consultarCompras(periodo);
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
     }
 
     @Override
     public ArrayList<MovimientoGranel> mostrarRegistroVentas() {
-        try{
             return MovimientosGranel.consultarVentas();
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
     }
 
     @Override
     public ArrayList<MovimientoGranel> mostrarRegistroVentasPorPeriodo(Periodo periodo) {
-        try{
             return MovimientosGranel.consultarVentas(periodo);
-        }catch(Exception e){
-        e.getMessage();
-        return null;
-        }
     }
     
     
         @Override
     public ArrayList<MovimientoGranel> actualizarInventarioVentas() {
        ArrayList<MovimientoGranel> movimientosVerificados = new ArrayList();
-        try{
         
         for (int i = 0; i < MovimientosGranel.consultarVentas().size(); i++) {
             if(MovimientosGranel.consultarVentas().get(i).getProcesado() == false){
@@ -218,6 +156,9 @@ public class PersistenciaFachada implements IPersistenciaFachada {
                         ProductosGranel.actualizarInventario(MovimientosGranel.consultarVentas().get(i).getProductoGranel(), (ProductosGranel.buscarProductoPorClave(MovimientosGranel.consultarVentas().get(i).getProductoGranel().getClave()).getCantidad() - MovimientosGranel.consultarVentas().get(i).getProductoGranel().getCantidad()));
                         MovimientosGranel.consultarVentas().get(i).setProcesado(Boolean.TRUE);
                         movimientosVerificados.add(MovimientosGranel.consultarVentas().get(i));
+                        if(ProductosGranel.buscarProductoPorClave(MovimientosGranel.consultarVentas().get(i).getProductoGranel().getClave()).getCantidad() == 0){
+                        ProductosGranel.eliminarDelInventario(MovimientosGranel.consultarVentas().get(i).getProductoGranel());
+                        }
                     }else{
                     //cantidad del movimiento mayor a la del inventario
                     }
@@ -231,21 +172,11 @@ public class PersistenciaFachada implements IPersistenciaFachada {
         }else{
         return null;
         }
-        
-        }catch(Exception e){
-            e.getMessage();
-            if(!movimientosVerificados.isEmpty()){
-            return movimientosVerificados;
-            }else{
-            return null;
-            }
-        }
     }
 
     @Override
     public ArrayList<MovimientoGranel> actualizarInventarioCompras() {
        ArrayList<MovimientoGranel> movimientosVerificados = new ArrayList();
-        try{
         
         for (int i = 0; i < MovimientosGranel.consultarCompras().size(); i++) {
             if(MovimientosGranel.consultarCompras().get(i).getProcesado() == false){
@@ -266,15 +197,6 @@ public class PersistenciaFachada implements IPersistenciaFachada {
         return movimientosVerificados;
         }else{
         return null;
-        }
-        
-        }catch(Exception e){
-            e.getMessage();
-            if(!movimientosVerificados.isEmpty()){
-            return movimientosVerificados;
-            }else{
-            return null;
-            }
         }
     }
 }
