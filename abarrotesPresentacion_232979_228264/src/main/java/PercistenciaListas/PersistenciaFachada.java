@@ -20,7 +20,15 @@ import java.util.ArrayList;
  */
 public class PersistenciaFachada implements IPersistenciaFachada {
     
+    private static PersistenciaFachada instance;
 
+    public static PersistenciaFachada getInstance() {
+        if (instance == null) {
+            instance = new PersistenciaFachada();
+        }
+        return instance;
+    }
+    
     public void agregarProductoGranel(ProductoGranel producto){
             if(Productos.buscarProductoPorClave(producto.getClave()) == null){
                 Productos.agregarProducto(producto);
