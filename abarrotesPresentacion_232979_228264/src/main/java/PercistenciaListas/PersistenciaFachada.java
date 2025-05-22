@@ -78,18 +78,14 @@ public class PersistenciaFachada implements IPersistenciaFachada {
     @Override
     public ArrayList<Producto> obtenerCatalogoProductos(String unidad, char tipo) {
             if((!"".equals(unidad)) && (tipo != '\0') ){
-                System.out.println("busqueda con unidad y tipo");
                 return Productos.catalogoProductos(unidad, tipo);
             }else{
             if(("".equals(unidad)) && (tipo != '\0')){
-                System.out.println("busqueda con tipo");
                 return Productos.catalogoProductos(tipo);
             }else{
             if((!"".equals(unidad)) && (tipo == '\0')){
-                System.out.println("busqueda con unidad");
                 return Productos.catalogoProductos(unidad);
             }else{
-                System.out.println("busqueda sin parametros");
                 return Productos.catalogoProductos();
             }
             }
