@@ -36,8 +36,8 @@ public class FrmAbarrotes extends javax.swing.JFrame {
 //    
       PersistenciaFachada fachada = new PersistenciaFachada();
       
-      DefaultTableModel modelo = new DefaultTableModel(new String [] {"Clave", "Nombre", "Unidad", "Tipo"}, 0);
-      DefaultTableModel modeloProductosGranel = new DefaultTableModel(new String [] {"Clave", "Nombre", "Unidad"}, 0);
+      DefaultTableModel modeloProductos = new DefaultTableModel(new String [] {"Clave", "Nombre", "Unidad", "Tipo"}, 0);
+      DefaultTableModel modeloProductosInventario = new DefaultTableModel(new String [] {"Clave", "Nombre", "Unidad", "tipo", "cantidad"}, 0);
       DefaultTableModel comprasVentas = new DefaultTableModel(new String [] {"ID. Producto", "Procesado", "Fecha"}, 0);
       
 
@@ -65,19 +65,15 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         AgregarProductoNombre = new javax.swing.JTextField();
-        AgregarProductoUnidad = new javax.swing.JTextField();
         BotonAgregarProducto = new javax.swing.JButton();
         AgregarProductoTipo = new javax.swing.JComboBox<>();
         jLabel34 = new javax.swing.JLabel();
         AgregarProductoID = new javax.swing.JTextField();
+        AgregarProductoUnidad = new javax.swing.JComboBox<>();
         ProductoAnadidoPanel = new javax.swing.JPanel();
         jLabel37 = new javax.swing.JLabel();
         botonVolverAgregarProductp = new javax.swing.JButton();
-        ConsultarProductoPanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        ConsultarProductoId = new javax.swing.JTextField();
-        BotonConsultarProducto = new javax.swing.JButton();
+        botonAgregarOtroProducto = new javax.swing.JButton();
         ActualizarProductoPanel = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -86,101 +82,169 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         NuevoNombreActualizar = new javax.swing.JTextField();
-        NuevaUnidadAcutalizar = new javax.swing.JTextField();
-        NuevoTipoActualizar = new javax.swing.JTextField();
         BotonActualizarProducto = new javax.swing.JButton();
+        actualizarProductoComboBox = new javax.swing.JComboBox<>();
+        BotonActualizarProductoBuscar = new javax.swing.JButton();
+        NuevaUnidadActualizar = new javax.swing.JComboBox<>();
+        NuevoTipoActualizar = new javax.swing.JComboBox<>();
+        ProductoActualzadoPanel = new javax.swing.JPanel();
+        jLabel41 = new javax.swing.JLabel();
+        botonVolverActualizarProductp = new javax.swing.JButton();
+        botonActualizarOtroProducto = new javax.swing.JButton();
         EliminarProductoPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        IdProductoEliminar = new javax.swing.JTextField();
         BotonEliminarProducto = new javax.swing.JButton();
+        BotonEliminarProductoBuscar = new javax.swing.JButton();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        EliminarProductoTipo = new javax.swing.JTextField();
+        EliminarProductoUnidad = new javax.swing.JTextField();
+        EliminarProductoNombre = new javax.swing.JTextField();
+        jLabel45 = new javax.swing.JLabel();
+        eliminarProductoComboBox = new javax.swing.JComboBox<>();
+        EliminarProductoClave = new javax.swing.JTextField();
+        ProductoEliminadoPanel = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        botonVolverEliminarProductp = new javax.swing.JButton();
+        botonEliminarOtroProducto = new javax.swing.JButton();
         MovimientoCompraPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        FechaMovimientoCompra = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         IdProductoMovimientoCompra = new javax.swing.JTextField();
         BotonActualizarProducto1 = new javax.swing.JButton();
-        BooleanoMovimientoCompra = new javax.swing.JComboBox<>();
+        MovimientoCompraDiaComboBox1 = new javax.swing.JComboBox<>();
+        MovimientoCompraMesComboBox = new javax.swing.JComboBox<>();
+        MovimientoCompraAnio = new javax.swing.JTextField();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
         MovimientoVentaPanel = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         FechaMovimientoCompra1 = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel33 = new javax.swing.JLabel();
         IdProductoMovimientoCompra1 = new javax.swing.JTextField();
         BotonActualizarProducto2 = new javax.swing.JButton();
         AgregarInventarioPanel = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        BotonAgregarProductoInventarioBuscar = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        AgregarProductoInventarioTipo = new javax.swing.JTextField();
+        AgregarProductoInventarioUnidad = new javax.swing.JTextField();
+        AgregarProductoInventarioNombre = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        agregarProductoInventarioComboBox = new javax.swing.JComboBox<>();
+        AgregarProductoInventarioClave = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        AgregarProductoInventarioCantidad = new javax.swing.JTextField();
+        BotonAgregarProductoInventario = new javax.swing.JButton();
+        ProductoAnadidoInventarioPanel = new javax.swing.JPanel();
+        jLabel51 = new javax.swing.JLabel();
+        botonVolverAgregarProductpInventario = new javax.swing.JButton();
+        botonAgregarOtroProductoInventario = new javax.swing.JButton();
         EliminarInventarioPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        eliminarProductoInventarioTipo = new javax.swing.JTextField();
+        eliminarProductoInventarioUnidad = new javax.swing.JTextField();
+        eliminarProductoInventarioNombre = new javax.swing.JTextField();
+        eliminarProductoInventarioComboBox = new javax.swing.JComboBox<>();
+        jLabel32 = new javax.swing.JLabel();
+        eliminarProductoInventarioClave = new javax.swing.JTextField();
+        jLabel59 = new javax.swing.JLabel();
+        EliminarProductoInventarioCantidad = new javax.swing.JTextField();
+        BotonEliminarProductoInventarioBuscar = new javax.swing.JButton();
+        BotonEliminarProductoInventario = new javax.swing.JButton();
+        ProductoEliminadoInventarioPanel = new javax.swing.JPanel();
+        jLabel65 = new javax.swing.JLabel();
+        botonVolverEliminarProductpInventario = new javax.swing.JButton();
+        botonEliminarOtroProductoInventario = new javax.swing.JButton();
         ActualizarInventarioPanel = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        actualizarProductoInventarioClave = new javax.swing.JTextField();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        actualizarProductoInventarioCantidad = new javax.swing.JTextField();
+        jLabel69 = new javax.swing.JLabel();
+        BotonActualizarProductoInventarioBuscar = new javax.swing.JButton();
+        actualizarProductoInventarioTipo = new javax.swing.JTextField();
+        BotonActualizarProductoInventario = new javax.swing.JButton();
+        actualizarProductoInventarioUnidad = new javax.swing.JTextField();
+        actualizarProductoInventarioNombre = new javax.swing.JTextField();
+        actualizarProductoInventarioComboBox = new javax.swing.JComboBox<>();
+        jLabel70 = new javax.swing.JLabel();
+        ProductoAcrualizadoInventarioPanel = new javax.swing.JPanel();
+        jLabel71 = new javax.swing.JLabel();
+        botonVolverActualizarProductpInventario = new javax.swing.JButton();
+        botonActualizarOtroProductoInventario = new javax.swing.JButton();
         CatalogoCompletoPanel = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        ListadoCompletoBoton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListadoProductos = new javax.swing.JTable();
         CatalogoTipo = new javax.swing.JComboBox<>();
-        CatalogoUnidad = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         BotonCatalogoBuscar = new javax.swing.JButton();
-        CatalogoBuscarPorClavePanel = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        InventarioTodosPanel = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        InventarioCompleto = new javax.swing.JTable();
-        InventarioTodosBoton = new javax.swing.JButton();
-        InventarioProductosGranelPanel = new javax.swing.JPanel();
-        jLabel14 = new javax.swing.JLabel();
-        InventarioProductosGranelBoton = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        InventarioCompleto1 = new javax.swing.JTable();
-        InventarioRegistroVentasPanel = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        InventarioCompleto2 = new javax.swing.JTable();
-        RegistroVentasBoton = new javax.swing.JButton();
-        InventarioRegistroComprasPanel = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        InventarioCompleto3 = new javax.swing.JTable();
-        RegistroComprasBoton = new javax.swing.JButton();
-        RegistroVentasPeriodoPanel = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        InventarioCompleto4 = new javax.swing.JTable();
-        VentasPeriodoBoton = new javax.swing.JButton();
-        FechaInicialVentas = new javax.swing.JTextField();
-        FechaFinalVentas = new javax.swing.JTextField();
-        BotonCatalogoBuscar1 = new javax.swing.JButton();
+        CatalogoUnidad = new javax.swing.JComboBox<>();
+        BuscarCatalogoPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        ConsultarProductoClave = new javax.swing.JTextField();
+        consultarProductoComboBox = new javax.swing.JComboBox<>();
+        BotonConsultarProductoBuscar = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        ConsultarProductoTipo = new javax.swing.JTextField();
+        ConsultarProductoUnidad = new javax.swing.JTextField();
+        ConsultarProductoNombre = new javax.swing.JTextField();
+        ClaveCheckBox = new javax.swing.JCheckBox();
+        ConsultarProductoBuscarClave = new javax.swing.JTextField();
+        InventarioTodosPanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaInventarios = new javax.swing.JTable();
+        InventarioBuscarPanel = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        ClaveInventarioCheckBox = new javax.swing.JCheckBox();
+        InventarioConsultarClaveI = new javax.swing.JTextField();
+        BotonConsultarProductoInventarioBuscar = new javax.swing.JButton();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        ConsultarProductoInventarioTipo = new javax.swing.JTextField();
+        ConsultarProductoInventarioUnidad = new javax.swing.JTextField();
+        ConsultarProductoInventarioNombre = new javax.swing.JTextField();
+        consultarProductoInventarioComboBox = new javax.swing.JComboBox<>();
+        ConsultarProductoInventarioClave = new javax.swing.JTextField();
+        jLabel55 = new javax.swing.JLabel();
+        ConsultarProductoInventarioCantidad = new javax.swing.JTextField();
+        RegistroVentasPanel = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        RegistroComprasPanel = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        RegistroVentasPeriodoPanel = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
         RegistroComprasPeriodoPanel = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
-        ComprasPeriodoBoton = new javax.swing.JButton();
-        FechaInicialVentas1 = new javax.swing.JTextField();
-        FechaFinalVentas1 = new javax.swing.JTextField();
-        BotonCatalogoBuscar2 = new javax.swing.JButton();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        InventarioCompleto5 = new javax.swing.JTable();
         ErrorPanel = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         TextoError = new javax.swing.JTextField();
         BotonVolverError = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         CatalogosMenu = new javax.swing.JMenu();
-        ProductosGranelMenu = new javax.swing.JMenu();
-        AgregarProductoGranel = new javax.swing.JMenuItem();
-        ConsultarProductoGranel = new javax.swing.JMenuItem();
-        ActualizarProductoGranel = new javax.swing.JMenuItem();
-        EliminarProductoGranel = new javax.swing.JMenuItem();
+        ProductosMenu = new javax.swing.JMenu();
+        AgregarProducto = new javax.swing.JMenuItem();
+        ActualizarProducto = new javax.swing.JMenuItem();
+        EliminarProducto = new javax.swing.JMenuItem();
         MovimientosMenu = new javax.swing.JMenu();
         MovimientosCompra = new javax.swing.JMenuItem();
         MovimientosVenta = new javax.swing.JMenuItem();
@@ -191,10 +255,10 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         ConsultasMenu = new javax.swing.JMenu();
         CatalogoMenu = new javax.swing.JMenu();
         ProductoListadoCompleto = new javax.swing.JMenuItem();
-        CatalogoBuscarPorClave = new javax.swing.JMenuItem();
+        ConsultarProductoCatalogo = new javax.swing.JMenuItem();
         ConsultasInventarioMenu = new javax.swing.JMenu();
         InventarioTodos = new javax.swing.JMenuItem();
-        InventarioProductosGranel = new javax.swing.JMenuItem();
+        InventarioBuscarPorClave = new javax.swing.JMenuItem();
         InventarioRegistroVentas = new javax.swing.JMenuItem();
         InventarioRegistroCompras = new javax.swing.JMenuItem();
         InventarioVentasPeriodo = new javax.swing.JMenuItem();
@@ -221,7 +285,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         jLabel21.setText("Tipo:");
         jLabel21.setPreferredSize(new java.awt.Dimension(78, 60));
 
-        AgregarProductoNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AgregarProductoNombre.setPreferredSize(new java.awt.Dimension(147, 60));
         AgregarProductoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,16 +293,8 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             }
         });
 
-        AgregarProductoUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        AgregarProductoUnidad.setMinimumSize(new java.awt.Dimension(64, 60));
-        AgregarProductoUnidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarProductoUnidadActionPerformed(evt);
-            }
-        });
-
         BotonAgregarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        BotonAgregarProducto.setText("Enviar");
+        BotonAgregarProducto.setText("Agregar");
         BotonAgregarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonAgregarProductoActionPerformed(evt);
@@ -250,13 +306,15 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel34.setText("ID(opcional):");
 
-        AgregarProductoID.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoID.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         AgregarProductoID.setPreferredSize(new java.awt.Dimension(147, 60));
         AgregarProductoID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AgregarProductoIDActionPerformed(evt);
             }
         });
+
+        AgregarProductoUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Kilogramo", "Litro" }));
 
         javax.swing.GroupLayout AgregarProductoPanelLayout = new javax.swing.GroupLayout(AgregarProductoPanel);
         AgregarProductoPanel.setLayout(AgregarProductoPanelLayout);
@@ -286,9 +344,8 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(AgregarProductoID, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(AgregarProductoUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
-                                .addComponent(AgregarProductoTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(AgregarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AgregarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(84, 84, 84))
         );
         AgregarProductoPanelLayout.setVerticalGroup(
@@ -301,23 +358,20 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(AgregarProductoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 48, Short.MAX_VALUE)))
+                        .addComponent(AgregarProductoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(AgregarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AgregarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(AgregarProductoID, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel34))
-                        .addGap(100, 100, 100))
-                    .addGroup(AgregarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgregarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgregarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(AgregarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AgregarProductoID, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34))
+                .addGap(120, 120, 120)
                 .addComponent(BotonAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
         );
@@ -331,6 +385,13 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             }
         });
 
+        botonAgregarOtroProducto.setText("Agregar otro producto");
+        botonAgregarOtroProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarOtroProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ProductoAnadidoPanelLayout = new javax.swing.GroupLayout(ProductoAnadidoPanel);
         ProductoAnadidoPanel.setLayout(ProductoAnadidoPanelLayout);
         ProductoAnadidoPanelLayout.setHorizontalGroup(
@@ -341,6 +402,8 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addContainerGap(126, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductoAnadidoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonAgregarOtroProducto)
+                .addGap(18, 18, 18)
                 .addComponent(botonVolverAgregarProductp)
                 .addGap(14, 14, 14))
         );
@@ -350,65 +413,10 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel37)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(botonVolverAgregarProductp)
+                .addGroup(ProductoAnadidoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolverAgregarProductp)
+                    .addComponent(botonAgregarOtroProducto))
                 .addContainerGap())
-        );
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel2.setText("Consultar Producto");
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel22.setText("ID producto");
-        jLabel22.setPreferredSize(new java.awt.Dimension(140, 60));
-
-        ConsultarProductoId.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        ConsultarProductoId.setPreferredSize(new java.awt.Dimension(147, 60));
-        ConsultarProductoId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarProductoIdActionPerformed(evt);
-            }
-        });
-
-        BotonConsultarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        BotonConsultarProducto.setText("Enviar");
-        BotonConsultarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonConsultarProductoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ConsultarProductoPanelLayout = new javax.swing.GroupLayout(ConsultarProductoPanel);
-        ConsultarProductoPanel.setLayout(ConsultarProductoPanelLayout);
-        ConsultarProductoPanelLayout.setHorizontalGroup(
-            ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
-                .addComponent(ConsultarProductoId, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(96, 96, 96))
-            .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
-                .addGroup(ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
-                        .addGap(364, 364, 364)
-                        .addComponent(BotonConsultarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        ConsultarProductoPanelLayout.setVerticalGroup(
-            ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultarProductoPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
-                .addGap(59, 59, 59)
-                .addGroup(ConsultarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConsultarProductoId, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
-                .addComponent(BotonConsultarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
         );
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -418,6 +426,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         jLabel23.setText("ID producto");
         jLabel23.setPreferredSize(new java.awt.Dimension(140, 60));
 
+        IdProductoActualizar.setEditable(false);
         IdProductoActualizar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         IdProductoActualizar.setPreferredSize(new java.awt.Dimension(147, 60));
         IdProductoActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -446,62 +455,61 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             }
         });
 
-        NuevaUnidadAcutalizar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        NuevaUnidadAcutalizar.setPreferredSize(new java.awt.Dimension(147, 60));
-        NuevaUnidadAcutalizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NuevaUnidadAcutalizarActionPerformed(evt);
-            }
-        });
-
-        NuevoTipoActualizar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        NuevoTipoActualizar.setPreferredSize(new java.awt.Dimension(147, 60));
-        NuevoTipoActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NuevoTipoActualizarActionPerformed(evt);
-            }
-        });
-
         BotonActualizarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        BotonActualizarProducto.setText("Enviar");
+        BotonActualizarProducto.setText("Actualizar");
         BotonActualizarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonActualizarProductoActionPerformed(evt);
             }
         });
 
+        actualizarProductoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        BotonActualizarProductoBuscar.setText("Buscar");
+        BotonActualizarProductoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarProductoBuscarActionPerformed(evt);
+            }
+        });
+
+        NuevaUnidadActualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kilogramo", "Litro" }));
+
+        NuevoTipoActualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Empacado", "Granel" }));
+
         javax.swing.GroupLayout ActualizarProductoPanelLayout = new javax.swing.GroupLayout(ActualizarProductoPanel);
         ActualizarProductoPanel.setLayout(ActualizarProductoPanelLayout);
         ActualizarProductoPanelLayout.setHorizontalGroup(
             ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
                 .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
-                        .addComponent(NuevoTipoActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ActualizarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NuevaUnidadAcutalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ActualizarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(NuevoNombreActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ActualizarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(IdProductoActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(86, 86, 86))
-            .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
-                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
+                        .addGap(84, 84, 84)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
-                        .addGap(359, 359, 359)
-                        .addComponent(BotonActualizarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                                .addGap(188, 188, 188)
+                                .addComponent(actualizarProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ActualizarProductoPanelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)))
+                        .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(IdProductoActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                            .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(BotonActualizarProductoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(NuevoNombreActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+                            .addComponent(NuevaUnidadActualizar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(NuevoTipoActualizar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(248, Short.MAX_VALUE))
+            .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                .addGap(346, 346, 346)
+                .addComponent(BotonActualizarProducto)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ActualizarProductoPanelLayout.setVerticalGroup(
@@ -509,47 +517,147 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actualizarProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonActualizarProductoBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IdProductoActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                    .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(IdProductoActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NuevoNombreActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addGroup(ActualizarProductoPanelLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(NuevoNombreActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NuevaUnidadAcutalizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                    .addComponent(NuevaUnidadActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(ActualizarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NuevoTipoActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
-                .addGap(54, 54, 54)
+                    .addComponent(NuevoTipoActualizar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(BotonActualizarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
+        );
+
+        jLabel41.setText("producro actualizado con exito");
+
+        botonVolverActualizarProductp.setText("Volver");
+        botonVolverActualizarProductp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActualizarProductpActionPerformed(evt);
+            }
+        });
+
+        botonActualizarOtroProducto.setText("Actualizar otro producto");
+        botonActualizarOtroProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActualizarOtroProductoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ProductoActualzadoPanelLayout = new javax.swing.GroupLayout(ProductoActualzadoPanel);
+        ProductoActualzadoPanel.setLayout(ProductoActualzadoPanelLayout);
+        ProductoActualzadoPanelLayout.setHorizontalGroup(
+            ProductoActualzadoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoActualzadoPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel41)
+                .addContainerGap(109, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductoActualzadoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonActualizarOtroProducto)
+                .addGap(18, 18, 18)
+                .addComponent(botonVolverActualizarProductp)
+                .addGap(14, 14, 14))
+        );
+        ProductoActualzadoPanelLayout.setVerticalGroup(
+            ProductoActualzadoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoActualzadoPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(ProductoActualzadoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolverActualizarProductp)
+                    .addComponent(botonActualizarOtroProducto))
+                .addContainerGap())
         );
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel4.setText("Eliminar Producto");
 
-        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel27.setText("ID producto");
-        jLabel27.setPreferredSize(new java.awt.Dimension(140, 60));
-
-        IdProductoEliminar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        IdProductoEliminar.setPreferredSize(new java.awt.Dimension(147, 60));
-        IdProductoEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IdProductoEliminarActionPerformed(evt);
-            }
-        });
-
         BotonEliminarProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        BotonEliminarProducto.setText("Enviar");
+        BotonEliminarProducto.setText("Eliminar");
         BotonEliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonEliminarProductoActionPerformed(evt);
+            }
+        });
+
+        BotonEliminarProductoBuscar.setText("Buscar");
+        BotonEliminarProductoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarProductoBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel42.setText("Nombre");
+        jLabel42.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel43.setText("Tipo");
+        jLabel43.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel44.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel44.setText("Unidad");
+        jLabel44.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        EliminarProductoTipo.setEditable(false);
+        EliminarProductoTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        EliminarProductoTipo.setPreferredSize(new java.awt.Dimension(147, 60));
+        EliminarProductoTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarProductoTipoActionPerformed(evt);
+            }
+        });
+
+        EliminarProductoUnidad.setEditable(false);
+        EliminarProductoUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        EliminarProductoUnidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        EliminarProductoUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarProductoUnidadActionPerformed(evt);
+            }
+        });
+
+        EliminarProductoNombre.setEditable(false);
+        EliminarProductoNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        EliminarProductoNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        EliminarProductoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarProductoNombreActionPerformed(evt);
+            }
+        });
+
+        jLabel45.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel45.setText("Clave");
+        jLabel45.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        eliminarProductoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        EliminarProductoClave.setEditable(false);
+        EliminarProductoClave.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        EliminarProductoClave.setPreferredSize(new java.awt.Dimension(147, 60));
+        EliminarProductoClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarProductoClaveActionPerformed(evt);
             }
         });
 
@@ -558,33 +666,105 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         EliminarProductoPanelLayout.setHorizontalGroup(
             EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarProductoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BotonEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(327, 327, 327))
-            .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap(251, Short.MAX_VALUE)
                 .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(IdProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 436, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarProductoPanelLayout.createSequentialGroup()
+                        .addComponent(BotonEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(334, 334, 334))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EliminarProductoPanelLayout.createSequentialGroup()
+                        .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BotonEliminarProductoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
+                                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EliminarProductoClave, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EliminarProductoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EliminarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EliminarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(249, 249, 249))))
+            .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(eliminarProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         EliminarProductoPanelLayout.setVerticalGroup(
             EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EliminarProductoPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel4)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IdProductoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
-                .addGap(139, 139, 139)
+                    .addComponent(eliminarProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonEliminarProductoBuscar))
+                .addGap(14, 14, 14)
+                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EliminarProductoClave, javax.swing.GroupLayout.PREFERRED_SIZE, 53, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EliminarProductoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EliminarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(EliminarProductoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EliminarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
                 .addComponent(BotonEliminarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap())
+        );
+
+        jLabel46.setText("producro Eliminado con exito");
+
+        botonVolverEliminarProductp.setText("Volver");
+        botonVolverEliminarProductp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverEliminarProductpActionPerformed(evt);
+            }
+        });
+
+        botonEliminarOtroProducto.setText("Eliminar otro producto");
+        botonEliminarOtroProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarOtroProductoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ProductoEliminadoPanelLayout = new javax.swing.GroupLayout(ProductoEliminadoPanel);
+        ProductoEliminadoPanel.setLayout(ProductoEliminadoPanelLayout);
+        ProductoEliminadoPanelLayout.setHorizontalGroup(
+            ProductoEliminadoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoEliminadoPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel46)
+                .addContainerGap(116, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductoEliminadoPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonEliminarOtroProducto)
+                .addGap(18, 18, 18)
+                .addComponent(botonVolverEliminarProductp)
+                .addGap(14, 14, 14))
+        );
+        ProductoEliminadoPanelLayout.setVerticalGroup(
+            ProductoEliminadoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoEliminadoPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(ProductoEliminadoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolverEliminarProductp)
+                    .addComponent(botonEliminarOtroProducto))
+                .addContainerGap())
         );
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
@@ -593,18 +773,6 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel28.setText("Fecha");
         jLabel28.setPreferredSize(new java.awt.Dimension(140, 60));
-
-        FechaMovimientoCompra.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        FechaMovimientoCompra.setPreferredSize(new java.awt.Dimension(147, 60));
-        FechaMovimientoCompra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FechaMovimientoCompraActionPerformed(evt);
-            }
-        });
-
-        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel29.setText("Procesado");
-        jLabel29.setPreferredSize(new java.awt.Dimension(140, 60));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel30.setText("Id de producto gr.");
@@ -626,55 +794,76 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             }
         });
 
-        BooleanoMovimientoCompra.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        BooleanoMovimientoCompra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False" }));
-        BooleanoMovimientoCompra.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                BooleanoMovimientoCompraComponentRemoved(evt);
-            }
-        });
+        MovimientoCompraDiaComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+
+        MovimientoCompraMesComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+
+        jLabel72.setText("Dia");
+
+        jLabel73.setText("Mes");
+
+        jLabel74.setText("año");
 
         javax.swing.GroupLayout MovimientoCompraPanelLayout = new javax.swing.GroupLayout(MovimientoCompraPanel);
         MovimientoCompraPanel.setLayout(MovimientoCompraPanelLayout);
         MovimientoCompraPanelLayout.setHorizontalGroup(
             MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MovimientoCompraPanelLayout.createSequentialGroup()
-                        .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(244, 261, Short.MAX_VALUE)
-                        .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IdProductoMovimientoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FechaMovimientoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BooleanoMovimientoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(59, 59, 59)))
-                .addContainerGap())
-            .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
                 .addGap(348, 348, 348)
                 .addComponent(BotonActualizarProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MovimientoCompraPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(IdProductoMovimientoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59))
+                    .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
+                        .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
+                                        .addComponent(MovimientoCompraDiaComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(MovimientoCompraMesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(MovimientoCompraAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
+                                        .addGap(49, 49, 49)
+                                        .addComponent(jLabel72)
+                                        .addGap(83, 83, 83)
+                                        .addComponent(jLabel73)
+                                        .addGap(71, 71, 71)
+                                        .addComponent(jLabel74)))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         MovimientoCompraPanelLayout.setVerticalGroup(
             MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel5)
-                .addGap(85, 85, 85)
-                .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FechaMovimientoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BooleanoMovimientoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel73)
+                            .addComponent(jLabel72)
+                            .addComponent(jLabel74))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(MovimientoCompraMesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MovimientoCompraDiaComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MovimientoCompraAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MovimientoCompraPanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(156, 156, 156)
                 .addGroup(MovimientoCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(IdProductoMovimientoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
@@ -695,18 +884,6 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         FechaMovimientoCompra1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FechaMovimientoCompra1ActionPerformed(evt);
-            }
-        });
-
-        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel32.setText("Procesado");
-        jLabel32.setPreferredSize(new java.awt.Dimension(140, 60));
-
-        jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False" }));
-        jComboBox2.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                jComboBox2ComponentRemoved(evt);
             }
         });
 
@@ -740,13 +917,9 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(MovimientoVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(MovimientoVentaPanelLayout.createSequentialGroup()
-                                .addGroup(MovimientoVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(271, 271, 271)
-                                .addGroup(MovimientoVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(FechaMovimientoCompra1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(FechaMovimientoCompra1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(MovimientoVentaPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -767,14 +940,10 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addGap(85, 85, 85)
                 .addGroup(MovimientoVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FechaMovimientoCompra1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(MovimientoVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(FechaMovimientoCompra1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(77, 77, 77)
                 .addGroup(MovimientoVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IdProductoMovimientoCompra1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                    .addComponent(IdProductoMovimientoCompra1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(73, 73, 73)
                 .addComponent(BotonActualizarProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -782,78 +951,582 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         );
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel7.setText("Agregar movimiento");
+        jLabel7.setText("Agregar producto al inventario");
+
+        BotonAgregarProductoInventarioBuscar.setText("Buscar");
+        BotonAgregarProductoInventarioBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarProductoInventarioBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel47.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel47.setText("Nombre");
+        jLabel47.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel48.setText("Tipo");
+        jLabel48.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel49.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel49.setText("Cantidad");
+        jLabel49.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        AgregarProductoInventarioTipo.setEditable(false);
+        AgregarProductoInventarioTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoInventarioTipo.setPreferredSize(new java.awt.Dimension(147, 60));
+        AgregarProductoInventarioTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarProductoInventarioTipoActionPerformed(evt);
+            }
+        });
+
+        AgregarProductoInventarioUnidad.setEditable(false);
+        AgregarProductoInventarioUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoInventarioUnidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        AgregarProductoInventarioUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarProductoInventarioUnidadActionPerformed(evt);
+            }
+        });
+
+        AgregarProductoInventarioNombre.setEditable(false);
+        AgregarProductoInventarioNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoInventarioNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        AgregarProductoInventarioNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarProductoInventarioNombreActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel27.setText("Clave");
+        jLabel27.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        agregarProductoInventarioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        AgregarProductoInventarioClave.setEditable(false);
+        AgregarProductoInventarioClave.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoInventarioClave.setPreferredSize(new java.awt.Dimension(147, 60));
+        AgregarProductoInventarioClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarProductoInventarioClaveActionPerformed(evt);
+            }
+        });
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel50.setText("Unidad");
+        jLabel50.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        AgregarProductoInventarioCantidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        AgregarProductoInventarioCantidad.setPreferredSize(new java.awt.Dimension(147, 60));
+
+        BotonAgregarProductoInventario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BotonAgregarProductoInventario.setText("Agregar");
+        BotonAgregarProductoInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAgregarProductoInventarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AgregarInventarioPanelLayout = new javax.swing.GroupLayout(AgregarInventarioPanel);
         AgregarInventarioPanel.setLayout(AgregarInventarioPanelLayout);
         AgregarInventarioPanelLayout.setHorizontalGroup(
             AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AgregarInventarioPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AgregarInventarioPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AgregarInventarioPanelLayout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(AgregarInventarioPanelLayout.createSequentialGroup()
+                                .addComponent(agregarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BotonAgregarProductoInventarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AgregarInventarioPanelLayout.createSequentialGroup()
+                                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AgregarProductoInventarioClave, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AgregarProductoInventarioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AgregarProductoInventarioUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AgregarProductoInventarioTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AgregarProductoInventarioCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(BotonAgregarProductoInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         AgregarInventarioPanelLayout.setVerticalGroup(
             AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AgregarInventarioPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel7)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agregarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonAgregarProductoInventarioBuscar))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgregarProductoInventarioClave, javax.swing.GroupLayout.PREFERRED_SIZE, 53, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AgregarProductoInventarioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AgregarProductoInventarioUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AgregarProductoInventarioTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AgregarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgregarProductoInventarioCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(BotonAgregarProductoInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
+        );
+
+        jLabel51.setText("producro añadido al inventario con exito");
+
+        botonVolverAgregarProductpInventario.setText("Volver");
+        botonVolverAgregarProductpInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverAgregarProductpInventarioActionPerformed(evt);
+            }
+        });
+
+        botonAgregarOtroProductoInventario.setText("Agregar otro producto");
+        botonAgregarOtroProductoInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarOtroProductoInventarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ProductoAnadidoInventarioPanelLayout = new javax.swing.GroupLayout(ProductoAnadidoInventarioPanel);
+        ProductoAnadidoInventarioPanel.setLayout(ProductoAnadidoInventarioPanelLayout);
+        ProductoAnadidoInventarioPanelLayout.setHorizontalGroup(
+            ProductoAnadidoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoAnadidoInventarioPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel51)
+                .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductoAnadidoInventarioPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonAgregarOtroProductoInventario)
+                .addGap(18, 18, 18)
+                .addComponent(botonVolverAgregarProductpInventario)
+                .addGap(14, 14, 14))
+        );
+        ProductoAnadidoInventarioPanelLayout.setVerticalGroup(
+            ProductoAnadidoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoAnadidoInventarioPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(ProductoAnadidoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolverAgregarProductpInventario)
+                    .addComponent(botonAgregarOtroProductoInventario))
+                .addContainerGap())
         );
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel8.setText("Eliminar movimiento");
+        jLabel8.setText("Eliminar producto del inventario");
+
+        jLabel56.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel56.setText("Nombre");
+        jLabel56.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel57.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel57.setText("Tipo");
+        jLabel57.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel58.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel58.setText("Unidad");
+        jLabel58.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        eliminarProductoInventarioTipo.setEditable(false);
+        eliminarProductoInventarioTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        eliminarProductoInventarioTipo.setPreferredSize(new java.awt.Dimension(147, 60));
+        eliminarProductoInventarioTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarProductoInventarioTipoActionPerformed(evt);
+            }
+        });
+
+        eliminarProductoInventarioUnidad.setEditable(false);
+        eliminarProductoInventarioUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        eliminarProductoInventarioUnidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        eliminarProductoInventarioUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarProductoInventarioUnidadActionPerformed(evt);
+            }
+        });
+
+        eliminarProductoInventarioNombre.setEditable(false);
+        eliminarProductoInventarioNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        eliminarProductoInventarioNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        eliminarProductoInventarioNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarProductoInventarioNombreActionPerformed(evt);
+            }
+        });
+
+        eliminarProductoInventarioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel32.setText("Clave");
+        jLabel32.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        eliminarProductoInventarioClave.setEditable(false);
+        eliminarProductoInventarioClave.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        eliminarProductoInventarioClave.setPreferredSize(new java.awt.Dimension(147, 60));
+        eliminarProductoInventarioClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarProductoInventarioClaveActionPerformed(evt);
+            }
+        });
+
+        jLabel59.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel59.setText("Cantidad");
+        jLabel59.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        EliminarProductoInventarioCantidad.setEditable(false);
+        EliminarProductoInventarioCantidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        EliminarProductoInventarioCantidad.setPreferredSize(new java.awt.Dimension(147, 60));
+
+        BotonEliminarProductoInventarioBuscar.setText("Buscar");
+        BotonEliminarProductoInventarioBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarProductoInventarioBuscarActionPerformed(evt);
+            }
+        });
+
+        BotonEliminarProductoInventario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BotonEliminarProductoInventario.setText("Eliminar");
+        BotonEliminarProductoInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEliminarProductoInventarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout EliminarInventarioPanelLayout = new javax.swing.GroupLayout(EliminarInventarioPanel);
         EliminarInventarioPanel.setLayout(EliminarInventarioPanelLayout);
         EliminarInventarioPanelLayout.setHorizontalGroup(
             EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EliminarInventarioPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EliminarInventarioPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EliminarInventarioPanelLayout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(eliminarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112)
+                        .addComponent(BotonEliminarProductoInventarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EliminarInventarioPanelLayout.createSequentialGroup()
+                        .addGap(226, 226, 226)
+                        .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(EliminarInventarioPanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BotonEliminarProductoInventario)
+                                    .addGroup(EliminarInventarioPanelLayout.createSequentialGroup()
+                                        .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(eliminarProductoInventarioClave, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(eliminarProductoInventarioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(eliminarProductoInventarioUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(eliminarProductoInventarioTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(EliminarProductoInventarioCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
         EliminarInventarioPanelLayout.setVerticalGroup(
             EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EliminarInventarioPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel8)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonEliminarProductoInventarioBuscar))
+                .addGap(26, 26, 26)
+                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminarProductoInventarioClave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminarProductoInventarioNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminarProductoInventarioUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(eliminarProductoInventarioTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(EliminarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EliminarProductoInventarioCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(BotonEliminarProductoInventario)
+                .addContainerGap())
+        );
+
+        jLabel65.setText("producro eliminado del inventario con exito");
+
+        botonVolverEliminarProductpInventario.setText("Volver");
+        botonVolverEliminarProductpInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverEliminarProductpInventarioActionPerformed(evt);
+            }
+        });
+
+        botonEliminarOtroProductoInventario.setText("Eliminar otro producto");
+        botonEliminarOtroProductoInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEliminarOtroProductoInventarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ProductoEliminadoInventarioPanelLayout = new javax.swing.GroupLayout(ProductoEliminadoInventarioPanel);
+        ProductoEliminadoInventarioPanel.setLayout(ProductoEliminadoInventarioPanelLayout);
+        ProductoEliminadoInventarioPanelLayout.setHorizontalGroup(
+            ProductoEliminadoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoEliminadoInventarioPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel65)
+                .addContainerGap(41, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductoEliminadoInventarioPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonEliminarOtroProductoInventario)
+                .addGap(18, 18, 18)
+                .addComponent(botonVolverEliminarProductpInventario)
+                .addGap(14, 14, 14))
+        );
+        ProductoEliminadoInventarioPanelLayout.setVerticalGroup(
+            ProductoEliminadoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoEliminadoInventarioPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel65)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(ProductoEliminadoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolverEliminarProductpInventario)
+                    .addComponent(botonEliminarOtroProductoInventario))
+                .addContainerGap())
         );
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel9.setText("Actualizar movimiento");
+        jLabel9.setText("Actualizar producto del inventario");
+
+        actualizarProductoInventarioClave.setEditable(false);
+        actualizarProductoInventarioClave.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        actualizarProductoInventarioClave.setPreferredSize(new java.awt.Dimension(147, 60));
+
+        jLabel66.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel66.setText("Cantidad");
+        jLabel66.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel67.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel67.setText("Nombre");
+        jLabel67.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel68.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel68.setText("Tipo");
+        jLabel68.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        actualizarProductoInventarioCantidad.setEditable(false);
+        actualizarProductoInventarioCantidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        actualizarProductoInventarioCantidad.setPreferredSize(new java.awt.Dimension(147, 60));
+
+        jLabel69.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel69.setText("Unidad");
+        jLabel69.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        BotonActualizarProductoInventarioBuscar.setText("Buscar");
+        BotonActualizarProductoInventarioBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarProductoInventarioBuscarActionPerformed(evt);
+            }
+        });
+
+        actualizarProductoInventarioTipo.setEditable(false);
+        actualizarProductoInventarioTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        actualizarProductoInventarioTipo.setPreferredSize(new java.awt.Dimension(147, 60));
+        actualizarProductoInventarioTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarProductoInventarioTipoActionPerformed(evt);
+            }
+        });
+
+        BotonActualizarProductoInventario.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BotonActualizarProductoInventario.setText("Actualizar");
+        BotonActualizarProductoInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarProductoInventarioActionPerformed(evt);
+            }
+        });
+
+        actualizarProductoInventarioUnidad.setEditable(false);
+        actualizarProductoInventarioUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        actualizarProductoInventarioUnidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        actualizarProductoInventarioUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarProductoInventarioUnidadActionPerformed(evt);
+            }
+        });
+
+        actualizarProductoInventarioNombre.setEditable(false);
+        actualizarProductoInventarioNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        actualizarProductoInventarioNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        actualizarProductoInventarioNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                actualizarProductoInventarioNombreActionPerformed(evt);
+            }
+        });
+
+        actualizarProductoInventarioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel70.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel70.setText("Clave");
+        jLabel70.setPreferredSize(new java.awt.Dimension(140, 60));
 
         javax.swing.GroupLayout ActualizarInventarioPanelLayout = new javax.swing.GroupLayout(ActualizarInventarioPanel);
         ActualizarInventarioPanel.setLayout(ActualizarInventarioPanelLayout);
         ActualizarInventarioPanelLayout.setHorizontalGroup(
             ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ActualizarInventarioPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ActualizarInventarioPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ActualizarInventarioPanelLayout.createSequentialGroup()
+                        .addGap(212, 212, 212)
+                        .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ActualizarInventarioPanelLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(actualizarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(112, 112, 112)
+                                .addComponent(BotonActualizarProductoInventarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ActualizarInventarioPanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BotonActualizarProductoInventario)
+                                    .addGroup(ActualizarInventarioPanelLayout.createSequentialGroup()
+                                        .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(actualizarProductoInventarioClave, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(actualizarProductoInventarioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(actualizarProductoInventarioUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(actualizarProductoInventarioTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(actualizarProductoInventarioCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         ActualizarInventarioPanelLayout.setVerticalGroup(
             ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ActualizarInventarioPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel9)
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actualizarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonActualizarProductoInventarioBuscar))
+                .addGap(26, 26, 26)
+                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(actualizarProductoInventarioClave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actualizarProductoInventarioNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actualizarProductoInventarioUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actualizarProductoInventarioTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualizarInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(actualizarProductoInventarioCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(BotonActualizarProductoInventario)
+                .addGap(22, 22, 22))
+        );
+
+        jLabel71.setText("producro actualizado del inventario con exito");
+
+        botonVolverActualizarProductpInventario.setText("Volver");
+        botonVolverActualizarProductpInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActualizarProductpInventarioActionPerformed(evt);
+            }
+        });
+
+        botonActualizarOtroProductoInventario.setText("Actualizar otro producto");
+        botonActualizarOtroProductoInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActualizarOtroProductoInventarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ProductoAcrualizadoInventarioPanelLayout = new javax.swing.GroupLayout(ProductoAcrualizadoInventarioPanel);
+        ProductoAcrualizadoInventarioPanel.setLayout(ProductoAcrualizadoInventarioPanelLayout);
+        ProductoAcrualizadoInventarioPanelLayout.setHorizontalGroup(
+            ProductoAcrualizadoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoAcrualizadoInventarioPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel71)
+                .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ProductoAcrualizadoInventarioPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botonActualizarOtroProductoInventario)
+                .addGap(18, 18, 18)
+                .addComponent(botonVolverActualizarProductpInventario)
+                .addGap(14, 14, 14))
+        );
+        ProductoAcrualizadoInventarioPanelLayout.setVerticalGroup(
+            ProductoAcrualizadoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ProductoAcrualizadoInventarioPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel71)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addGroup(ProductoAcrualizadoInventarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonVolverActualizarProductpInventario)
+                    .addComponent(botonActualizarOtroProductoInventario))
+                .addContainerGap())
         );
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel10.setText("Listado completo de productos");
 
-        ListadoCompletoBoton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        ListadoCompletoBoton.setText("Enviar");
-        ListadoCompletoBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListadoCompletoBotonActionPerformed(evt);
-            }
-        });
-
         ListadoProductos.setAutoCreateRowSorter(true);
-        ListadoProductos.setModel(modelo);
+        ListadoProductos.setModel(modeloProductos);
         jScrollPane2.setViewportView(ListadoProductos);
 
         CatalogoTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Empacado", "Granel" }));
@@ -868,6 +1541,8 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 BotonCatalogoBuscarActionPerformed(evt);
             }
         });
+
+        CatalogoUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Kilogramo", "Litro" }));
 
         javax.swing.GroupLayout CatalogoCompletoPanelLayout = new javax.swing.GroupLayout(CatalogoCompletoPanel);
         CatalogoCompletoPanel.setLayout(CatalogoCompletoPanelLayout);
@@ -884,17 +1559,15 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CatalogoCompletoPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel35)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CatalogoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
+                                .addComponent(CatalogoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
                                 .addComponent(jLabel36)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CatalogoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(32, 32, 32)
                                 .addComponent(BotonCatalogoBuscar))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ListadoCompletoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         CatalogoCompletoPanelLayout.setVerticalGroup(
             CatalogoCompletoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -904,68 +1577,165 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(CatalogoCompletoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel35)
-                    .addComponent(CatalogoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel36)
                     .addComponent(CatalogoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonCatalogoBuscar))
+                    .addComponent(BotonCatalogoBuscar)
+                    .addComponent(CatalogoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(ListadoCompletoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addGap(132, 132, 132))
         );
 
-        jLabel11.setText("CatalogoBuscarPorClave");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel2.setText("Buscar Producto");
 
-        javax.swing.GroupLayout CatalogoBuscarPorClavePanelLayout = new javax.swing.GroupLayout(CatalogoBuscarPorClavePanel);
-        CatalogoBuscarPorClavePanel.setLayout(CatalogoBuscarPorClavePanelLayout);
-        CatalogoBuscarPorClavePanelLayout.setHorizontalGroup(
-            CatalogoBuscarPorClavePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CatalogoBuscarPorClavePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
-                .addContainerGap(194, Short.MAX_VALUE))
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel22.setText("Clave");
+        jLabel22.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoClave.setEditable(false);
+        ConsultarProductoClave.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoClave.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoClaveActionPerformed(evt);
+            }
+        });
+
+        consultarProductoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        BotonConsultarProductoBuscar.setText("Buscar");
+        BotonConsultarProductoBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonConsultarProductoBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel38.setText("Nombre");
+        jLabel38.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel39.setText("Tipo");
+        jLabel39.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel40.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel40.setText("Unidad");
+        jLabel40.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoTipo.setEditable(false);
+        ConsultarProductoTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoTipo.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoTipoActionPerformed(evt);
+            }
+        });
+
+        ConsultarProductoUnidad.setEditable(false);
+        ConsultarProductoUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoUnidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoUnidadActionPerformed(evt);
+            }
+        });
+
+        ConsultarProductoNombre.setEditable(false);
+        ConsultarProductoNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoNombreActionPerformed(evt);
+            }
+        });
+
+        ClaveCheckBox.setText("buscar por clave");
+
+        javax.swing.GroupLayout BuscarCatalogoPanelLayout = new javax.swing.GroupLayout(BuscarCatalogoPanel);
+        BuscarCatalogoPanel.setLayout(BuscarCatalogoPanelLayout);
+        BuscarCatalogoPanelLayout.setHorizontalGroup(
+            BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscarCatalogoPanelLayout.createSequentialGroup()
+                .addContainerGap(176, Short.MAX_VALUE)
+                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BuscarCatalogoPanelLayout.createSequentialGroup()
+                        .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConsultarProductoBuscarClave, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscarCatalogoPanelLayout.createSequentialGroup()
+                        .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(BuscarCatalogoPanelLayout.createSequentialGroup()
+                                .addComponent(consultarProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BotonConsultarProductoBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BuscarCatalogoPanelLayout.createSequentialGroup()
+                                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ConsultarProductoClave, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarProductoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ClaveCheckBox, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(324, 324, 324))))
         );
-        CatalogoBuscarPorClavePanelLayout.setVerticalGroup(
-            CatalogoBuscarPorClavePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CatalogoBuscarPorClavePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11)
-                .addContainerGap(210, Short.MAX_VALUE))
+        BuscarCatalogoPanelLayout.setVerticalGroup(
+            BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BuscarCatalogoPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel2)
+                .addGap(22, 22, 22)
+                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(consultarProductoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonConsultarProductoBuscar))
+                .addGap(18, 18, 18)
+                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ClaveCheckBox)
+                    .addComponent(ConsultarProductoBuscarClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoClave, javax.swing.GroupLayout.PREFERRED_SIZE, 53, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultarProductoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 45, Short.MAX_VALUE)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultarProductoUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 49, Short.MAX_VALUE)
+                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(BuscarCatalogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultarProductoTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel13.setText("Inventario");
 
-        InventarioCompleto.setAutoCreateRowSorter(true);
-        InventarioCompleto.setModel(modelo);
-        jScrollPane3.setViewportView(InventarioCompleto);
-
-        InventarioTodosBoton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        InventarioTodosBoton.setText("Enviar");
-        InventarioTodosBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InventarioTodosBotonActionPerformed(evt);
-            }
-        });
+        tablaInventarios.setModel(modeloProductosInventario);
+        jScrollPane1.setViewportView(tablaInventarios);
 
         javax.swing.GroupLayout InventarioTodosPanelLayout = new javax.swing.GroupLayout(InventarioTodosPanel);
         InventarioTodosPanel.setLayout(InventarioTodosPanelLayout);
         InventarioTodosPanelLayout.setHorizontalGroup(
             InventarioTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InventarioTodosPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioTodosPanelLayout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
                 .addGroup(InventarioTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioTodosPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(156, 156, 156))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioTodosPanelLayout.createSequentialGroup()
-                        .addComponent(InventarioTodosBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
+                    .addGroup(InventarioTodosPanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InventarioTodosPanelLayout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         InventarioTodosPanelLayout.setVerticalGroup(
             InventarioTodosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -973,305 +1743,244 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(InventarioTodosBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel14.setText("Inventario productos Granel");
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel11.setText("buscar en inventario");
 
-        InventarioProductosGranelBoton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        InventarioProductosGranelBoton.setText("Enviar");
-        InventarioProductosGranelBoton.addActionListener(new java.awt.event.ActionListener() {
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel29.setText("Clave");
+        jLabel29.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ClaveInventarioCheckBox.setText("buscar por clave");
+
+        BotonConsultarProductoInventarioBuscar.setText("Buscar");
+        BotonConsultarProductoInventarioBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InventarioProductosGranelBotonActionPerformed(evt);
+                BotonConsultarProductoInventarioBuscarActionPerformed(evt);
             }
         });
 
-        InventarioCompleto1.setAutoCreateRowSorter(true);
-        InventarioCompleto1.setModel(modeloProductosGranel);
-        jScrollPane4.setViewportView(InventarioCompleto1);
+        jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel52.setText("Nombre");
+        jLabel52.setPreferredSize(new java.awt.Dimension(140, 60));
 
-        javax.swing.GroupLayout InventarioProductosGranelPanelLayout = new javax.swing.GroupLayout(InventarioProductosGranelPanel);
-        InventarioProductosGranelPanel.setLayout(InventarioProductosGranelPanelLayout);
-        InventarioProductosGranelPanelLayout.setHorizontalGroup(
-            InventarioProductosGranelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InventarioProductosGranelPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(189, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioProductosGranelPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(InventarioProductosGranelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioProductosGranelPanelLayout.createSequentialGroup()
-                        .addComponent(InventarioProductosGranelBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioProductosGranelPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(144, 144, 144))))
+        jLabel53.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel53.setText("Tipo");
+        jLabel53.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel54.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel54.setText("Unidad");
+        jLabel54.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoInventarioTipo.setEditable(false);
+        ConsultarProductoInventarioTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoInventarioTipo.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoInventarioTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoInventarioTipoActionPerformed(evt);
+            }
+        });
+
+        ConsultarProductoInventarioUnidad.setEditable(false);
+        ConsultarProductoInventarioUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoInventarioUnidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoInventarioUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoInventarioUnidadActionPerformed(evt);
+            }
+        });
+
+        ConsultarProductoInventarioNombre.setEditable(false);
+        ConsultarProductoInventarioNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoInventarioNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoInventarioNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoInventarioNombreActionPerformed(evt);
+            }
+        });
+
+        consultarProductoInventarioComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ConsultarProductoInventarioClave.setEditable(false);
+        ConsultarProductoInventarioClave.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoInventarioClave.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoInventarioClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoInventarioClaveActionPerformed(evt);
+            }
+        });
+
+        jLabel55.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel55.setText("Cantidad");
+        jLabel55.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        ConsultarProductoInventarioCantidad.setEditable(false);
+        ConsultarProductoInventarioCantidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        ConsultarProductoInventarioCantidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        ConsultarProductoInventarioCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarProductoInventarioCantidadActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout InventarioBuscarPanelLayout = new javax.swing.GroupLayout(InventarioBuscarPanel);
+        InventarioBuscarPanel.setLayout(InventarioBuscarPanelLayout);
+        InventarioBuscarPanelLayout.setHorizontalGroup(
+            InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InventarioBuscarPanelLayout.createSequentialGroup()
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InventarioBuscarPanelLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InventarioBuscarPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11))
+                    .addGroup(InventarioBuscarPanelLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InventarioConsultarClaveI, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(InventarioBuscarPanelLayout.createSequentialGroup()
+                                    .addComponent(consultarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(112, 112, 112)
+                                    .addComponent(BotonConsultarProductoInventarioBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(InventarioBuscarPanelLayout.createSequentialGroup()
+                                    .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ConsultarProductoInventarioClave, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ConsultarProductoInventarioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ConsultarProductoInventarioUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ConsultarProductoInventarioTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ConsultarProductoInventarioCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(ClaveInventarioCheckBox, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
-        InventarioProductosGranelPanelLayout.setVerticalGroup(
-            InventarioProductosGranelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InventarioProductosGranelPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel14)
+        InventarioBuscarPanelLayout.setVerticalGroup(
+            InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InventarioBuscarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(54, 54, 54)
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(consultarProductoInventarioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonConsultarProductoInventarioBuscar))
+                .addGap(18, 18, 18)
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ClaveInventarioCheckBox)
+                    .addComponent(InventarioConsultarClaveI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProductoInventarioClave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultarProductoInventarioNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(InventarioProductosGranelBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultarProductoInventarioUnidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultarProductoInventarioTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultarProductoInventarioCantidad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel15.setText("Registro de ventas");
 
-        InventarioCompleto2.setAutoCreateRowSorter(true);
-        InventarioCompleto2.setModel(comprasVentas);
-        InventarioCompleto2.setCellSelectionEnabled(true);
-        jScrollPane5.setViewportView(InventarioCompleto2);
-
-        RegistroVentasBoton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        RegistroVentasBoton.setText("Enviar");
-        RegistroVentasBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistroVentasBotonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout InventarioRegistroVentasPanelLayout = new javax.swing.GroupLayout(InventarioRegistroVentasPanel);
-        InventarioRegistroVentasPanel.setLayout(InventarioRegistroVentasPanelLayout);
-        InventarioRegistroVentasPanelLayout.setHorizontalGroup(
-            InventarioRegistroVentasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InventarioRegistroVentasPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout RegistroVentasPanelLayout = new javax.swing.GroupLayout(RegistroVentasPanel);
+        RegistroVentasPanel.setLayout(RegistroVentasPanelLayout);
+        RegistroVentasPanelLayout.setHorizontalGroup(
+            RegistroVentasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroVentasPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(188, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioRegistroVentasPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(InventarioRegistroVentasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioRegistroVentasPanelLayout.createSequentialGroup()
-                        .addComponent(RegistroVentasBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioRegistroVentasPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(99, 99, 99))))
         );
-        InventarioRegistroVentasPanelLayout.setVerticalGroup(
-            InventarioRegistroVentasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InventarioRegistroVentasPanelLayout.createSequentialGroup()
+        RegistroVentasPanelLayout.setVerticalGroup(
+            RegistroVentasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroVentasPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RegistroVentasBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(503, Short.MAX_VALUE))
         );
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel19.setText("Registro de compras");
 
-        InventarioCompleto3.setAutoCreateRowSorter(true);
-        InventarioCompleto3.setModel(comprasVentas);
-        InventarioCompleto3.setCellSelectionEnabled(true);
-        jScrollPane6.setViewportView(InventarioCompleto3);
-
-        RegistroComprasBoton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        RegistroComprasBoton.setText("Enviar");
-        RegistroComprasBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistroComprasBotonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout InventarioRegistroComprasPanelLayout = new javax.swing.GroupLayout(InventarioRegistroComprasPanel);
-        InventarioRegistroComprasPanel.setLayout(InventarioRegistroComprasPanelLayout);
-        InventarioRegistroComprasPanelLayout.setHorizontalGroup(
-            InventarioRegistroComprasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InventarioRegistroComprasPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RegistroComprasBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
-            .addGroup(InventarioRegistroComprasPanelLayout.createSequentialGroup()
-                .addGroup(InventarioRegistroComprasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InventarioRegistroComprasPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InventarioRegistroComprasPanelLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(113, Short.MAX_VALUE))
+        javax.swing.GroupLayout RegistroComprasPanelLayout = new javax.swing.GroupLayout(RegistroComprasPanel);
+        RegistroComprasPanel.setLayout(RegistroComprasPanelLayout);
+        RegistroComprasPanelLayout.setHorizontalGroup(
+            RegistroComprasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroComprasPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(188, Short.MAX_VALUE))
         );
-        InventarioRegistroComprasPanelLayout.setVerticalGroup(
-            InventarioRegistroComprasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InventarioRegistroComprasPanelLayout.createSequentialGroup()
+        RegistroComprasPanelLayout.setVerticalGroup(
+            RegistroComprasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistroComprasPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(RegistroComprasBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(503, Short.MAX_VALUE))
         );
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel17.setText("Registro de ventas por periodo");
 
-        InventarioCompleto4.setAutoCreateRowSorter(true);
-        InventarioCompleto4.setModel(comprasVentas);
-        InventarioCompleto4.setCellSelectionEnabled(true);
-        jScrollPane7.setViewportView(InventarioCompleto4);
-
-        VentasPeriodoBoton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        VentasPeriodoBoton.setText("Enviar");
-        VentasPeriodoBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VentasPeriodoBotonActionPerformed(evt);
-            }
-        });
-
-        BotonCatalogoBuscar1.setText("Buscar");
-        BotonCatalogoBuscar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCatalogoBuscar1ActionPerformed(evt);
-            }
-        });
-
-        jLabel38.setText("Fecha 1:");
-
-        jLabel39.setText("Fecha 2:");
-
         javax.swing.GroupLayout RegistroVentasPeriodoPanelLayout = new javax.swing.GroupLayout(RegistroVentasPeriodoPanel);
         RegistroVentasPeriodoPanel.setLayout(RegistroVentasPeriodoPanelLayout);
         RegistroVentasPeriodoPanelLayout.setHorizontalGroup(
             RegistroVentasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroVentasPeriodoPanelLayout.createSequentialGroup()
-                .addContainerGap(128, Short.MAX_VALUE)
-                .addGroup(RegistroVentasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroVentasPeriodoPanelLayout.createSequentialGroup()
-                        .addComponent(VentasPeriodoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroVentasPeriodoPanelLayout.createSequentialGroup()
-                        .addGroup(RegistroVentasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(BotonCatalogoBuscar1)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(101, 101, 101))))
             .addGroup(RegistroVentasPeriodoPanelLayout.createSequentialGroup()
-                .addGroup(RegistroVentasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroVentasPeriodoPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(RegistroVentasPeriodoPanelLayout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel38)
-                        .addGap(18, 18, 18)
-                        .addComponent(FechaInicialVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel39)
-                        .addGap(18, 18, 18)
-                        .addComponent(FechaFinalVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 689, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         RegistroVentasPeriodoPanelLayout.setVerticalGroup(
             RegistroVentasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegistroVentasPeriodoPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(RegistroVentasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FechaInicialVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FechaFinalVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonCatalogoBuscar1)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel39))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(VentasPeriodoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(468, Short.MAX_VALUE))
         );
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel18.setText("Registro de compras por periodo");
 
-        ComprasPeriodoBoton.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        ComprasPeriodoBoton.setText("Enviar");
-        ComprasPeriodoBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComprasPeriodoBotonActionPerformed(evt);
-            }
-        });
-
-        BotonCatalogoBuscar2.setText("Buscar");
-        BotonCatalogoBuscar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCatalogoBuscar2ActionPerformed(evt);
-            }
-        });
-
-        jLabel40.setText("Fecha 1:");
-
-        jLabel41.setText("Fecha 2:");
-
-        InventarioCompleto5.setAutoCreateRowSorter(true);
-        InventarioCompleto5.setModel(comprasVentas);
-        InventarioCompleto5.setCellSelectionEnabled(true);
-        jScrollPane8.setViewportView(InventarioCompleto5);
-
         javax.swing.GroupLayout RegistroComprasPeriodoPanelLayout = new javax.swing.GroupLayout(RegistroComprasPeriodoPanel);
         RegistroComprasPeriodoPanel.setLayout(RegistroComprasPeriodoPanelLayout);
         RegistroComprasPeriodoPanelLayout.setHorizontalGroup(
             RegistroComprasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroComprasPeriodoPanelLayout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
-                .addGroup(RegistroComprasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroComprasPeriodoPanelLayout.createSequentialGroup()
-                        .addComponent(ComprasPeriodoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(47, 47, 47))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroComprasPeriodoPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 682, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108))))
             .addGroup(RegistroComprasPeriodoPanelLayout.createSequentialGroup()
-                .addGroup(RegistroComprasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistroComprasPeriodoPanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(RegistroComprasPeriodoPanelLayout.createSequentialGroup()
-                        .addGap(188, 188, 188)
-                        .addGroup(RegistroComprasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistroComprasPeriodoPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel40)
-                                .addGap(18, 18, 18)
-                                .addComponent(FechaInicialVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(77, 77, 77)
-                                .addComponent(jLabel41)
-                                .addGap(18, 18, 18)
-                                .addComponent(FechaFinalVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(BotonCatalogoBuscar2, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 721, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
         );
         RegistroComprasPeriodoPanelLayout.setVerticalGroup(
             RegistroComprasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegistroComprasPeriodoPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(RegistroComprasPeriodoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(FechaInicialVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FechaFinalVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonCatalogoBuscar2)
-                    .addComponent(jLabel40)
-                    .addComponent(jLabel41))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ComprasPeriodoBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(503, Short.MAX_VALUE))
         );
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
         jLabel12.setText("Error:");
 
         TextoError.setEditable(false);
@@ -1319,11 +2028,9 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addComponent(MovimientoVentaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InventarioProductosGranelPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(RegistroVentasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InventarioRegistroVentasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InventarioRegistroComprasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(RegistroComprasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(RegistroComprasPeriodoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1343,7 +2050,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(ActualizarProductoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(ConsultarProductoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BuscarCatalogoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(AgregarProductoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1354,28 +2061,51 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelPrincipalLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
-                    .addComponent(CatalogoBuscarPorClavePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(73, Short.MAX_VALUE)))
+                    .addComponent(InventarioBuscarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(554, Short.MAX_VALUE)))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelPrincipalLayout.createSequentialGroup()
                     .addGap(400, 400, 400)
                     .addComponent(ErrorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(400, Short.MAX_VALUE)))
+                    .addContainerGap(184, Short.MAX_VALUE)))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelPrincipalLayout.createSequentialGroup()
                     .addGap(304, 304, 304)
                     .addComponent(ProductoAnadidoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(304, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ProductoActualzadoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(598, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ProductoEliminadoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(598, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap(314, Short.MAX_VALUE)
+                    .addComponent(ProductoAnadidoInventarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(294, 294, 294)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap(324, Short.MAX_VALUE)
+                    .addComponent(ProductoEliminadoInventarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(284, 284, 284)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ProductoAcrualizadoInventarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(598, Short.MAX_VALUE)))
         );
         JPanelPrincipalLayout.setVerticalGroup(
             JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(MovimientoVentaPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InventarioProductosGranelPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(RegistroVentasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InventarioRegistroVentasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(InventarioRegistroComprasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(RegistroComprasPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(RegistroComprasPeriodoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1395,7 +2125,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(ActualizarProductoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(ConsultarProductoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BuscarCatalogoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(AgregarProductoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1406,63 +2136,80 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelPrincipalLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(CatalogoBuscarPorClavePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(20, Short.MAX_VALUE)))
+                    .addComponent(InventarioBuscarPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(358, Short.MAX_VALUE)))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelPrincipalLayout.createSequentialGroup()
                     .addGap(248, 248, 248)
                     .addComponent(ErrorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(248, Short.MAX_VALUE)))
+                    .addContainerGap(105, Short.MAX_VALUE)))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelPrincipalLayout.createSequentialGroup()
                     .addGap(228, 228, 228)
                     .addComponent(ProductoAnadidoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(229, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ProductoActualzadoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(470, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ProductoEliminadoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(470, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addGap(238, 238, 238)
+                    .addComponent(ProductoAnadidoInventarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(263, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap(248, Short.MAX_VALUE)
+                    .addComponent(ProductoEliminadoInventarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(216, 216, 216)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ProductoAcrualizadoInventarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(477, Short.MAX_VALUE)))
         );
 
         CatalogosMenu.setMnemonic('c');
         CatalogosMenu.setText("Catalogos");
 
-        ProductosGranelMenu.setText("Productos Granel");
+        ProductosMenu.setText("Productos");
 
-        AgregarProductoGranel.setText("Agregar");
-        AgregarProductoGranel.addContainerListener(new java.awt.event.ContainerAdapter() {
+        AgregarProducto.setText("Agregar");
+        AgregarProducto.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
-                AgregarProductoGranelComponentAdded(evt);
+                AgregarProductoComponentAdded(evt);
             }
         });
-        AgregarProductoGranel.addActionListener(new java.awt.event.ActionListener() {
+        AgregarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarProductoGranelActionPerformed(evt);
+                AgregarProductoActionPerformed(evt);
             }
         });
-        ProductosGranelMenu.add(AgregarProductoGranel);
+        ProductosMenu.add(AgregarProducto);
 
-        ConsultarProductoGranel.setText("Consultar");
-        ConsultarProductoGranel.addActionListener(new java.awt.event.ActionListener() {
+        ActualizarProducto.setText("Actualizar");
+        ActualizarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarProductoGranelActionPerformed(evt);
+                ActualizarProductoActionPerformed(evt);
             }
         });
-        ProductosGranelMenu.add(ConsultarProductoGranel);
+        ProductosMenu.add(ActualizarProducto);
 
-        ActualizarProductoGranel.setText("Actualizar");
-        ActualizarProductoGranel.addActionListener(new java.awt.event.ActionListener() {
+        EliminarProducto.setText("Eliminar");
+        EliminarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarProductoGranelActionPerformed(evt);
+                EliminarProductoActionPerformed(evt);
             }
         });
-        ProductosGranelMenu.add(ActualizarProductoGranel);
+        ProductosMenu.add(EliminarProducto);
 
-        EliminarProductoGranel.setText("Eliminar");
-        EliminarProductoGranel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarProductoGranelActionPerformed(evt);
-            }
-        });
-        ProductosGranelMenu.add(EliminarProductoGranel);
-
-        CatalogosMenu.add(ProductosGranelMenu);
+        CatalogosMenu.add(ProductosMenu);
 
         menuBar.add(CatalogosMenu);
 
@@ -1528,13 +2275,13 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         });
         CatalogoMenu.add(ProductoListadoCompleto);
 
-        CatalogoBuscarPorClave.setText("Buscar por clave");
-        CatalogoBuscarPorClave.addActionListener(new java.awt.event.ActionListener() {
+        ConsultarProductoCatalogo.setText("Buscar producto");
+        ConsultarProductoCatalogo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CatalogoBuscarPorClaveActionPerformed(evt);
+                ConsultarProductoCatalogoActionPerformed(evt);
             }
         });
-        CatalogoMenu.add(CatalogoBuscarPorClave);
+        CatalogoMenu.add(ConsultarProductoCatalogo);
 
         ConsultasMenu.add(CatalogoMenu);
 
@@ -1548,13 +2295,13 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         });
         ConsultasInventarioMenu.add(InventarioTodos);
 
-        InventarioProductosGranel.setText("Productos Granel");
-        InventarioProductosGranel.addActionListener(new java.awt.event.ActionListener() {
+        InventarioBuscarPorClave.setText("Buscar en inventario");
+        InventarioBuscarPorClave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InventarioProductosGranelActionPerformed(evt);
+                InventarioBuscarPorClaveActionPerformed(evt);
             }
         });
-        ConsultasInventarioMenu.add(InventarioProductosGranel);
+        ConsultasInventarioMenu.add(InventarioBuscarPorClave);
 
         InventarioRegistroVentas.setText("Registro de ventas");
         InventarioRegistroVentas.addActionListener(new java.awt.event.ActionListener() {
@@ -1625,30 +2372,53 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AgregarProductoGranelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoGranelActionPerformed
+    private void AgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoActionPerformed
         // TODO add your handling code here:
         cambiarVista(AgregarProductoPanel);
-        
-    }//GEN-LAST:event_AgregarProductoGranelActionPerformed
+    }//GEN-LAST:event_AgregarProductoActionPerformed
 
-    private void EliminarProductoGranelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoGranelActionPerformed
+    private void EliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoActionPerformed
         // TODO add your handling code here:
         cambiarVista(EliminarProductoPanel);
-    }//GEN-LAST:event_EliminarProductoGranelActionPerformed
+        eliminarProductoComboBox.removeAllItems();
+        eliminarProductoComboBox.addItem("Seleccionar");
+        try{
+        for (Producto p : fachada.obtenerCatalogoProductos("",'\0')) {
+            eliminarProductoComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_EliminarProductoActionPerformed
 
-    private void ConsultarProductoGranelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoGranelActionPerformed
+    private void ConsultarProductoCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoCatalogoActionPerformed
         // TODO add your handling code here:
-        cambiarVista(ConsultarProductoPanel);
-    }//GEN-LAST:event_ConsultarProductoGranelActionPerformed
+        cambiarVista(BuscarCatalogoPanel);
+        consultarProductoComboBox.removeAllItems();
+        consultarProductoComboBox.addItem("Seleccionar");
+        try{
+        for (Producto p : fachada.obtenerCatalogoProductos("",'\0')) {
+            consultarProductoComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_ConsultarProductoCatalogoActionPerformed
 
-    private void ActualizarProductoGranelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarProductoGranelActionPerformed
+    private void ActualizarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarProductoActionPerformed
         // TODO add your handling code here:
         cambiarVista(ActualizarProductoPanel);
-    }//GEN-LAST:event_ActualizarProductoGranelActionPerformed
+        actualizarProductoComboBox.removeAllItems();
+        actualizarProductoComboBox.addItem("Seleccionar");
+        try{
+        for (Producto p : fachada.obtenerCatalogoProductos("",'\0')) {
+            actualizarProductoComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_ActualizarProductoActionPerformed
 
-    private void AgregarProductoGranelComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AgregarProductoGranelComponentAdded
+    private void AgregarProductoComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_AgregarProductoComponentAdded
         // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarProductoGranelComponentAdded
+    }//GEN-LAST:event_AgregarProductoComponentAdded
 
     private void MovimientosCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovimientosCompraActionPerformed
         // TODO add your handling code here:
@@ -1663,16 +2433,42 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private void AgregarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarInventarioActionPerformed
         // TODO add your handling code here:
         cambiarVista(AgregarInventarioPanel);
+        agregarProductoInventarioComboBox.removeAllItems();
+        agregarProductoInventarioComboBox.addItem("Seleccionar");
+        try{
+        for (Producto p : fachada.obtenerCatalogoProductos("",'\0')) {
+            if(p.getTipo() == 'G'){
+            agregarProductoInventarioComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+            }
+        }
+        }catch(Exception e){
+        }
     }//GEN-LAST:event_AgregarInventarioActionPerformed
 
     private void EliminarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarInventarioActionPerformed
         // TODO add your handling code here:
         cambiarVista(EliminarInventarioPanel);
+        eliminarProductoInventarioComboBox.removeAllItems();
+        eliminarProductoInventarioComboBox.addItem("Seleccionar");
+        try{
+        for (ProductoGranel p : fachada.obtenerInventarioGranel()) {
+            eliminarProductoInventarioComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
     }//GEN-LAST:event_EliminarInventarioActionPerformed
 
     private void ActualizarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarInventarioActionPerformed
         // TODO add your handling code here:
         cambiarVista(ActualizarInventarioPanel);
+        actualizarProductoInventarioComboBox.removeAllItems();
+        actualizarProductoInventarioComboBox.addItem("Seleccionar");
+        try{
+        for (ProductoGranel p : fachada.obtenerInventarioGranel()) {
+            actualizarProductoInventarioComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
     }//GEN-LAST:event_ActualizarInventarioActionPerformed
 
     private void ProductoListadoCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductoListadoCompletoActionPerformed
@@ -1683,21 +2479,25 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private void InventarioTodosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioTodosActionPerformed
         // TODO add your handling code here:
         cambiarVista(InventarioTodosPanel);
+        modeloProductosInventario.setRowCount(0);
+        try{
+        for(ProductoGranel p :fachada.obtenerInventarioGranel()){
+        Object[] fila ={p.getClave(),p.getNombre(),p.getUnidad(),p.getTipo(), p.getCantidad()};
+        modeloProductosInventario.addRow(fila);
+        }
+        }catch(Exception e){
+            vistaError(e);
+        }
     }//GEN-LAST:event_InventarioTodosActionPerformed
-
-    private void InventarioProductosGranelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioProductosGranelActionPerformed
-        // TODO add your handling code here:
-        cambiarVista(InventarioProductosGranelPanel);
-    }//GEN-LAST:event_InventarioProductosGranelActionPerformed
 
     private void InventarioRegistroVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioRegistroVentasActionPerformed
         // TODO add your handling code here:
-        cambiarVista(InventarioRegistroVentasPanel);
+        cambiarVista(RegistroVentasPanel);
     }//GEN-LAST:event_InventarioRegistroVentasActionPerformed
 
     private void InventarioRegistroComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioRegistroComprasActionPerformed
         // TODO add your handling code here:
-        cambiarVista(InventarioRegistroComprasPanel);
+        cambiarVista(RegistroComprasPanel);
     }//GEN-LAST:event_InventarioRegistroComprasActionPerformed
 
     private void InventarioVentasPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioVentasPeriodoActionPerformed
@@ -1714,13 +2514,9 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AgregarProductoNombreActionPerformed
 
-    private void AgregarProductoUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoUnidadActionPerformed
+    private void ConsultarProductoClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoClaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarProductoUnidadActionPerformed
-
-    private void ConsultarProductoIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultarProductoIdActionPerformed
+    }//GEN-LAST:event_ConsultarProductoClaveActionPerformed
 
     private void IdProductoActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdProductoActualizarActionPerformed
         // TODO add your handling code here:
@@ -1730,20 +2526,20 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NuevoNombreActualizarActionPerformed
 
-    private void NuevaUnidadAcutalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevaUnidadAcutalizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NuevaUnidadAcutalizarActionPerformed
-
-    private void NuevoTipoActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoTipoActualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NuevoTipoActualizarActionPerformed
-
     private void BotonAgregarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoActionPerformed
         // TODO add your handling code here:
         try{
             
             
         char tipo = '\0';
+        String unidad = "";
+        
+        if(AgregarProductoUnidad.getSelectedIndex() == 1){
+        unidad = "KG";
+        }else{if(AgregarProductoUnidad.getSelectedIndex() == 2){
+        unidad = "L";
+        }}
+        
         if(AgregarProductoTipo.getSelectedIndex() == 1){
         tipo = 'E';
         }else{if(AgregarProductoTipo.getSelectedIndex() == 2){
@@ -1751,12 +2547,12 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         }}
         
         if(AgregarProductoID.getText().isBlank()){
-        Producto producto = new Producto(AgregarProductoNombre.getText(), AgregarProductoUnidad.getText(), tipo);
+        Producto producto = new Producto(AgregarProductoNombre.getText(), unidad, tipo);
         fachada.agregarProducto(producto);
         
         cambiarVista(ProductoAnadidoPanel);
         }else{
-        Producto producto = new Producto(AgregarProductoID.getText(),AgregarProductoNombre.getText(), AgregarProductoUnidad.getText(), tipo);
+        Producto producto = new Producto(AgregarProductoID.getText(),AgregarProductoNombre.getText(), unidad, tipo);
         fachada.agregarProducto(producto);
         
             cambiarVista(ProductoAnadidoPanel);
@@ -1767,41 +2563,42 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BotonAgregarProductoActionPerformed
 
-    private void BotonConsultarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonConsultarProductoActionPerformed
-
     private void BotonActualizarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarProductoActionPerformed
         // TODO add your handling code here:
+        try{
+        Producto producto = fachada.obtenerCatalogoProductos("", '\0').get(actualizarProductoComboBox.getSelectedIndex()-1);
+        String nuevaUnidad = "";
+        char nuevoTipo = '\0';
+        
+        if(NuevaUnidadActualizar.getSelectedIndex() == 0){
+        nuevaUnidad = "KG";
+        }else{
+        nuevaUnidad = "L";
+        }
+        
+        if(NuevoTipoActualizar.getSelectedIndex() == 0){
+        nuevoTipo = 'E';
+        } else{
+        nuevoTipo = 'G';
+        }
+        
+        fachada.actualizarProducto(producto, NuevoNombreActualizar.getText(), nuevaUnidad, nuevoTipo);
+        cambiarVista(ProductoActualzadoPanel);
+        }catch(Exception e){
+            vistaError(e);
+        }
     }//GEN-LAST:event_BotonActualizarProductoActionPerformed
-
-    private void IdProductoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdProductoEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IdProductoEliminarActionPerformed
 
     private void BotonEliminarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoActionPerformed
         // TODO add your handling code here:
+        Producto producto = fachada.obtenerCatalogoProductos("", '\0').get(eliminarProductoComboBox.getSelectedIndex()-1);
+        fachada.eliminarProducto(producto);
+        cambiarVista(ProductoEliminadoPanel);
     }//GEN-LAST:event_BotonEliminarProductoActionPerformed
-
-    private void FechaMovimientoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaMovimientoCompraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FechaMovimientoCompraActionPerformed
-
-    private void IdProductoMovimientoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdProductoMovimientoCompraActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IdProductoMovimientoCompraActionPerformed
-
-    private void BotonActualizarProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarProducto1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BotonActualizarProducto1ActionPerformed
 
     private void FechaMovimientoCompra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaMovimientoCompra1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FechaMovimientoCompra1ActionPerformed
-
-    private void jComboBox2ComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jComboBox2ComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ComponentRemoved
 
     private void IdProductoMovimientoCompra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdProductoMovimientoCompra1ActionPerformed
         // TODO add your handling code here:
@@ -1811,16 +2608,6 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonActualizarProducto2ActionPerformed
 
-    private void BooleanoMovimientoCompraComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_BooleanoMovimientoCompraComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BooleanoMovimientoCompraComponentRemoved
-
-    private void ListadoCompletoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoCompletoBotonActionPerformed
-        // TODO add your handling code here:
-        //Mostrar Lista de elementos producto
-        
-    }//GEN-LAST:event_ListadoCompletoBotonActionPerformed
-
     private void AgregarProductoIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AgregarProductoIDActionPerformed
@@ -1828,12 +2615,14 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private void BotonCatalogoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCatalogoBuscarActionPerformed
         // TODO add your handling code here:
         try{
-            modelo.setRowCount(0);
+            modeloProductos.setRowCount(0);
             String unidad = "";
             char tipoBusqueda = '\0';
-            if(!CatalogoUnidad.getText().isBlank()){
-            unidad = CatalogoUnidad.getText();
-            }
+            if(CatalogoUnidad.getSelectedIndex() == 1){
+            unidad = "KG";
+            }else{if(CatalogoUnidad.getSelectedIndex() == 2){
+            unidad = "L";
+            }}
             
             if(CatalogoTipo.getSelectedIndex() == 1){
                 tipoBusqueda = 'E';
@@ -1843,7 +2632,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             
             for(Producto p : fachada.obtenerCatalogoProductos(unidad, tipoBusqueda)){
                 Object[] fila ={p.getClave(),p.getNombre(),p.getUnidad(),p.getTipo()};
-                modelo.addRow(fila);
+                modeloProductos.addRow(fila);
             }
         }catch(Exception e){
             vistaError(e);   
@@ -1855,10 +2644,18 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_SalirActionPerformed
 
-    private void CatalogoBuscarPorClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CatalogoBuscarPorClaveActionPerformed
+    private void InventarioBuscarPorClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioBuscarPorClaveActionPerformed
         // TODO add your handling code here:
-        cambiarVista(CatalogoBuscarPorClavePanel);
-    }//GEN-LAST:event_CatalogoBuscarPorClaveActionPerformed
+        cambiarVista(InventarioBuscarPanel);
+        consultarProductoInventarioComboBox.removeAllItems();
+        consultarProductoInventarioComboBox.addItem("Seleccionar");
+        try{
+        for (ProductoGranel p : fachada.obtenerInventarioGranel()) {
+            consultarProductoInventarioComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_InventarioBuscarPorClaveActionPerformed
 
     private void BotonVolverErrorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverErrorActionPerformed
         // TODO add your handling code here:
@@ -1873,16 +2670,16 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private void InventarioTodosBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioTodosBotonActionPerformed
         // TODO add your handling code here:
         try{
-            modelo.setRowCount(0);
+            modeloProductos.setRowCount(0);
             String unidad = "";
             char tipoBusqueda = '\0';
-            if(!CatalogoUnidad.getText().isBlank()){
-            unidad = CatalogoUnidad.getText();
-            }
+//            if(!CatalogoUnidad.getText().isBlank()){
+//            unidad = CatalogoUnidad.getText();
+//            }
             
             for(Producto p : fachada.obtenerCatalogoProductos(unidad, tipoBusqueda)){
                 Object[] fila ={p.getClave(),p.getNombre(),p.getUnidad(),p.getTipo()};
-                modelo.addRow(fila);
+                modeloProductos.addRow(fila);
             }
         }catch(Exception e){
             vistaError(e);   
@@ -1890,32 +2687,33 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     }//GEN-LAST:event_InventarioTodosBotonActionPerformed
 
     private void InventarioProductosGranelBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioProductosGranelBotonActionPerformed
-        // TODO add your handling code here:
-         try{
-            modeloProductosGranel.setRowCount(0);
-            String unidad = "";
-           
-            if(!CatalogoUnidad.getText().isBlank()){
-            unidad = CatalogoUnidad.getText();
-            }
-            
-            for(Producto p : fachada.obtenerCatalogoProductos(unidad, 'G')){
-                Object[] fila ={p.getClave(),p.getNombre(),p.getUnidad()};
-                modeloProductosGranel.addRow(fila);
-            }
-        }catch(Exception e){
-            vistaError(e);   
-        }
+//        // TODO add your handling code here:
+//        
+//         try{
+//            modeloProductosGranel.setRowCount(0);
+//            String unidad = "";
+//           
+////            if(!CatalogoUnidad.getText().isBlank()){
+////            unidad = CatalogoUnidad.getText();
+////            }
+//            
+//            for(Producto p : fachada.obtenerCatalogoProductos(unidad, 'G')){
+//                Object[] fila ={p.getClave(),p.getNombre(),p.getUnidad()};
+//                modeloProductosGranel.addRow(fila);
+//            }
+//        }catch(Exception e){
+//            vistaError(e);   
+//        }
     }//GEN-LAST:event_InventarioProductosGranelBotonActionPerformed
 
     private void RegistroVentasBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroVentasBotonActionPerformed
         // TODO add your handling code here:
         try{
             comprasVentas.setRowCount(0);
-            String unidad = "";
-            if(!CatalogoUnidad.getText().isBlank()){
-            unidad = CatalogoUnidad.getText();
-            }
+//            String unidad = "";
+//            if(!CatalogoUnidad.getText().isBlank()){
+//            unidad = CatalogoUnidad.getText();
+//            }
             
             for(MovimientoGranel p : fachada.mostrarRegistroVentas() ){
                 //ID procesado y fechas
@@ -1932,10 +2730,10 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
             comprasVentas.setRowCount(0);
-           String unidad = "";
-            if(!CatalogoUnidad.getText().isBlank()){
-            unidad = CatalogoUnidad.getText();
-            }
+//           String unidad = "";
+//            if(!CatalogoUnidad.getText().isBlank()){
+//            unidad = CatalogoUnidad.getText();
+//            }
             
             for(MovimientoGranel p : fachada.mostrarRegistroCompras() ){
                 //ID procesado y fechas
@@ -1953,9 +2751,9 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             comprasVentas.setRowCount(0);
             String unidad = "";
             
-            if(!CatalogoUnidad.getText().isBlank()){
-            unidad = CatalogoUnidad.getText();
-            }
+//            if(!CatalogoUnidad.getText().isBlank()){
+//            unidad = CatalogoUnidad.getText();
+//            }
             Fecha fecha1 =  new Fecha(); //Aqui la primer fecha
             Fecha fecha2 = new Fecha(); //Aqui la segunda fecha
             
@@ -1970,10 +2768,26 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_VentasPeriodoBotonActionPerformed
 
-    private void BotonCatalogoBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCatalogoBuscar1ActionPerformed
+    private void BotonConsultarProductoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarProductoBuscarActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_BotonCatalogoBuscar1ActionPerformed
+        try{
+            Producto producto;
+            
+            if(ClaveCheckBox.isSelected()){
+
+            producto = fachada.obtenerProducto(ConsultarProductoBuscarClave.getText());
+            }else{
+            producto = fachada.obtenerCatalogoProductos("", '\0').get(consultarProductoComboBox.getSelectedIndex()-1);
+            }
+
+        ConsultarProductoClave.setText(producto.getClave());
+        ConsultarProductoNombre.setText(producto.getNombre());
+        ConsultarProductoUnidad.setText(producto.getUnidad());
+        ConsultarProductoTipo.setText(""+producto.getTipo());
+        }catch(Exception e){
+            vistaError(e);
+        }
+    }//GEN-LAST:event_BotonConsultarProductoBuscarActionPerformed
 
     private void ComprasPeriodoBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprasPeriodoBotonActionPerformed
         // TODO add your handling code here:
@@ -1981,9 +2795,9 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             comprasVentas.setRowCount(0);
             String unidad = "";
             
-            if(!CatalogoUnidad.getText().isBlank()){
-            unidad = CatalogoUnidad.getText();
-            }
+//            if(!CatalogoUnidad.getText().isBlank()){
+//            unidad = CatalogoUnidad.getText();
+//            }
             Fecha fecha1 =  new Fecha(); //Aqui la primer fecha
             Fecha fecha2 = new Fecha(); //Aqui la segunda fecha
             
@@ -2002,6 +2816,352 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private void BotonCatalogoBuscar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCatalogoBuscar2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonCatalogoBuscar2ActionPerformed
+
+    private void botonAgregarOtroProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarOtroProductoActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(AgregarProductoPanel);
+    }//GEN-LAST:event_botonAgregarOtroProductoActionPerformed
+
+    private void ConsultarProductoTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoTipoActionPerformed
+
+    private void ConsultarProductoUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoUnidadActionPerformed
+
+    private void ConsultarProductoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoNombreActionPerformed
+
+    private void BotonActualizarProductoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarProductoBuscarActionPerformed
+        // TODO add your handling code here:
+        try{
+        Producto producto = fachada.obtenerCatalogoProductos("", '\0').get(actualizarProductoComboBox.getSelectedIndex()-1);
+        
+        
+        IdProductoActualizar.setText(producto.getClave());
+        NuevoNombreActualizar.setText(producto.getNombre());
+        
+        if(producto.getUnidad().equalsIgnoreCase("kg")){
+        NuevaUnidadActualizar.setSelectedIndex(0);
+        }else{
+        NuevaUnidadActualizar.setSelectedIndex(1);
+        }
+        
+        if(producto.getTipo() == 'E'){
+        NuevoTipoActualizar.setSelectedIndex(0);
+        }else{
+        NuevoTipoActualizar.setSelectedIndex(1);
+        }
+        
+        
+        }catch(Exception e){}              
+    }//GEN-LAST:event_BotonActualizarProductoBuscarActionPerformed
+
+    private void botonVolverActualizarProductpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActualizarProductpActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(JPanelPrincipal);
+    }//GEN-LAST:event_botonVolverActualizarProductpActionPerformed
+
+    private void botonActualizarOtroProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarOtroProductoActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(ActualizarProductoPanel);
+        actualizarProductoComboBox.removeAllItems();
+        actualizarProductoComboBox.addItem("Seleccionar");
+        try{
+        for (Producto p : fachada.obtenerCatalogoProductos("",'\0')) {
+            actualizarProductoComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_botonActualizarOtroProductoActionPerformed
+
+    private void BotonEliminarProductoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoBuscarActionPerformed
+        // TODO add your handling code here:
+        try{
+        Producto producto = fachada.obtenerCatalogoProductos("", '\0').get(eliminarProductoComboBox.getSelectedIndex()-1);
+        
+        
+        EliminarProductoClave.setText(producto.getClave());
+        EliminarProductoNombre.setText(producto.getNombre());
+        EliminarProductoUnidad.setText(producto.getUnidad());
+        EliminarProductoTipo.setText(""+producto.getTipo());
+        }catch(Exception e){}
+    }//GEN-LAST:event_BotonEliminarProductoBuscarActionPerformed
+
+    private void EliminarProductoTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarProductoTipoActionPerformed
+
+    private void EliminarProductoUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarProductoUnidadActionPerformed
+
+    private void EliminarProductoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarProductoNombreActionPerformed
+
+    private void EliminarProductoClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProductoClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EliminarProductoClaveActionPerformed
+
+    private void botonVolverEliminarProductpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverEliminarProductpActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(JPanelPrincipal);
+    }//GEN-LAST:event_botonVolverEliminarProductpActionPerformed
+
+    private void botonEliminarOtroProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarOtroProductoActionPerformed
+        // TODO add your handling code here:
+        
+        cambiarVista(EliminarProductoPanel);
+        eliminarProductoComboBox.removeAllItems();
+        eliminarProductoComboBox.addItem("Seleccionar");
+        try{
+        for (Producto p : fachada.obtenerCatalogoProductos("",'\0')) {
+            eliminarProductoComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_botonEliminarOtroProductoActionPerformed
+
+    private void BotonActualizarProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarProducto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonActualizarProducto1ActionPerformed
+
+    private void IdProductoMovimientoCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdProductoMovimientoCompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_IdProductoMovimientoCompraActionPerformed
+
+    private void BotonAgregarProductoInventarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoInventarioBuscarActionPerformed
+        // TODO add your handling code here:
+        try{
+        String clave = agregarProductoInventarioComboBox.getSelectedItem().toString().substring(0, 5);
+        Producto producto = fachada.obtenerProducto(clave);        
+        
+        AgregarProductoInventarioClave.setText(producto.getClave());
+        AgregarProductoInventarioNombre.setText(producto.getNombre());
+        AgregarProductoInventarioUnidad.setText(producto.getUnidad());
+        AgregarProductoInventarioTipo.setText(""+producto.getTipo());
+        
+        
+        
+        }catch(Exception e){}   
+    }//GEN-LAST:event_BotonAgregarProductoInventarioBuscarActionPerformed
+
+    private void AgregarProductoInventarioTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoInventarioTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarProductoInventarioTipoActionPerformed
+
+    private void AgregarProductoInventarioUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoInventarioUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarProductoInventarioUnidadActionPerformed
+
+    private void AgregarProductoInventarioNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoInventarioNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarProductoInventarioNombreActionPerformed
+
+    private void AgregarProductoInventarioClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarProductoInventarioClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarProductoInventarioClaveActionPerformed
+
+    private void BotonAgregarProductoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarProductoInventarioActionPerformed
+        // TODO add your handling code here:
+        try{
+        String clave = agregarProductoInventarioComboBox.getSelectedItem().toString().substring(0, 5);
+        Producto producto = fachada.obtenerProducto(clave);  
+        
+        ProductoGranel productoG = new ProductoGranel(Float.parseFloat(AgregarProductoInventarioCantidad.getText()), producto);
+        fachada.agregarProductoGranel(productoG);
+        
+            cambiarVista(ProductoAnadidoInventarioPanel);
+        }catch(Exception e){
+            vistaError(e);
+        }
+    }//GEN-LAST:event_BotonAgregarProductoInventarioActionPerformed
+
+    private void botonVolverAgregarProductpInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverAgregarProductpInventarioActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(JPanelPrincipal);
+    }//GEN-LAST:event_botonVolverAgregarProductpInventarioActionPerformed
+
+    private void botonAgregarOtroProductoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarOtroProductoInventarioActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(AgregarInventarioPanel);
+        agregarProductoInventarioComboBox.removeAllItems();
+        agregarProductoInventarioComboBox.addItem("Seleccionar");
+        try{
+        for (Producto p : fachada.obtenerCatalogoProductos("",'\0')) {
+            if(p.getTipo() == 'G'){
+            agregarProductoInventarioComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+            }
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_botonAgregarOtroProductoInventarioActionPerformed
+
+    private void BotonConsultarProductoInventarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarProductoInventarioBuscarActionPerformed
+        // TODO add your handling code here:
+        try{
+            ProductoGranel producto;
+            
+            if(ClaveInventarioCheckBox.isSelected()){
+            producto = fachada.obtenerProductoGranel(ConsultarProductoBuscarClave.getText());
+            }else{
+            producto = fachada.obtenerInventarioGranel().get(consultarProductoInventarioComboBox.getSelectedIndex()-1);
+            }
+
+        ConsultarProductoInventarioClave.setText(producto.getClave());
+        ConsultarProductoInventarioNombre.setText(producto.getNombre());
+        ConsultarProductoInventarioUnidad.setText(producto.getUnidad());
+        ConsultarProductoInventarioTipo.setText(""+producto.getTipo());
+        ConsultarProductoInventarioCantidad.setText(""+producto.getCantidad());
+        }catch(Exception e){
+            vistaError(e);
+        }
+    }//GEN-LAST:event_BotonConsultarProductoInventarioBuscarActionPerformed
+
+    private void ConsultarProductoInventarioTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoInventarioTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoInventarioTipoActionPerformed
+
+    private void ConsultarProductoInventarioUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoInventarioUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoInventarioUnidadActionPerformed
+
+    private void ConsultarProductoInventarioNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoInventarioNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoInventarioNombreActionPerformed
+
+    private void ConsultarProductoInventarioClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoInventarioClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoInventarioClaveActionPerformed
+
+    private void ConsultarProductoInventarioCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProductoInventarioCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarProductoInventarioCantidadActionPerformed
+
+    private void eliminarProductoInventarioTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoInventarioTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarProductoInventarioTipoActionPerformed
+
+    private void eliminarProductoInventarioUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoInventarioUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarProductoInventarioUnidadActionPerformed
+
+    private void eliminarProductoInventarioNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoInventarioNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarProductoInventarioNombreActionPerformed
+
+    private void eliminarProductoInventarioClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoInventarioClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarProductoInventarioClaveActionPerformed
+
+    private void eliminarProductoInventarioCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoInventarioCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminarProductoInventarioCantidadActionPerformed
+
+    private void BotonEliminarProductoInventarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoInventarioBuscarActionPerformed
+        // TODO add your handling code here:
+         try{            
+     
+        ProductoGranel producto = fachada.obtenerInventarioGranel().get(eliminarProductoInventarioComboBox.getSelectedIndex()-1);
+
+        eliminarProductoInventarioClave.setText(producto.getClave());
+        eliminarProductoInventarioNombre.setText(producto.getNombre());
+        eliminarProductoInventarioUnidad.setText(producto.getUnidad());
+        eliminarProductoInventarioTipo.setText(""+producto.getTipo());
+        EliminarProductoInventarioCantidad.setText(""+producto.getCantidad());
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_BotonEliminarProductoInventarioBuscarActionPerformed
+
+    private void BotonEliminarProductoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonEliminarProductoInventarioActionPerformed
+        // TODO add your handling code here:
+        try{
+        ProductoGranel producto = fachada.obtenerInventarioGranel().get(eliminarProductoInventarioComboBox.getSelectedIndex()-1);
+        fachada.eliminarProductoGranel(producto);
+        
+            cambiarVista(ProductoEliminadoInventarioPanel);
+        }catch(Exception e){
+            vistaError(e);
+        }
+    }//GEN-LAST:event_BotonEliminarProductoInventarioActionPerformed
+
+    private void botonVolverEliminarProductpInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverEliminarProductpInventarioActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(JPanelPrincipal);
+    }//GEN-LAST:event_botonVolverEliminarProductpInventarioActionPerformed
+
+    private void botonEliminarOtroProductoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarOtroProductoInventarioActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(EliminarInventarioPanel);
+        eliminarProductoInventarioComboBox.removeAllItems();
+        eliminarProductoInventarioComboBox.addItem("Seleccionar");
+        try{
+        for (ProductoGranel p : fachada.obtenerInventarioGranel()) {
+            eliminarProductoInventarioComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_botonEliminarOtroProductoInventarioActionPerformed
+
+    private void BotonActualizarProductoInventarioBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarProductoInventarioBuscarActionPerformed
+        // TODO add your handling code here:
+         try{            
+     
+        ProductoGranel producto = fachada.obtenerInventarioGranel().get(actualizarProductoInventarioComboBox.getSelectedIndex()-1);
+
+        actualizarProductoInventarioClave.setText(producto.getClave());
+        actualizarProductoInventarioNombre.setText(producto.getNombre());
+        actualizarProductoInventarioUnidad.setText(producto.getUnidad());
+        actualizarProductoInventarioTipo.setText(""+producto.getTipo());
+        actualizarProductoInventarioCantidad.setText(""+producto.getCantidad());
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_BotonActualizarProductoInventarioBuscarActionPerformed
+
+    private void actualizarProductoInventarioTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarProductoInventarioTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actualizarProductoInventarioTipoActionPerformed
+
+    private void BotonActualizarProductoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarProductoInventarioActionPerformed
+        // TODO add your handling code here:
+        try{
+        ProductoGranel producto = fachada.obtenerInventarioGranel().get(actualizarProductoInventarioComboBox.getSelectedIndex()-1);
+        fachada.actualizarProductoGranel(producto, Float.parseFloat(actualizarProductoInventarioCantidad.getText()));
+        
+            cambiarVista(ProductoEliminadoInventarioPanel);
+        }catch(Exception e){
+            vistaError(e);
+        }
+    }//GEN-LAST:event_BotonActualizarProductoInventarioActionPerformed
+
+    private void actualizarProductoInventarioUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarProductoInventarioUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actualizarProductoInventarioUnidadActionPerformed
+
+    private void actualizarProductoInventarioNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarProductoInventarioNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_actualizarProductoInventarioNombreActionPerformed
+
+    private void botonVolverActualizarProductpInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActualizarProductpInventarioActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(JPanelPrincipal);
+    }//GEN-LAST:event_botonVolverActualizarProductpInventarioActionPerformed
+
+    private void botonActualizarOtroProductoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizarOtroProductoInventarioActionPerformed
+        // TODO add your handling code here:
+        cambiarVista(ActualizarInventarioPanel);
+        actualizarProductoInventarioComboBox.removeAllItems();
+        actualizarProductoInventarioComboBox.addItem("Seleccionar");
+        try{
+        for (ProductoGranel p : fachada.obtenerInventarioGranel()) {
+            actualizarProductoInventarioComboBox.addItem("" + p.getClave() + " | " + p.getNombre());
+        }
+        }catch(Exception e){
+        }
+    }//GEN-LAST:event_botonActualizarOtroProductoInventarioActionPerformed
 
     private void cambiarVista(JPanel jPanel){
         jPanel.setSize(JPanelPrincipal.getWidth(), JPanelPrincipal.getHeight());
@@ -2028,14 +3188,20 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         ProductoAnadidoPanel.setEnabled(false);
         ProductoAnadidoPanel.setVisible(false);
         
-        ConsultarProductoPanel.setEnabled(false);
-        ConsultarProductoPanel.setVisible(false);
+        BuscarCatalogoPanel.setEnabled(false);
+        BuscarCatalogoPanel.setVisible(false);
         
         ActualizarProductoPanel.setEnabled(false);
         ActualizarProductoPanel.setVisible(false);
         
+        ProductoActualzadoPanel.setEnabled(false);
+        ProductoActualzadoPanel.setVisible(false);
+        
         EliminarProductoPanel.setEnabled(false);
         EliminarProductoPanel.setVisible(false);
+        
+        ProductoEliminadoPanel.setEnabled(false);
+        ProductoEliminadoPanel.setVisible(false);
         
         MovimientoCompraPanel.setEnabled(false);
         MovimientoCompraPanel.setVisible(false);
@@ -2055,20 +3221,17 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         CatalogoCompletoPanel.setEnabled(false);
         CatalogoCompletoPanel.setVisible(false);
         
-        CatalogoBuscarPorClavePanel.setEnabled(false);
-        CatalogoBuscarPorClavePanel.setVisible(false);
+        InventarioBuscarPanel.setEnabled(false);
+        InventarioBuscarPanel.setVisible(false);
         
         InventarioTodosPanel.setEnabled(false);
         InventarioTodosPanel.setVisible(false);
+                
+        RegistroVentasPanel.setEnabled(false);
+        RegistroVentasPanel.setVisible(false);
         
-        InventarioProductosGranelPanel.setEnabled(false);
-        InventarioProductosGranelPanel.setVisible(false);
-        
-        InventarioRegistroVentasPanel.setEnabled(false);
-        InventarioRegistroVentasPanel.setVisible(false);
-        
-        InventarioRegistroComprasPanel.setEnabled(false);
-        InventarioRegistroComprasPanel.setVisible(false);
+        RegistroComprasPanel.setEnabled(false);
+        RegistroComprasPanel.setVisible(false);
         
         RegistroVentasPeriodoPanel.setEnabled(false);
         RegistroVentasPeriodoPanel.setVisible(false);
@@ -2124,98 +3287,148 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem ActualizarInventario;
     private javax.swing.JPanel ActualizarInventarioPanel;
-    private javax.swing.JMenuItem ActualizarProductoGranel;
+    private javax.swing.JMenuItem ActualizarProducto;
     private javax.swing.JPanel ActualizarProductoPanel;
     private javax.swing.JMenuItem AgregarInventario;
     private javax.swing.JPanel AgregarInventarioPanel;
-    private javax.swing.JMenuItem AgregarProductoGranel;
+    private javax.swing.JPanel AgregarInventarioPanel1;
+    private javax.swing.JMenuItem AgregarProducto;
     private javax.swing.JTextField AgregarProductoID;
+    private javax.swing.JTextField AgregarProductoInventarioCantidad;
+    private javax.swing.JTextField AgregarProductoInventarioCantidad1;
+    private javax.swing.JTextField AgregarProductoInventarioClave;
+    private javax.swing.JTextField AgregarProductoInventarioClave1;
+    private javax.swing.JTextField AgregarProductoInventarioNombre;
+    private javax.swing.JTextField AgregarProductoInventarioNombre1;
+    private javax.swing.JTextField AgregarProductoInventarioTipo;
+    private javax.swing.JTextField AgregarProductoInventarioTipo1;
+    private javax.swing.JTextField AgregarProductoInventarioUnidad;
+    private javax.swing.JTextField AgregarProductoInventarioUnidad1;
     private javax.swing.JTextField AgregarProductoNombre;
     private javax.swing.JPanel AgregarProductoPanel;
     private javax.swing.JComboBox<String> AgregarProductoTipo;
-    private javax.swing.JTextField AgregarProductoUnidad;
-    private javax.swing.JComboBox<String> BooleanoMovimientoCompra;
+    private javax.swing.JComboBox<String> AgregarProductoUnidad;
     private javax.swing.JButton BotonActualizarProducto;
     private javax.swing.JButton BotonActualizarProducto1;
     private javax.swing.JButton BotonActualizarProducto2;
+    private javax.swing.JButton BotonActualizarProductoBuscar;
+    private javax.swing.JButton BotonActualizarProductoInventario;
+    private javax.swing.JButton BotonActualizarProductoInventarioBuscar;
     private javax.swing.JButton BotonAgregarProducto;
+    private javax.swing.JButton BotonAgregarProductoInventario;
+    private javax.swing.JButton BotonAgregarProductoInventario1;
+    private javax.swing.JButton BotonAgregarProductoInventarioBuscar;
+    private javax.swing.JButton BotonAgregarProductoInventarioBuscar1;
     private javax.swing.JButton BotonCatalogoBuscar;
-    private javax.swing.JButton BotonCatalogoBuscar1;
-    private javax.swing.JButton BotonCatalogoBuscar2;
-    private javax.swing.JButton BotonConsultarProducto;
+    private javax.swing.JButton BotonConsultarProductoBuscar;
+    private javax.swing.JButton BotonConsultarProductoInventarioBuscar;
     private javax.swing.JButton BotonEliminarProducto;
+    private javax.swing.JButton BotonEliminarProductoBuscar;
+    private javax.swing.JButton BotonEliminarProductoInventario;
+    private javax.swing.JButton BotonEliminarProductoInventarioBuscar;
     private javax.swing.JButton BotonVolverError;
-    private javax.swing.JMenuItem CatalogoBuscarPorClave;
-    private javax.swing.JPanel CatalogoBuscarPorClavePanel;
+    private javax.swing.JPanel BuscarCatalogoPanel;
     private javax.swing.JPanel CatalogoCompletoPanel;
     private javax.swing.JMenu CatalogoMenu;
     private javax.swing.JComboBox<String> CatalogoTipo;
-    private javax.swing.JTextField CatalogoUnidad;
+    private javax.swing.JComboBox<String> CatalogoUnidad;
     private javax.swing.JMenu CatalogosMenu;
-    private javax.swing.JButton ComprasPeriodoBoton;
-    private javax.swing.JMenuItem ConsultarProductoGranel;
-    private javax.swing.JTextField ConsultarProductoId;
-    private javax.swing.JPanel ConsultarProductoPanel;
+    private javax.swing.JCheckBox ClaveCheckBox;
+    private javax.swing.JCheckBox ClaveInventarioCheckBox;
+    private javax.swing.JTextField ConsultarProductoBuscarClave;
+    private javax.swing.JMenuItem ConsultarProductoCatalogo;
+    private javax.swing.JTextField ConsultarProductoClave;
+    private javax.swing.JTextField ConsultarProductoInventarioCantidad;
+    private javax.swing.JTextField ConsultarProductoInventarioClave;
+    private javax.swing.JTextField ConsultarProductoInventarioNombre;
+    private javax.swing.JTextField ConsultarProductoInventarioTipo;
+    private javax.swing.JTextField ConsultarProductoInventarioUnidad;
+    private javax.swing.JTextField ConsultarProductoNombre;
+    private javax.swing.JTextField ConsultarProductoTipo;
+    private javax.swing.JTextField ConsultarProductoUnidad;
     private javax.swing.JMenu ConsultasInventarioMenu;
     private javax.swing.JMenu ConsultasMenu;
     private javax.swing.JMenuItem EliminarInventario;
     private javax.swing.JPanel EliminarInventarioPanel;
-    private javax.swing.JMenuItem EliminarProductoGranel;
+    private javax.swing.JMenuItem EliminarProducto;
+    private javax.swing.JTextField EliminarProductoClave;
+    private javax.swing.JTextField EliminarProductoInventarioCantidad;
+    private javax.swing.JTextField EliminarProductoNombre;
     private javax.swing.JPanel EliminarProductoPanel;
+    private javax.swing.JTextField EliminarProductoTipo;
+    private javax.swing.JTextField EliminarProductoUnidad;
     private javax.swing.JPanel ErrorPanel;
-    private javax.swing.JTextField FechaFinalVentas;
-    private javax.swing.JTextField FechaFinalVentas1;
-    private javax.swing.JTextField FechaInicialVentas;
-    private javax.swing.JTextField FechaInicialVentas1;
-    private javax.swing.JTextField FechaMovimientoCompra;
     private javax.swing.JTextField FechaMovimientoCompra1;
     private javax.swing.JTextField IdProductoActualizar;
-    private javax.swing.JTextField IdProductoEliminar;
     private javax.swing.JTextField IdProductoMovimientoCompra;
     private javax.swing.JTextField IdProductoMovimientoCompra1;
-    private javax.swing.JTable InventarioCompleto;
-    private javax.swing.JTable InventarioCompleto1;
-    private javax.swing.JTable InventarioCompleto2;
-    private javax.swing.JTable InventarioCompleto3;
-    private javax.swing.JTable InventarioCompleto4;
-    private javax.swing.JTable InventarioCompleto5;
+    private javax.swing.JPanel InventarioBuscarPanel;
+    private javax.swing.JMenuItem InventarioBuscarPorClave;
     private javax.swing.JMenuItem InventarioComprasPeriodo;
-    private javax.swing.JMenuItem InventarioProductosGranel;
-    private javax.swing.JButton InventarioProductosGranelBoton;
-    private javax.swing.JPanel InventarioProductosGranelPanel;
+    private javax.swing.JTextField InventarioConsultarClaveI;
     private javax.swing.JMenuItem InventarioRegistroCompras;
-    private javax.swing.JPanel InventarioRegistroComprasPanel;
     private javax.swing.JMenuItem InventarioRegistroVentas;
-    private javax.swing.JPanel InventarioRegistroVentasPanel;
     private javax.swing.JMenuItem InventarioTodos;
-    private javax.swing.JButton InventarioTodosBoton;
     private javax.swing.JPanel InventarioTodosPanel;
     private javax.swing.JMenuItem InventarioVentasPeriodo;
     private javax.swing.JPanel JPanelPrincipal;
-    private javax.swing.JButton ListadoCompletoBoton;
     private javax.swing.JTable ListadoProductos;
+    private javax.swing.JTextField MovimientoCompraAnio;
+    private javax.swing.JComboBox<String> MovimientoCompraDiaComboBox1;
+    private javax.swing.JComboBox<String> MovimientoCompraMesComboBox;
     private javax.swing.JPanel MovimientoCompraPanel;
     private javax.swing.JPanel MovimientoVentaPanel;
     private javax.swing.JMenuItem MovimientosCompra;
     private javax.swing.JMenu MovimientosInventarioMenu;
     private javax.swing.JMenu MovimientosMenu;
     private javax.swing.JMenuItem MovimientosVenta;
-    private javax.swing.JTextField NuevaUnidadAcutalizar;
+    private javax.swing.JComboBox<String> NuevaUnidadActualizar;
     private javax.swing.JTextField NuevoNombreActualizar;
-    private javax.swing.JTextField NuevoTipoActualizar;
+    private javax.swing.JComboBox<String> NuevoTipoActualizar;
+    private javax.swing.JPanel ProductoAcrualizadoInventarioPanel;
+    private javax.swing.JPanel ProductoActualzadoPanel;
+    private javax.swing.JPanel ProductoAnadidoInventarioPanel;
     private javax.swing.JPanel ProductoAnadidoPanel;
+    private javax.swing.JPanel ProductoEliminadoInventarioPanel;
+    private javax.swing.JPanel ProductoEliminadoPanel;
     private javax.swing.JMenuItem ProductoListadoCompleto;
-    private javax.swing.JMenu ProductosGranelMenu;
-    private javax.swing.JButton RegistroComprasBoton;
+    private javax.swing.JMenu ProductosMenu;
+    private javax.swing.JPanel RegistroComprasPanel;
     private javax.swing.JPanel RegistroComprasPeriodoPanel;
-    private javax.swing.JButton RegistroVentasBoton;
+    private javax.swing.JPanel RegistroVentasPanel;
     private javax.swing.JPanel RegistroVentasPeriodoPanel;
     private javax.swing.JMenuItem Salir;
     private javax.swing.JMenu SalirMenu;
     private javax.swing.JTextField TextoError;
-    private javax.swing.JButton VentasPeriodoBoton;
+    private javax.swing.JComboBox<String> actualizarProductoComboBox;
+    private javax.swing.JTextField actualizarProductoInventarioCantidad;
+    private javax.swing.JTextField actualizarProductoInventarioClave;
+    private javax.swing.JComboBox<String> actualizarProductoInventarioComboBox;
+    private javax.swing.JTextField actualizarProductoInventarioNombre;
+    private javax.swing.JTextField actualizarProductoInventarioTipo;
+    private javax.swing.JTextField actualizarProductoInventarioUnidad;
+    private javax.swing.JComboBox<String> agregarProductoInventarioComboBox;
+    private javax.swing.JComboBox<String> agregarProductoInventarioComboBox1;
+    private javax.swing.JButton botonActualizarOtroProducto;
+    private javax.swing.JButton botonActualizarOtroProductoInventario;
+    private javax.swing.JButton botonAgregarOtroProducto;
+    private javax.swing.JButton botonAgregarOtroProductoInventario;
+    private javax.swing.JButton botonEliminarOtroProducto;
+    private javax.swing.JButton botonEliminarOtroProductoInventario;
+    private javax.swing.JButton botonVolverActualizarProductp;
+    private javax.swing.JButton botonVolverActualizarProductpInventario;
     private javax.swing.JButton botonVolverAgregarProductp;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JButton botonVolverAgregarProductpInventario;
+    private javax.swing.JButton botonVolverEliminarProductp;
+    private javax.swing.JButton botonVolverEliminarProductpInventario;
+    private javax.swing.JComboBox<String> consultarProductoComboBox;
+    private javax.swing.JComboBox<String> consultarProductoInventarioComboBox;
+    private javax.swing.JComboBox<String> eliminarProductoComboBox;
+    private javax.swing.JTextField eliminarProductoInventarioClave;
+    private javax.swing.JComboBox<String> eliminarProductoInventarioComboBox;
+    private javax.swing.JTextField eliminarProductoInventarioNombre;
+    private javax.swing.JTextField eliminarProductoInventarioTipo;
+    private javax.swing.JTextField eliminarProductoInventarioUnidad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2252,19 +3465,48 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JTable tablaInventarios;
     // End of variables declaration//GEN-END:variables
 
 }

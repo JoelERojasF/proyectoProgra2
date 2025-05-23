@@ -30,9 +30,9 @@ public class PersistenciaFachada implements IPersistenciaFachada {
     }
     
     public void agregarProductoGranel(ProductoGranel producto){
-            if(Productos.buscarProductoPorClave(producto.getClave()) == null){
-                Productos.agregarProducto(producto);
-            }
+//            if(Productos.buscarProductoPorClave(producto.getClave()) == null){
+//                Productos.agregarProducto(producto);
+//            }
             ProductosGranel.agregarAlInventatio(producto);
        
     }
@@ -62,7 +62,11 @@ public class PersistenciaFachada implements IPersistenciaFachada {
 
     @Override
     public Producto obtenerProducto(String clave) {
-        return Productos.buscarProductoPorClave(clave);
+        Producto p =Productos.buscarProductoPorClave(clave);
+        if(p == null){
+        throw new ElementoNoEncontradoException("Error: el producto no esta registrado");
+        }
+        return p;
     }
 
     @Override
