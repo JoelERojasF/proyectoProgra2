@@ -45,3 +45,4 @@ InterfazGrafica/nbactions.xml
 abarrotesPresentacion_232979_228264/target/surefire-reports/PercistenciaListas.PersistenciaFachadaTest.txt
 abarrotesPresentacion_232979_228264/target/surefire-reports/TEST-PercistenciaListas.PersistenciaFachadaTest.xml
 InterfazGrafica/src/main/java/interfazUsuario/FrmAbarrotes.form
+/InterfazGrafica/target
