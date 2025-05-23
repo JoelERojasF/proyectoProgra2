@@ -4661,6 +4661,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         JPanelPrincipal.repaint();
         JPanelPrincipal.add(jPanel);
         JPanelPrincipal.repaint();
+        //asdlkfhjlasdkf
     }
     
     private void vistaError(Exception e){
