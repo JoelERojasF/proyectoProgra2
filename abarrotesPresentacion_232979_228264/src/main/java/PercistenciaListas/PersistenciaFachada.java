@@ -100,7 +100,7 @@ public class PersistenciaFachada implements IPersistenciaFachada {
 
     @Override
     public void agregarCompra(MovimientoGranel compra) {
-            if(Productos.buscarProductoPorClave(compra.getProductoGranel().getClave()) != null){
+            if(ProductosGranel.buscarProductoPorClave(compra.getProductoGranel().getClave()) != null){
                 MovimientosGranel.comprarGranel(compra);
             }else{
                 throw new ElementoNoEncontradoException("Error: el producto no esta registrado");
@@ -109,7 +109,7 @@ public class PersistenciaFachada implements IPersistenciaFachada {
 
     @Override
     public void agregarVenta(MovimientoGranel venta) {
-            if(Productos.buscarProductoPorClave(venta.getProductoGranel().getClave()) != null){
+            if(ProductosGranel.buscarProductoPorClave(venta.getProductoGranel().getClave()) != null){
                 MovimientosGranel.venderGranel(venta);
             }else{
                 throw new ElementoNoEncontradoException();
@@ -190,8 +190,9 @@ public class PersistenciaFachada implements IPersistenciaFachada {
             if(MovimientosGranel.consultarCompras().get(i).getProcesado() == false){
                 if(ProductosGranel.buscarProductoPorClave(MovimientosGranel.consultarCompras().get(i).getProductoGranel().getClave()) != null){
                     if(((MovimientosGranel.consultarCompras().get(i).getProductoGranel().getUnidad().equalsIgnoreCase("KG") || MovimientosGranel.consultarCompras().get(i).getProductoGranel().getUnidad().equalsIgnoreCase("G")) && (MovimientosGranel.consultarCompras().get(i).getProductoGranel().getCantidad() + ProductosGranel.buscarProductoPorClave(MovimientosGranel.consultarCompras().get(i).getProductoGranel().getClave()).getCantidad()) <= 1500.00f) || (MovimientosGranel.consultarCompras().get(i).getProductoGranel().getUnidad().equalsIgnoreCase("L") && (MovimientosGranel.consultarCompras().get(i).getProductoGranel().getCantidad() + ProductosGranel.buscarProductoPorClave(MovimientosGranel.consultarCompras().get(i).getProductoGranel().getClave()).getCantidad()) <= 3000.00f) ){
+                        
                         ProductosGranel.actualizarInventario(MovimientosGranel.consultarCompras().get(i).getProductoGranel(), (ProductosGranel.buscarProductoPorClave(MovimientosGranel.consultarCompras().get(i).getProductoGranel().getClave()).getCantidad() + MovimientosGranel.consultarCompras().get(i).getProductoGranel().getCantidad()));
-                        MovimientosGranel.consultarCompras().get(i).setProcesado(Boolean.TRUE);
+                        MovimientosGranel.consultarCompras().get(i).setProcesado(true);
                         movimientosVerificados.add(MovimientosGranel.consultarCompras().get(i));
                     }else{
                     //cantidad del movimiento mayor a la del inventario
@@ -201,10 +202,10 @@ public class PersistenciaFachada implements IPersistenciaFachada {
                 }
             }
         }
-        if(!movimientosVerificados.isEmpty()){
-        return movimientosVerificados;
-        }else{
+        if(movimientosVerificados.isEmpty()){
         return null;
+        }else{
+        return movimientosVerificados;
         }
     }
 }

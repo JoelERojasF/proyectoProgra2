@@ -10,7 +10,7 @@ package com.objetosnegocio;
  */
 public class ProductoGranel extends Producto{
     private float cantidad;
-    
+    private Producto producto;
     /**
      * Constructor por omision
      */
@@ -26,6 +26,7 @@ public class ProductoGranel extends Producto{
      */
     public ProductoGranel(float cantidad, Producto producto) {
         super(producto);
+        this.producto = producto;
         this.cantidad = cantidad;
         this.tipo = 'G';
         this.clave = "GR" + clave.substring(2);
@@ -36,7 +37,9 @@ public class ProductoGranel extends Producto{
      * @param producto 
      */
     public ProductoGranel(Producto producto) {
+        
         super(producto);
+        this.producto = producto;
         this.cantidad = 0.0f;
         this.tipo = 'G';
         this.clave = "GR" + clave.substring(2);
@@ -49,6 +52,13 @@ public class ProductoGranel extends Producto{
     public float getCantidad() {
         return cantidad;
     }
+
+    public Producto getProducto() {
+        
+        return producto;
+    }
+    
+    
 
     /**
      * set de la cantidad de producto
