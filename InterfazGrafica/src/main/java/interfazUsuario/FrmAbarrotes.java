@@ -304,6 +304,26 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         BuscarCompraNombre = new javax.swing.JTextField();
         BuscarCompraCantidad = new javax.swing.JTextField();
         jLabel107 = new javax.swing.JLabel();
+        BuscarVentaPanel = new javax.swing.JPanel();
+        jLabel101 = new javax.swing.JLabel();
+        BuscarVentaComboBox = new javax.swing.JComboBox<>();
+        BotonBuscarCompraBuscar1 = new javax.swing.JButton();
+        jLabel110 = new javax.swing.JLabel();
+        BuscarVentaClave = new javax.swing.JTextField();
+        jLabel94 = new javax.swing.JLabel();
+        BuscarVentaFecha = new javax.swing.JTextField();
+        jLabel111 = new javax.swing.JLabel();
+        BuscarVentaProcesado = new javax.swing.JTextField();
+        jLabel112 = new javax.swing.JLabel();
+        BuscarVentaClaveProducto = new javax.swing.JTextField();
+        jLabel113 = new javax.swing.JLabel();
+        jLabel114 = new javax.swing.JLabel();
+        BuscarVentaUnidad = new javax.swing.JTextField();
+        jLabel115 = new javax.swing.JLabel();
+        BuscarVentaTipo = new javax.swing.JTextField();
+        BuscarVentaNombre = new javax.swing.JTextField();
+        BuscarVentaCantidad = new javax.swing.JTextField();
+        jLabel116 = new javax.swing.JLabel();
         prueba = new javax.swing.JPanel();
         RegistroVentasPanel = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -2344,7 +2364,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addGroup(InventarioBuscarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultarProductoInventarioCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(437, 437, 437))
+                .addGap(377, 377, 377))
         );
 
         RegistroComprasPanel.setMaximumSize(new java.awt.Dimension(900, 500));
@@ -2501,6 +2521,11 @@ public class FrmAbarrotes extends javax.swing.JFrame {
         jLabel100.setText("Buscar compra");
 
         BuscarCompraComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BuscarCompraComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarCompraComboBoxActionPerformed(evt);
+            }
+        });
 
         BotonBuscarCompraBuscar.setText("Buscar");
         BotonBuscarCompraBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -2596,11 +2621,6 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(BuscarCompraPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(BuscarCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(BuscarCompraPanelLayout.createSequentialGroup()
-                        .addComponent(BuscarCompraComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
-                        .addComponent(BotonBuscarCompraBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(BuscarCompraPanelLayout.createSequentialGroup()
                         .addGroup(BuscarCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel107, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
@@ -2620,7 +2640,12 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                             .addComponent(BuscarCompraClaveProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BuscarCompraUnidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(BuscarCompraTipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BuscarCompraCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(BuscarCompraCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(BuscarCompraPanelLayout.createSequentialGroup()
+                        .addComponent(BuscarCompraComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                        .addComponent(BotonBuscarCompraBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel100, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         BuscarCompraPanelLayout.setVerticalGroup(
@@ -2628,11 +2653,14 @@ public class FrmAbarrotes extends javax.swing.JFrame {
             .addGroup(BuscarCompraPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel100)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BuscarCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BuscarCompraComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonBuscarCompraBuscar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BuscarCompraPanelLayout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(BuscarCompraComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscarCompraPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonBuscarCompraBuscar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(BuscarCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel103, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BuscarCompraClave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2664,7 +2692,180 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addGroup(BuscarCompraPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel107, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BuscarCompraCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, Short.MAX_VALUE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
+        );
+
+        BuscarVentaPanel.setMaximumSize(new java.awt.Dimension(900, 500));
+        BuscarVentaPanel.setPreferredSize(new java.awt.Dimension(900, 500));
+
+        jLabel101.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel101.setText("Buscar venta");
+
+        BuscarVentaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        BotonBuscarCompraBuscar1.setText("Buscar");
+        BotonBuscarCompraBuscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonBuscarCompraBuscar1ActionPerformed(evt);
+            }
+        });
+
+        jLabel110.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel110.setText("Clave de venta");
+        jLabel110.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        BuscarVentaClave.setEditable(false);
+        BuscarVentaClave.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BuscarVentaClave.setPreferredSize(new java.awt.Dimension(147, 60));
+        BuscarVentaClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarVentaClaveActionPerformed(evt);
+            }
+        });
+
+        jLabel94.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel94.setText("Fecha");
+        jLabel94.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        BuscarVentaFecha.setEditable(false);
+
+        jLabel111.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel111.setText("Procesado");
+        jLabel111.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        BuscarVentaProcesado.setEditable(false);
+
+        jLabel112.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel112.setText("Clave de producto");
+        jLabel112.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        BuscarVentaClaveProducto.setEditable(false);
+        BuscarVentaClaveProducto.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BuscarVentaClaveProducto.setPreferredSize(new java.awt.Dimension(147, 60));
+        BuscarVentaClaveProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarVentaClaveProductoActionPerformed(evt);
+            }
+        });
+
+        jLabel113.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel113.setText("Nombre");
+        jLabel113.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        jLabel114.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel114.setText("Unidad");
+        jLabel114.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        BuscarVentaUnidad.setEditable(false);
+        BuscarVentaUnidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BuscarVentaUnidad.setPreferredSize(new java.awt.Dimension(147, 60));
+        BuscarVentaUnidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarVentaUnidadActionPerformed(evt);
+            }
+        });
+
+        jLabel115.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel115.setText("Tipo");
+        jLabel115.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        BuscarVentaTipo.setEditable(false);
+        BuscarVentaTipo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BuscarVentaTipo.setPreferredSize(new java.awt.Dimension(147, 60));
+
+        BuscarVentaNombre.setEditable(false);
+        BuscarVentaNombre.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BuscarVentaNombre.setPreferredSize(new java.awt.Dimension(147, 60));
+        BuscarVentaNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarVentaNombreActionPerformed(evt);
+            }
+        });
+
+        BuscarVentaCantidad.setEditable(false);
+        BuscarVentaCantidad.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        BuscarVentaCantidad.setPreferredSize(new java.awt.Dimension(147, 60));
+
+        jLabel116.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel116.setText("Cantidad");
+        jLabel116.setPreferredSize(new java.awt.Dimension(140, 60));
+
+        javax.swing.GroupLayout BuscarVentaPanelLayout = new javax.swing.GroupLayout(BuscarVentaPanel);
+        BuscarVentaPanel.setLayout(BuscarVentaPanelLayout);
+        BuscarVentaPanelLayout.setHorizontalGroup(
+            BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BuscarVentaPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel101, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(BuscarVentaPanelLayout.createSequentialGroup()
+                        .addComponent(BuscarVentaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 423, Short.MAX_VALUE)
+                        .addComponent(BotonBuscarCompraBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BuscarVentaPanelLayout.createSequentialGroup()
+                        .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel116, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                            .addComponent(jLabel115, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel114, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel112, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel111, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel94, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel110, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel113, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BuscarVentaNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BuscarVentaClave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BuscarVentaFecha)
+                            .addComponent(BuscarVentaProcesado, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BuscarVentaClaveProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BuscarVentaUnidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BuscarVentaTipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BuscarVentaCantidad, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        BuscarVentaPanelLayout.setVerticalGroup(
+            BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BuscarVentaPanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jLabel101)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BuscarVentaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonBuscarCompraBuscar1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel110, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaClave, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel94, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel111, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaProcesado, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel112, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaClaveProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel113, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel114, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel115, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(BuscarVentaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel116, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarVentaCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 41, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
 
         javax.swing.GroupLayout pruebaLayout = new javax.swing.GroupLayout(prueba);
@@ -2991,6 +3192,11 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(prueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addGap(11, 11, 11)
+                    .addComponent(BuscarVentaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(11, Short.MAX_VALUE)))
         );
         JPanelPrincipalLayout.setVerticalGroup(
             JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3013,7 +3219,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                 .addComponent(AgregarInventarioPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(JPanelPrincipalLayout.createSequentialGroup()
-                    .addComponent(MovimientoCompraPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, Short.MAX_VALUE)
+                    .addComponent(MovimientoCompraPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(BuscarCompraPanel, 595, 595, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3081,6 +3287,11 @@ public class FrmAbarrotes extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(prueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JPanelPrincipalLayout.createSequentialGroup()
+                    .addGap(116, 116, 116)
+                    .addComponent(BuscarVentaPanel, 595, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(117, Short.MAX_VALUE)))
         );
 
         CatalogosMenu.setMnemonic('c');
@@ -4402,8 +4613,47 @@ public class FrmAbarrotes extends javax.swing.JFrame {
 
     private void InventarioBuscarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InventarioBuscarVentasActionPerformed
         // TODO add your handling code here:
-        cambiarVista(RegistroVentasPanel);
+        cambiarVista(BuscarVentaPanel);
     }//GEN-LAST:event_InventarioBuscarVentasActionPerformed
+
+    private void BotonBuscarCompraBuscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarCompraBuscar1ActionPerformed
+        // TODO add your handling code here:
+        //AQUI
+        try{
+            MovimientoGranel compra = fachada.mostrarRegistroVentas().get(BuscarVentaComboBox.getSelectedIndex()-1);
+
+            BuscarVentaFecha.setText(compra.getFecha().toString());
+            BuscarVentaClave.setText(compra.getCveMovimient());
+            BuscarVentaProcesado.setText(""+compra.getProcesado());
+            BuscarVentaClaveProducto.setText(compra.getProductoGranel().getClave());
+            BuscarVentaNombre.setText(compra.getProductoGranel().getNombre());
+            BuscarVentaUnidad.setText(compra.getProductoGranel().getUnidad());
+            BuscarVentaTipo.setText(""+compra.getProductoGranel().getTipo());
+            BuscarVentaCantidad.setText(""+compra.getProductoGranel().getCantidad());
+        }catch(Exception e){
+            vistaError(e);
+        }
+    }//GEN-LAST:event_BotonBuscarCompraBuscar1ActionPerformed
+
+    private void BuscarVentaClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarVentaClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarVentaClaveActionPerformed
+
+    private void BuscarVentaClaveProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarVentaClaveProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarVentaClaveProductoActionPerformed
+
+    private void BuscarVentaUnidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarVentaUnidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarVentaUnidadActionPerformed
+
+    private void BuscarVentaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarVentaNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarVentaNombreActionPerformed
+
+    private void BuscarCompraComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCompraComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BuscarCompraComboBoxActionPerformed
 
     private void cambiarVista(JPanel jPanel){
         jPanel.setSize(JPanelPrincipal.getWidth(), JPanelPrincipal.getHeight());
@@ -4554,6 +4804,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JButton BotonAgregarProductoInventario;
     private javax.swing.JButton BotonAgregarProductoInventarioBuscar;
     private javax.swing.JButton BotonBuscarCompraBuscar;
+    private javax.swing.JButton BotonBuscarCompraBuscar1;
     private javax.swing.JButton BotonBuscarRegistroCompras;
     private javax.swing.JButton BotonBuscarRegistroVenta;
     private javax.swing.JButton BotonCatalogoBuscar;
@@ -4579,6 +4830,16 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JTextField BuscarCompraProcesado;
     private javax.swing.JTextField BuscarCompraTipo;
     private javax.swing.JTextField BuscarCompraUnidad;
+    private javax.swing.JTextField BuscarVentaCantidad;
+    private javax.swing.JTextField BuscarVentaClave;
+    private javax.swing.JTextField BuscarVentaClaveProducto;
+    private javax.swing.JComboBox<String> BuscarVentaComboBox;
+    private javax.swing.JTextField BuscarVentaFecha;
+    private javax.swing.JTextField BuscarVentaNombre;
+    private javax.swing.JPanel BuscarVentaPanel;
+    private javax.swing.JTextField BuscarVentaProcesado;
+    private javax.swing.JTextField BuscarVentaTipo;
+    private javax.swing.JTextField BuscarVentaUnidad;
     private javax.swing.JPanel CatalogoCompletoPanel;
     private javax.swing.JMenu CatalogoMenu;
     private javax.swing.JComboBox<String> CatalogoTipo;
@@ -4712,6 +4973,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
+    private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
@@ -4720,6 +4982,13 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel110;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel112;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -4809,6 +5078,7 @@ public class FrmAbarrotes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
